@@ -80,9 +80,6 @@ public class TrendingBloggerFragment extends Fragment {
         viewPagerAdapter.addFragment(new TrendingFragment(),StringVariable.PERSONALITY);
         viewPagerAdapter.addFragment(new BloggerFragment(),StringVariable.BLOGGER);
 
-        viewPagerAdapter.addFragment(new TrendingFragment(),StringVariable.PERSONALITY);
-        viewPagerAdapter.addFragment(new BloggerFragment(),StringVariable.BLOGGER);
-
         viewPager.setAdapter(viewPagerAdapter);
 
         tablayout.setupWithViewPager(viewPager);

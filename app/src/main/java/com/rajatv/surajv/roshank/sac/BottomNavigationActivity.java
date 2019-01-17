@@ -1,7 +1,9 @@
 package com.rajatv.surajv.roshank.sac;
 
 import android.app.Dialog;
+import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.content.res.ColorStateList;
 import android.graphics.Color;
 import android.graphics.Typeface;
@@ -661,8 +663,16 @@ dbref2.addValueEventListener(new ValueEventListener() {
         auth.addAuthStateListener(authStateListener);
         super.onStart();
 
-        navigation.setSelectedItemId(R.id.navigation_dashboard);
-        navigation.findViewById(R.id.navigation_dashboard).performClick();
+        SharedPreferences sharedPreferences = this.getSharedPreferences("MemberPref", Context.MODE_PRIVATE);
+        int data = sharedPreferences.getInt("Memberbox", 0);
+        if (data == 0) {
+            //Not registered.
+            navigation.setSelectedItemId(R.id.navigation_dashboard);
+            navigation.findViewById(R.id.navigation_dashboard).performClick();
+        }
+        if(data==1){
+            //registered.
+        }
 
     }
 
