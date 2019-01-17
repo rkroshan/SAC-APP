@@ -1,0 +1,198 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout android:layout_height="wrap_content"
+    android:layout_width="match_parent"
+
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:fresco="http://schemas.android.com/tools"
+
+
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <android.support.v7.widget.CardView
+        android:layout_width="match_parent"
+
+        app:cardBackgroundColor="#253237"
+
+        android:layout_marginLeft="9dp"
+        android:layout_marginRight="9dp"
+        android:layout_marginTop="6dp"
+        android:layout_marginBottom="6dp"
+
+        android:layout_height="98dp"
+        app:cardCornerRadius="8dp"
+
+        >
+
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+            <RelativeLayout
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_centerVertical="true"
+                android:id="@+id/rel1"
+                >
+                <com.facebook.drawee.view.SimpleDraweeView
+                    android:layout_width="68dp"
+                    android:layout_height="68dp"
+                    app:placeholderImage="@drawable/profile"
+                    app:roundingBorderColor="#29000000"
+                    app:roundingBorderWidth="3dp"
+
+                    app:roundedCornerRadius="34dp"
+                    app:roundBottomEnd="true"
+                    app:roundBottomRight="true"
+                    app:roundBottomLeft="true"
+                    android:layout_centerVertical="true"
+                    android:layout_marginLeft="19dp"
+                    android:id="@+id/iv_contact_image"/>
+                <!--         app:placeholderImage="@drawable/profile" -->
+
+
+
+
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:layout_width="wrap_content"
+                android:layout_height="64.5dp"
+
+                android:id="@+id/rel2"
+                >
+                <RelativeLayout
+                    android:layout_width="120dp"
+                    android:layout_height="40dp"
+                    android:layout_marginTop="15dp"
+                    android:layout_alignParentStart="true"
+                    android:layout_marginLeft="90dp"
+                    android:id="@+id/gotoProfileRelative">
+
+                </RelativeLayout>
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textSize="14sp"
+                    android:textColor="#ffffff"
+                    android:letterSpacing="0.02"
+                    android:lineSpacingExtra="18sp"
+                    android:text="Rajat Vallabh"
+                    android:textStyle="bold"
+                    android:layout_marginTop="22dp"
+                    android:layout_marginLeft="114dp"
+                    android:layout_marginBottom="5dp"
+                    android:id="@+id/tv_contact_name"
+
+                    />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textSize="10sp"
+                    android:textColor="#bdbfc1"
+                    android:letterSpacing="0.02"
+                    android:lineSpacingExtra="11sp"
+                    android:text="Cordinator"
+                    android:id="@+id/tv_contact_designation"
+                    android:layout_marginTop="41dp"
+                    android:layout_alignLeft="@+id/tv_contact_name"
+                    />
+                <ImageView
+                    android:layout_width="9dp"
+                    android:layout_height="9dp"
+                    android:layout_toRightOf="@id/tv_contact_designation"
+                    android:layout_alignTop="@id/tv_contact_designation"
+                    android:layout_marginTop="2dp"
+                    android:layout_marginLeft="5dp"
+                    android:src="@drawable/ic_sas_council"/>
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:id="@id/callButton"
+                    android:src="@drawable/ic_call"
+                    android:layout_marginRight="46.7dp"
+                    android:layout_marginTop="41dp"
+                    android:layout_alignParentRight="true"/>
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:id="@+id/whatsAppButton"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentRight="true"
+                    android:layout_marginRight="19dp"
+                    android:layout_marginTop="40dp"
+                    android:src="@drawable/ic_whatsapp"/>
+
+
+            </RelativeLayout>
+            <View
+                android:layout_width="wrap_content"
+                android:layout_height="1dp"
+                android:layout_marginRight="11.5dp"
+                android:layout_alignParentRight="true"
+                android:layout_centerHorizontal="true"
+                android:layout_below="@+id/rel2"
+                android:layout_toRightOf="@id/rel1"
+                android:layout_marginLeft="15.5dp"
+                android:background="#899193"
+
+                android:id="@+id/separator1"/>
+            <RelativeLayout
+                android:layout_width="wrap_content"
+                android:layout_height="33.5dp"
+
+                android:layout_below="@id/separator1"
+                >
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textSize="9sp"
+                    android:textColor="#ffe733"
+                    android:lineSpacingExtra="14sp"
+                    android:visibility="gone"
+                    android:text="#4"
+                    android:id="@+id/tv_contact_rank"
+                    android:layout_alignParentBottom="true"
+                    android:layout_marginBottom="15dp"
+                    android:layout_marginLeft="115dp"
+                    />
+
+                />
+
+                <RelativeLayout
+                    android:layout_width="120dp"
+                    android:layout_height="25dp"
+                    android:id="@+id/speeddial_relative"
+                    android:layout_alignParentRight="true"
+                    android:layout_marginRight="10dp"/>
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textSize="10sp"
+                    android:textColor="#ffffff"
+                    android:letterSpacing="0.02"
+                    android:textStyle="bold"
+                    android:lineSpacingExtra="11sp"
+                    android:gravity="end"
+                    android:text="Add to Speed dial"
+                    android:layout_alignParentRight="true"
+                    android:layout_marginBottom="12dp"
+                    android:layout_alignParentBottom="true"
+                    android:layout_marginRight="18dp"
+                    android:id="@+id/tv_add_to_speed_dial"
+                    />
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:src="@drawable/ic_heart"
+                    android:layout_marginRight="8.1dp"
+                    android:layout_alignParentBottom="true"
+                    android:layout_marginBottom="11.7dp"
+                    android:id="@+id/iv_heart"
+                    android:layout_toLeftOf="@id/tv_add_to_speed_dial"/>
+            </RelativeLayout>
+        </RelativeLayout>
+
+
+    </android.support.v7.widget.CardView>
+</RelativeLayout>

@@ -1,0 +1,249 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:fresco="http://schemas.android.com/apk/res-auto"
+    android:background="#00171d">
+
+    <android.support.v7.widget.AppCompatImageView
+        android:layout_width="30dp"
+        android:layout_height="30dp"
+        android:src="@drawable/ic_arrow_back_black_digitalidcard"
+        android:layout_marginTop="15dp"
+        android:layout_marginLeft="19.7dp"
+        android:layout_alignParentLeft="true"
+        android:id="@+id/close_id"/>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="DIGITAL ID CARD"
+        android:textSize="16sp"
+        android:textColor="#bdbfc1"
+        android:letterSpacing="0.02"
+        android:lineSpacingExtra="18sp"
+        android:gravity="center_horizontal"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentRight="true"
+        android:layout_marginTop="22dp"/>
+
+
+
+    <com.facebook.drawee.view.SimpleDraweeView
+        android:id="@+id/userimage_digital_id"
+        android:layout_width="105.5dp"
+        android:layout_height="105.5dp"
+        fresco:placeholderImage="@drawable/profile"
+        fresco:roundAsCircle="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="50dp"
+        fresco:roundedCornerRadius="52dp"
+        fresco:roundingBorderWidth="5dp"
+        fresco:roundingBorderColor="#29000000"
+        fresco:roundingBorderPadding="5dp"/>
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="21sp"
+            android:textColor="#ffffff"
+            android:letterSpacing="0.02"
+            android:lineSpacingExtra="27sp"
+            android:layout_marginTop="20dp"
+            android:text="Rajat Vallabh"
+            android:id="@+id/user_name_digital_id"
+            android:layout_below="@+id/userimage_digital_id"
+            android:layout_centerHorizontal="true"
+            />
+        <RelativeLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/user_name_digital_id"
+            android:id="@+id/collage_name"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="9dp"
+            >
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textSize="12sp"
+                android:textColor="#bdbfc1"
+                android:letterSpacing="0.02"
+                android:lineSpacingExtra="9sp"
+                android:text="College"
+                android:id="@+id/college"
+                />
+
+            <TextView
+                android:id="@+id/college_digitalId"
+                android:layout_toRightOf="@+id/college"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textSize="12sp"
+                android:textColor="#ffffff"
+                android:letterSpacing="0.02"
+                android:lineSpacingExtra="9sp"
+                android:text="NIT Patna"
+                android:layout_marginLeft="12dp"
+                />
+        </RelativeLayout>
+
+    <TextView
+        android:id="@+id/your_tcf_id"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/collage_name"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="8dp"
+        android:gravity="center_horizontal"
+        android:letterSpacing="0.02"
+        android:lineSpacingExtra="20sp"
+        android:layout_marginBottom="8dp"
+        android:text="Your TCF ID is"
+        android:textColor="#bdbfc1"
+        android:textSize="18sp" />
+    <TextView
+
+        android:layout_width="284.3dp"
+        android:layout_height="58.8dp"
+        android:textSize="27sp"
+        android:textColor="#d50000"
+        android:lineSpacingExtra="27sp"
+        android:gravity="center_horizontal"
+        android:layout_marginLeft="36dp"
+        android:background="@drawable/round_corner_tcf_id"
+        android:text="TCFG228"
+        android:id="@+id/tcf_id"
+        android:layout_below="@+id/your_tcf_id"
+        android:layout_centerHorizontal="true"/>
+
+    <TextView
+        android:id="@+id/plan_included"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/tcf_id"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="10dp"
+        android:gravity="center_horizontal"
+        android:letterSpacing="0.02"
+        android:lineSpacingExtra="20sp"
+        android:text="Plan Included"
+        android:textColor="#bdbfc1"
+        android:textSize="18sp" />
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:layout_below="@+id/plan_included"
+        android:layout_marginTop="3dp"
+        android:id="@+id/firstlinear">
+
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textSize="12sp"
+        android:textColor="#ffffff"
+        android:lineSpacingExtra="14sp"
+        android:gravity="center_horizontal"
+        android:text="Technical Events"
+        android:id="@+id/technical_events"
+        android:layout_centerHorizontal="true"
+        android:background="@drawable/round_corner_events_idcard"
+        android:layout_weight="1"
+        android:paddingTop="5dp"
+        android:paddingBottom="5dp"
+        android:layout_marginBottom="7dp"
+        android:layout_marginLeft="43dp"
+        android:layout_marginRight="43dp"
+        />
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textSize="12sp"
+        android:textColor="#ffffff"
+        android:lineSpacingExtra="14sp"
+        android:gravity="center_horizontal"
+        android:text="Cultural Events"
+        android:id="@+id/cultural_events"
+        android:layout_centerHorizontal="true"
+        android:background="@drawable/round_corner_events_idcard"
+        android:layout_weight="1"
+        android:paddingTop="5dp"
+        android:paddingBottom="5dp"
+        android:layout_marginBottom="7dp"
+        android:layout_marginLeft="43dp"
+        android:layout_marginRight="43dp"/>
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textSize="12sp"
+            android:textColor="#ffffff"
+            android:lineSpacingExtra="14sp"
+            android:gravity="center_horizontal"
+            android:text="Pratibimb"
+            android:id="@+id/pratibimb"
+            android:layout_centerHorizontal="true"
+            android:background="@drawable/round_corner_events_idcard"
+            android:layout_weight="1"
+            android:paddingTop="5dp"
+            android:paddingBottom="5dp"
+            android:layout_marginBottom="7dp"
+            android:layout_marginLeft="43dp"
+            android:layout_marginRight="43dp"/>
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textSize="12sp"
+            android:textColor="#ffffff"
+            android:lineSpacingExtra="14sp"
+            android:gravity="center_horizontal"
+            android:text="Parliamentary Debate"
+            android:id="@+id/parliamentary_debate"
+            android:layout_centerHorizontal="true"
+            android:background="@drawable/round_corner_events_idcard"
+            android:layout_weight="1"
+            android:paddingTop="5dp"
+            android:paddingBottom="5dp"
+            android:layout_marginBottom="7dp"
+            android:layout_marginLeft="43dp"
+            android:layout_marginRight="43dp"/>
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textSize="12sp"
+            android:textColor="#ffffff"
+            android:lineSpacingExtra="14sp"
+            android:gravity="center_horizontal"
+            android:text="Hackathon"
+            android:id="@+id/hackathon"
+            android:layout_centerHorizontal="true"
+            android:background="@drawable/round_corner_events_idcard"
+            android:layout_weight="1"
+            android:paddingTop="5dp"
+            android:paddingBottom="5dp"
+            android:layout_marginBottom="7dp"
+            android:layout_marginLeft="43dp"
+            android:layout_marginRight="43dp"/>
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textSize="12sp"
+            android:textColor="#ffffff"
+            android:lineSpacingExtra="14sp"
+            android:gravity="center_horizontal"
+            android:text="Robowar"
+            android:id="@+id/robowar"
+            android:layout_centerHorizontal="true"
+            android:background="@drawable/round_corner_events_idcard"
+            android:layout_weight="1"
+            android:paddingTop="5dp"
+            android:paddingBottom="5dp"
+            android:layout_marginLeft="43dp"
+            android:layout_marginRight="43dp"
+            android:layout_marginBottom="7dp"/>
+    </LinearLayout>
+
+
+
+
+</RelativeLayout>

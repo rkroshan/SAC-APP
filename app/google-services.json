@@ -1,0 +1,71 @@
+{
+  "project_info": {
+    "project_number": "1061210696578",
+    "firebase_url": "https://sac-nit-patna-69299.firebaseio.com",
+    "project_id": "sac-nit-patna-69299",
+    "storage_bucket": "sac-nit-patna-69299.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:1061210696578:android:296555bd905ad09f",
+        "android_client_info": {
+          "package_name": "com.rajatv.surajv.roshank.sac"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "1061210696578-pdnq9r5r5f9giha4udmh0s06qvv5asfl.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.rajatv.surajv.roshank.sac",
+            "certificate_hash": "99d9fd1cbeec8b4fa54e500aa9cb130119fd2acd"
+          }
+        },
+        {
+          "client_id": "1061210696578-r51rl4860o6f9mu6it4pfapb9680c8sn.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.rajatv.surajv.roshank.sac",
+            "certificate_hash": "2be8beced96288ec04797128284355e4de96615e"
+          }
+        },
+        {
+          "client_id": "1061210696578-h8iigjfud0j69euvt7l50hstbg2j6e8v.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.rajatv.surajv.roshank.sac",
+            "certificate_hash": "066ebe25867241754f6b81a0af57765b136394ec"
+          }
+        },
+        {
+          "client_id": "1061210696578-5ml7d038lve9lgnu0lkt53750skv7bin.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDJrxtHAksg1cWfAf6qyj4IkBHFnguczMg"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 2,
+          "other_platform_oauth_client": [
+            {
+              "client_id": "1061210696578-5ml7d038lve9lgnu0lkt53750skv7bin.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

@@ -1,0 +1,94 @@
+<LinearLayout android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical"
+    android:background="@mipmap/bg"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:context=".sac.NitpClubs.NitpClubs_details">
+
+    <android.support.v7.widget.Toolbar
+        android:id="@+id/toolbar_dashboard"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:gravity="center"
+        android:background="#ffffff"
+        app:popupTheme="@style/AppTheme.PopupOverlay">
+
+        <ImageView
+            android:id="@+id/nitp_club_details_back"
+            android:layout_width="wrap_content"
+            android:foregroundGravity="left"
+            android:layout_height="40dp"
+            android:src="@drawable/ic_keyboard_backspace_black_24dp"
+            android:layout_marginRight="8dp"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="NIT PATNA CLUB"
+            android:textSize="16sp"
+            android:textColor="#000000"
+            android:lineSpacingExtra="31sp"
+            android:textStyle="bold"/>
+
+    </android.support.v7.widget.Toolbar>
+
+    <ScrollView android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:id="@+id/nitp_club_details_scrollview"
+        xmlns:android="http://schemas.android.com/apk/res/android">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+
+                android:paddingBottom="25dp"
+                android:layout_marginBottom="10dp"
+                android:gravity="center">
+                <ImageView
+                    android:id="@+id/nitp_club_details_club_logo_imageview"
+                    android:layout_width="160.3dp"
+                    android:layout_height="160.3dp"
+                    android:paddingTop="10dp"
+                    android:layout_gravity="center"
+                    android:src="@mipmap/logo_web_coding_clubdetails"
+                    android:layout_marginTop="1dp" />
+
+                <TextView
+                    android:id="@+id/nitp_club_details_club_name_textview"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:layout_marginTop="0dp"
+                    android:textAllCaps="true"
+                    android:text="Club Name"
+                    android:textSize="18sp"
+                    android:textColor="#ffffff"
+                    android:lineSpacingExtra="29sp"
+                    android:gravity="center_horizontal"
+                    android:textStyle="bold"/>
+                <TextView
+                    android:id="@+id/nitp_club_details_textview"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/round_corner"
+                    android:backgroundTint="#253237"
+                    android:text="Club Details"
+                    android:textAlignment="viewStart"
+                    android:textSize="14sp"
+                    android:layout_marginTop="14dp"
+                    android:layout_marginBottom="10dp"
+                    android:layout_marginLeft="9dp"
+                    android:layout_marginRight="9dp"
+                    android:paddingTop="14dp"
+                    android:paddingRight="24dp"
+                    android:paddingLeft="24dp"
+                    android:paddingBottom="28dp"
+                    android:textColor="#fff"
+                    />
+        </LinearLayout>
+    </ScrollView>
+</LinearLayout>

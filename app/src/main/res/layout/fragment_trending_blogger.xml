@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context=".TrendingFragment.TrendingBloggerFragment">
+<include
+    layout="@layout/app_bar_trending"
+    android:id="@+id/appbar_trending"
+    >
+
+</include>
+    <android.support.design.widget.TabLayout
+        android:id="@+id/tabLayout"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:tabMode="scrollable"
+        app:tabIndicatorColor="#008ca5"
+        app:tabTextAppearance="@style/Base.TextAppearance.AppCompat.Light.Widget.PopupMenu.Small"
+        app:tabGravity="fill">
+
+    </android.support.design.widget.TabLayout>
+
+    <android.support.v4.view.ViewPager
+        android:background="@mipmap/bg"
+        android:id="@+id/view_pager_id"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+    </android.support.v4.view.ViewPager>
+
+
+
+
+</LinearLayout>

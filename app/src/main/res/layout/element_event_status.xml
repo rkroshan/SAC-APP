@@ -1,0 +1,205 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+
+    <android.support.constraint.ConstraintLayout
+        android:id="@+id/timeline_box"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="9dp"
+        android:layout_marginRight="9dp"
+        android:background="@drawable/event_status_bg"
+        android:backgroundTint="#253237"
+        app:layout_constraintStart_toStartOf="parent">
+        <TextView
+            android:id="@+id/round_name"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="0dp"
+            android:textAlignment="center"
+            android:letterSpacing="0.04"
+            android:lineSpacingExtra="9sp"
+            android:text="AUDITIONS"
+            android:textColor="#ffffff"
+            android:textSize="12sp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toStartOf="@+id/guideline3"
+            app:layout_constraintHorizontal_bias="1.0"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.0" />
+
+        <ImageView
+            android:id="@+id/filter_main_view"
+            android:layout_width="2dp"
+            android:layout_height="75dp"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="3dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toStartOf="@+id/ic_time"
+            app:layout_constraintStart_toStartOf="@+id/guideline3"
+            app:layout_constraintTop_toTopOf="parent"
+            android:background="#4180c7"/>
+
+            <!--to handle length of bar in layout change layout height form 20 to -->
+        <android.support.constraint.ConstraintLayout
+            android:id="@+id/rel_filter_min"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignEnd="@+id/filter_main_view"
+            android:layout_alignRight="@+id/filter_main_view"
+            android:layout_alignParentTop="true"
+            android:layout_gravity="bottom"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toStartOf="@+id/guideline1"
+            app:layout_constraintVertical_bias="0"
+            app:layout_constraintStart_toStartOf="@+id/guideline3"
+            app:layout_constraintTop_toTopOf="parent">
+
+            <View
+                android:id="@+id/oval_thumb_min"
+                android:layout_width="10dp"
+                android:layout_height="10dp"
+                android:layout_alignParentEnd="true"
+                android:layout_alignParentRight="true"
+                android:layout_alignParentBottom="true"
+                android:background="@drawable/oval_ring"
+                android:translationZ="0dp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.0"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintVertical_bias="0.0" />
+
+            <View
+                android:id="@+id/view"
+                android:layout_width="6dp"
+                android:layout_height="6dp"
+                android:layout_alignParentStart="true"
+                android:layout_alignParentEnd="true"
+                android:layout_alignParentBottom="true"
+                android:layout_marginTop="2dp"
+                android:background="@drawable/oval_shape"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintVertical_bias="0.0" />
+
+
+        </android.support.constraint.ConstraintLayout>
+
+        <ImageView
+            android:id="@+id/ic_time"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/ic_time"
+            app:layout_constraintBottom_toBottomOf="@+id/time"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0"
+            app:layout_constraintStart_toStartOf="@+id/guideline1"
+            app:layout_constraintTop_toTopOf="@+id/time"
+            app:layout_constraintVertical_bias="0.5" />
+
+        <TextView
+            android:id="@+id/time"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:letterSpacing="0.02"
+            android:lineSpacingExtra="15sp"
+            android:layout_marginStart="8dp"
+            android:text="5:30 PM"
+            android:textColor="#aab1b3"
+            android:textSize="14sp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.112"
+            app:layout_constraintStart_toStartOf="@+id/guideline1"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.0" />
+
+        <TextView
+            android:id="@+id/date"
+            android:layout_width="50dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:layout_marginEnd="24dp"
+            android:letterSpacing="0.02"
+            android:lineSpacingExtra="11sp"
+            android:text="23 Jan 2019"
+            android:marqueeRepeatLimit="marquee_forever"
+            android:maxWidth="80dp"
+            android:scrollHorizontally="true"
+            android:singleLine="true"
+            android:textColor="#aab1b3"
+            android:fadingEdge="horizontal"
+            android:focusable="true"
+            android:focusableInTouchMode="true"
+            android:textSize="10sp"
+            app:layout_constraintBottom_toBottomOf="@+id/time"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.0"
+            android:ellipsize="marquee"
+            app:layout_constraintStart_toEndOf="@+id/time"
+            app:layout_constraintTop_toTopOf="@+id/time" />
+
+        <ImageView
+            android:id="@+id/ic_place"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/ic_location"
+            app:layout_constraintBottom_toBottomOf="@+id/venue"
+            app:layout_constraintEnd_toEndOf="parent"
+            android:layout_marginLeft="1dp"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toStartOf="@+id/guideline1"
+            app:layout_constraintTop_toTopOf="@+id/venue" />
+
+        <TextView
+            android:id="@+id/venue"
+            android:layout_width="130dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="23dp"
+            android:layout_marginTop="25dp"
+            android:textAlignment="textStart"
+            android:ellipsize="marquee"
+            android:fadingEdge="horizontal"
+            android:focusable="true"
+            android:focusableInTouchMode="true"
+            android:letterSpacing="0.02"
+            android:lineSpacingExtra="10sp"
+            android:marqueeRepeatLimit="marquee_forever"
+            android:maxWidth="80dp"
+            android:scrollHorizontally="true"
+            android:singleLine="true"
+            android:text="At Tennis Court NITP"
+            android:textColor="#aab1b3"
+            android:textSize="10sp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toStartOf="@+id/guideline1"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.0" />
+
+        <android.support.constraint.Guideline
+            android:id="@+id/guideline3"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            app:layout_constraintGuide_percent="0.30" />
+
+        <android.support.constraint.Guideline
+            android:id="@+id/guideline1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            app:layout_constraintGuide_percent="0.55" />
+
+    </android.support.constraint.ConstraintLayout>
+</android.support.constraint.ConstraintLayout>

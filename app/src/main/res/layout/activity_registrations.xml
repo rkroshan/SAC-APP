@@ -1,0 +1,429 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:tools="http://schemas.android.com/tools"
+    android:layout_height="match_parent"
+    android:layout_width="match_parent"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+    <android.support.v7.widget.Toolbar
+        android:id="@+id/toolbar_registrations"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:gravity="center"
+        android:background="#ffffff"
+        app:popupTheme="@style/AppTheme.PopupOverlay">
+        <ImageView
+            android:id="@+id/registrationsBack"
+            android:layout_width="wrap_content"
+            android:foregroundGravity="left"
+            android:layout_height="40dp"
+            android:src="@drawable/ic_keyboard_backspace_black_24dp"
+            android:layout_marginRight="8dp"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="16sp"
+            android:textColor="#000000"
+            android:lineSpacingExtra="31sp"
+            android:text="Registration"
+            />
+    </android.support.v7.widget.Toolbar>
+    <RelativeLayout
+    android:layout_width="wrap_content"
+    android:layout_height="match_parent"
+    android:background="#00171d"
+
+    android:layout_below="@id/toolbar_registrations"
+    >
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="#00171d"
+        android:layout_marginTop="10dp"
+        android:id="@+id/reltop">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="31dp"
+            android:layout_marginLeft="9dp"
+            android:layout_marginRight="9dp"
+            android:layout_marginTop="16.3dp"
+
+            android:id="@+id/relative1">
+            <EditText
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:textSize="12sp"
+                android:textColor="#ffffff"
+                android:textColorHint="#ffffff"
+                android:hint="Name"
+                android:maxLines="1"
+                android:background="@drawable/round_text_field_registrations"
+                android:layout_marginLeft="26dp"
+                android:layout_centerHorizontal="true"
+                android:id="@+id/name_registration"
+
+                />
+        </RelativeLayout>
+
+        <!--
+           <RadioGroup
+               android:layout_width="wrap_content"
+               android:layout_height="wrap_content"
+               android:layout_below="@id/relative1"
+               android:orientation="horizontal"
+             >
+        -->
+        <Button
+            android:layout_width="108.9dp"
+            android:layout_height="31dp"
+            android:layout_below="@id/relative1"
+            android:layout_marginTop="14dp"
+            android:layout_marginLeft="9dp"
+            android:text="Male"
+            android:textSize="12sp"
+            android:textColor="#ffffff"
+            android:lineSpacingExtra="12sp"
+            android:textAlignment="center"
+            android:textAllCaps="false"
+            android:id="@+id/Male_button_registration_page"
+            android:background="@drawable/round_button_registrations"/>
+
+        <Button
+            android:layout_width="108.9dp"
+            android:layout_height="31dp"
+            android:layout_below="@id/relative1"
+            android:layout_marginTop="14dp"
+            android:layout_marginLeft="9dp"
+            android:id="@+id/Female_button_registration_page"
+            android:text="Female"
+            android:layout_centerHorizontal="true"
+            android:textSize="12sp"
+            android:textColor="#ffffff"
+            android:lineSpacingExtra="12sp"
+            android:textAlignment="center"
+            android:textAllCaps="false"
+            android:background="@drawable/round_button_registrations"/>
+
+        <Button
+            android:layout_width="108.9dp"
+            android:layout_height="31dp"
+            android:layout_below="@id/relative1"
+            android:layout_marginTop="14dp"
+            android:layout_marginLeft="9dp"
+            android:id="@+id/trans_button_registration_page"
+            android:text="Trans"
+            android:layout_alignParentRight="true"
+            android:layout_marginRight="9dp"
+            android:textSize="12sp"
+            android:textColor="#ffffff"
+            android:lineSpacingExtra="12sp"
+            android:textAlignment="center"
+            android:textAllCaps="false"
+            android:background="@drawable/round_button_registrations"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="10sp"
+            android:textColor="#bdbfc1"
+            android:letterSpacing="0.02"
+            android:lineSpacingExtra="11sp"
+            android:text="College"
+            android:layout_below="@id/relative1"
+            android:layout_marginTop="65dp"
+            android:layout_marginLeft="21dp"
+            />
+
+
+
+        <Button
+            android:layout_width="165.1dp"
+            android:layout_height="31dp"
+            android:layout_below="@id/relative1"
+            android:layout_marginTop="87dp"
+            android:layout_alignParentRight="true"
+            android:layout_marginRight="9dp"
+            android:textSize="12sp"
+            android:textAlignment="center"
+            android:textColor="#ffffff"
+            android:gravity="center"
+            android:lineSpacingExtra="12sp"
+            android:text="Other"
+            android:id="@+id/OthersCollege_button_registration_page"
+            android:background="@drawable/round_button_registrations"/>
+
+
+        <Button
+            android:layout_width="165.1dp"
+            android:layout_height="31dp"
+            android:layout_below="@id/relative1"
+            android:layout_marginTop="87dp"
+            android:layout_marginLeft="9dp"
+            android:textSize="12sp"
+            android:textColor="#ffffff"
+            android:gravity="center"
+            android:id="@+id/NITCollege_button_registration_page"
+            android:lineSpacingExtra="12sp"
+            android:text="NIT Patna"
+            android:textAllCaps="false"
+            android:background="@drawable/round_button_registrations"/>
+
+
+
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/reltop"
+        android:background="#00171d"
+
+        android:id="@+id/relmiddle">
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="31dp"
+            android:layout_marginLeft="9dp"
+            android:layout_marginRight="9dp"
+            android:layout_marginTop="14dp"
+            android:id="@+id/relmiddle3"
+            android:background="@drawable/round_text_field_registrations"
+            >
+            <EditText
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textSize="12sp"
+                android:textColor="#798184"
+                android:inputType="text"
+                android:lineSpacingExtra="12sp"
+                android:layout_marginLeft="26dp"
+                android:background="@null"
+                android:maxLines="1"
+                android:text=""
+                android:hint="College"
+                android:textColorHint="#798184"
+                android:id="@+id/othersCollegeTV_registrations"
+                android:layout_centerHorizontal="true"
+                android:layout_centerVertical="true"
+                />
+            />
+        </RelativeLayout>
+    </RelativeLayout>
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/relmiddle"
+        android:background="#00171d"
+
+        android:id="@+id/relmiddle2">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="10sp"
+            android:textColor="#bdbfc1"
+            android:letterSpacing="0.02"
+            android:lineSpacingExtra="11sp"
+            android:text="Basic Info"
+            android:layout_marginTop="21dp"
+            android:layout_marginLeft="21dp"
+            />
+    </RelativeLayout>
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/relmiddle2"
+        android:background="#00171d"
+        >
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="31dp"
+            android:layout_marginLeft="9dp"
+            android:layout_marginRight="9dp"
+            android:layout_marginTop="10dp"
+            android:background="@drawable/round_text_field_registrations"
+            >
+            <EditText
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textSize="12sp"
+                android:textColor="#798184"
+                android:lineSpacingExtra="12sp"
+                android:layout_marginLeft="26dp"
+                android:inputType="text"
+
+                android:background="@null"
+                android:maxLines="1"
+                android:hint="Branch"
+
+                android:textColorHint="#798184"
+                android:id="@+id/branch_registrations"
+                android:layout_centerHorizontal="true"
+                android:layout_centerVertical="true"
+                />
+            />
+        </RelativeLayout>
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="31dp"
+            android:layout_marginLeft="9dp"
+            android:layout_marginRight="9dp"
+            android:layout_marginTop="53dp"
+
+            android:background="@drawable/round_text_field_registrations"
+            >
+            <EditText
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textSize="12sp"
+                android:textColor="#798184"
+                android:lineSpacingExtra="12sp"
+                android:hint="Roll no"
+                android:maxLines="1"
+                android:textColorHint="#798184"
+                android:inputType="text"
+
+                android:layout_marginLeft="26dp"
+                android:background="@null"
+                android:id="@+id/roll_registrations"
+                android:layout_centerHorizontal="true"
+                android:layout_centerVertical="true"
+                />
+            />
+        </RelativeLayout>
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="31dp"
+            android:layout_marginLeft="9dp"
+            android:layout_marginRight="9dp"
+            android:layout_marginTop="96dp"
+
+            android:background="@drawable/round_text_field_registrations"
+            >
+            <EditText
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textSize="12sp"
+                android:textColor="#798184"
+                android:layout_marginLeft="26dp"
+                android:background="@null"
+                android:inputType="number"
+
+                android:maxLines="1"
+                android:lineSpacingExtra="12sp"
+                android:hint="Year Of Graduation"
+                android:textColorHint="#798184"
+                android:id="@+id/year_registrations"
+                android:layout_centerHorizontal="true"
+                android:layout_centerVertical="true"
+                />
+            />
+        </RelativeLayout>
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="31dp"
+            android:layout_marginLeft="9dp"
+            android:layout_marginRight="9dp"
+            android:layout_marginTop="139dp"
+            android:background="@drawable/round_text_field_registrations"
+            >
+            <EditText
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textSize="12sp"
+                android:textColor="#798184"
+                android:layout_marginLeft="26dp"
+                android:lineSpacingExtra="12sp"
+                android:background="@null"
+                android:inputType="number"
+                android:maxLines="1"
+                android:id="@+id/phone_registrations"
+                android:hint="Phone no"
+                android:textColorHint="#798184"
+                android:layout_centerHorizontal="true"
+                android:layout_centerVertical="true"
+                />
+            />
+
+        </RelativeLayout>
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="31dp"
+            android:layout_marginLeft="9dp"
+            android:layout_marginRight="9dp"
+            android:layout_marginTop="182dp"
+            android:background="@drawable/round_text_field_registrations"
+            >
+            <EditText
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textSize="12sp"
+                android:textColor="#798184"
+                android:layout_marginLeft="26dp"
+                android:lineSpacingExtra="12sp"
+                android:hint="E-mail id"
+                android:maxLines="1"
+
+
+                android:inputType="textEmailAddress"
+                android:textColorHint="#798184"
+                android:background="@null"
+                android:id="@+id/email_registrations"
+                android:layout_centerHorizontal="true"
+                android:layout_centerVertical="true"
+                />
+            />
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="31dp"
+            android:layout_marginLeft="9dp"
+            android:layout_marginRight="9dp"
+            android:layout_marginTop="224dp"
+            android:background="@drawable/round_text_field_registrations"
+            >
+            <EditText
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textSize="12sp"
+                android:textColor="#798184"
+                android:layout_marginLeft="26dp"
+                android:lineSpacingExtra="12sp"
+                android:hint="Degree"
+                android:inputType="textEmailAddress"
+
+                android:textColorHint="#798184"
+                android:maxLines="1"
+
+                android:background="@null"
+                android:id="@+id/Degree_registrations"
+                android:layout_centerHorizontal="true"
+                android:layout_centerVertical="true"
+                />
+            />
+        </RelativeLayout>
+
+    </RelativeLayout>
+
+</RelativeLayout>
+        <Button
+            android:layout_width="match_parent"
+            android:layout_height="51dp"
+            android:id="@+id/registerButton_register"
+            android:background="#af0000"
+            android:layout_alignParentBottom="true"
+            android:textSize="18sp"
+            android:textAlignment="center"
+            android:clickable="true"
+            android:gravity="center_vertical"
+            android:textColor="#ffffff"
+            android:lineSpacingExtra="14sp"
+            android:text="Register"
+            android:layout_centerVertical="true"
+            android:layout_centerHorizontal="true"
+            />
+
+
+</RelativeLayout>

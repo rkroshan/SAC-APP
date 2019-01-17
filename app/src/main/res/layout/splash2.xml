@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout android:layout_height="match_parent"
+    android:layout_width="match_parent"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+>
+    <ImageView
+        android:layout_width="100dp"
+        android:layout_height="80dp"
+        android:layout_marginTop="264dp"
+        android:backgroundTint="#dbdbdb"
+        android:background="@drawable/ic_sac_timeline"
+        android:id="@+id/image"
+        android:layout_centerHorizontal="true"/>
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textSize="29sp"
+        android:textColor="#00171d"
+        android:layout_marginTop="268dp"
+        android:layout_centerHorizontal="true"
+        android:lineSpacingExtra="47sp"
+        android:gravity="center_horizontal"
+        android:text="SAC"
+        />
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textSize="10sp"
+        android:textColor="#00171d"
+        android:letterSpacing="0.2"
+        android:lineSpacingExtra="17sp"
+        android:gravity="center_horizontal"
+        android:text="TIMELINE"
+        android:layout_marginTop="314dp"
+        android:layout_centerHorizontal="true"
+        />
+<!--<TextView-->
+    <!--android:layout_width="119.8dp"-->
+    <!--android:layout_height="20.4dp"-->
+    <!--android:background="@drawable/whats_new_curved"-->
+    <!--android:layout_alignParentRight="true"-->
+        <!--android:textSize="9sp"-->
+        <!--android:textColor="#ffffff"-->
+        <!--android:letterSpacing="0.02"-->
+        <!--android:lineSpacingExtra="12sp"-->
+        <!--android:gravity="center"-->
+        <!--android:text="What’s New?"-->
+        <!--/>-->
+    />
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textSize="20sp"
+        android:textColor="#ffffff"
+        android:lineSpacingExtra="8sp"
+        android:textStyle="bold"
+        android:gravity="center_horizontal"
+        android:text=""
+        android:layout_marginTop="360dp"
+        android:layout_centerHorizontal="true"
+        />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textSize="18sp"
+        android:textColor="#ffffff"
+        android:lineSpacingExtra="6sp"
+        android:gravity="center_horizontal"
+        android:text="SAC feeds, Notices,
+Results updates"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="116dp"
+        />
+
+</RelativeLayout>

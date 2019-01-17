@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout android:layout_height="match_parent"
+    android:layout_width="match_parent"
+    android:background="@mipmap/bg"
+    xmlns:android="http://schemas.android.com/apk/res/android" >
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textSize="16sp"
+        android:layout_centerHorizontal="true"
+        android:textColor="#ffffff"
+        android:layout_marginTop="204.3dp"
+        android:lineSpacingExtra="16sp"
+        android:text="Firstly Register here"
+        />
+<Button
+    android:layout_width="156dp"
+    android:layout_height="39dp"
+    android:text="Register"
+    android:textColor="#ffffff"
+    android:id="@+id/button_register_registerNow"
+    android:background="@drawable/round_register_button"
+    android:layout_centerHorizontal="true"
+    android:layout_marginTop="244.3dp"/>
+    
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="93dp"
+        android:layout_alignParentBottom="true"
+        android:layout_marginLeft="9dp"
+        android:layout_marginRight="9dp"
+        android:layout_marginBottom="11dp"
+        android:paddingTop="0dp"
+        android:background="@drawable/round_corner_rec"
+        android:backgroundTint="#253237">
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="10sp"
+            android:textColor="#bdbfc1"
+            android:layout_marginTop="17dp"
+            android:layout_marginLeft="27dp"
+            android:letterSpacing="0.02"
+            android:lineSpacingExtra="11sp"
+            android:text="Follow Steps :-"
+            />
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="12sp"
+            android:layout_marginTop="34dp"
+            android:layout_marginLeft="26dp"
+            android:textColor="#ffffff"
+            android:lines="2"
+
+
+            android:lineSpacingExtra="12sp"
+            android:text="1. Register through App or Website.\n2. Pay Registration Fees at Registration Desk."
+            />
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="12sp"
+            android:layout_marginBottom="19dp"
+            android:layout_alignParentBottom="true"
+            android:layout_marginLeft="26dp"
+
+            android:textColor="#ffffff"
+            android:lineSpacingExtra="12sp"
+            android:text=""
+            />
+
+    </RelativeLayout>
+</RelativeLayout>

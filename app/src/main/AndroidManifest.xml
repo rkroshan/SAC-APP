@@ -1,0 +1,113 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="com.rajatv.surajv.roshank.sac">
+
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+
+    <application
+        android:name="com.rajatv.surajv.roshank.sac.AnalyticsApplication"
+        android:allowBackup="true"
+        android:icon="@mipmap/sac_launch"
+        android:label="@string/app_name"
+        android:resizeableActivity="true"
+        android:largeHeap="true"
+        android:roundIcon="@mipmap/sac_launch"
+        android:supportsRtl="true"
+        android:theme="@style/AppTheme">
+        <activity
+            android:name="com.rajatv.surajv.roshank.sac.BottomNavigationActivity"
+            android:screenOrientation="portrait"
+            android:windowSoftInputMode="adjustPan" />
+        <activity
+            android:name=".tcf2019.EventFinder.ActivityEventFinder"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".tcf2019.Description"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".tcf2019.FragmentEventDetailsActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".tcf2019.ButtonGroupActivity_RegistrationPage"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".MyDashboard.TCF_ID_Activity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".MyDashboard.RegisterActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".NavDrawerActivities.AboutNITPactivity"
+            android:screenOrientation="portrait"
+            android:theme="@style/Theme.AppCompat.Light.NoActionBar" />
+        <activity
+            android:name=".NavDrawerActivities.AboutSac"
+            android:screenOrientation="portrait"
+            android:theme="@style/Theme.AppCompat.Light.NoActionBar" />
+        <activity
+            android:name=".NitpClubs.NitpClubs"
+            android:screenOrientation="portrait"
+            android:theme="@style/Theme.AppCompat.Light.NoActionBar" />
+        <activity
+            android:name=".NitpClubs.NitpClubs_details"
+            android:screenOrientation="portrait"
+            android:theme="@style/Theme.AppCompat.Light.NoActionBar" />
+        <activity android:name=".Splash.SplashActivity"></activity>
+        <activity
+            android:name="com.rajatv.surajv.roshank.sac.ByDateOnclick"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".SASCouncil.SASCouncilActivity"
+            android:screenOrientation="portrait"></activity>
+        <activity
+            android:name=".SignUp_Login.GettingStarted"
+            android:screenOrientation="portrait"></activity>
+        <activity
+            android:name=".Splash.Splash2"
+            android:screenOrientation="portrait">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name=".SignUp_Login.Login_activity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".SignUp_Login.SignUp_activity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".NavDrawerActivities.Intramurals2019"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".NavDrawerActivities.AboutTCF"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".MyDashboard.EditProfileActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".NavDrawerActivities.SasCouncil2"
+            android:screenOrientation="portrait" />
+
+        <meta-data
+            android:name="com.google.android.geo.API_KEY"
+            android:value="@string/google_maps_key" />
+
+        <activity
+            android:name=".NavDrawerActivities.MapsActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".OthersProfile.OthersProfile"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name="com.rajatv.surajv.roshank.sac.Developer"
+            android:screenOrientation="portrait" />
+        <activity android:name=".SASCouncil.SASRegistration"></activity>
+        <activity android:name=".Pings.PingRequestActivity"/>
+    </application>
+
+</manifest>

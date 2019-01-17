@@ -1,0 +1,99 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout android:layout_height="115dp"
+    android:layout_width="match_parent"
+    android:id="@+id/fullCard"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:background="@drawable/round_corner_ping_req"
+    xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <com.facebook.drawee.view.SimpleDraweeView
+        android:layout_width="28dp"
+        android:layout_height="28dp"
+        app:placeholderImage="@drawable/profile"
+        android:id="@+id/pinguserimage"
+        app:roundAsCircle="true"
+        android:layout_marginTop="23dp"
+        android:layout_marginLeft="17dp"/>
+<RelativeLayout
+    android:layout_width="135dp"
+    android:layout_height="40dp"
+    android:id="@+id/gotoProfileRelative"
+    android:layout_marginTop="15dp"
+    android:layout_marginLeft="5dp"></RelativeLayout>
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textSize="13sp"
+        android:textColor="#ffffff"
+        android:lineSpacingExtra="5sp"
+        android:text="Kitanu Rabza"
+        android:id="@+id/pingusername"
+        android:layout_marginLeft="54dp"
+        android:layout_marginTop="28dp"
+        />
+
+    <RelativeLayout
+        android:layout_width="150dp"
+        android:layout_height="28.2dp"
+        android:background="@drawable/round_accept_ping"
+        android:layout_below="@id/details"
+        android:layout_marginTop="65dp"
+        android:layout_marginLeft="17dp"
+        android:id="@+id/acceptPingButton"
+>
+        <ImageView
+            android:layout_width="17.6dp"
+            android:layout_height="17.6dp"
+            android:layout_marginLeft="21.3dp"
+android:layout_alignParentLeft="true"
+            android:layout_centerVertical="true"
+            android:src="@drawable/ic_finger_reverse" />
+        <TextView
+
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="13sp"
+            android:textColor="#ffd908"
+            android:lineSpacingExtra="8sp"
+            android:text="Accept PING"
+            android:layout_alignParentLeft="true"
+            android:layout_marginLeft="48dp"
+            android:layout_centerVertical="true"
+
+            />
+
+    </RelativeLayout>
+    <RelativeLayout
+        android:layout_width="150dp"
+        android:layout_height="28.2dp"
+        android:background="@drawable/round_reject_ping"
+        android:layout_below="@id/details"
+        android:layout_marginTop="65dp"
+android:layout_alignParentRight="true"
+        android:layout_marginRight="17dp"
+        android:id="@+id/notInterestedPingButton">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="13sp"
+            android:textColor="#a3a3a3"
+            android:lineSpacingExtra="8sp"
+            android:gravity="center_horizontal"
+            android:text="Not interested"
+            android:layout_centerVertical="true"
+            android:layout_centerHorizontal="true"
+            />
+
+    </RelativeLayout>
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:layout_marginLeft="6.5dp"
+        android:layout_marginRight="5.5dp"
+        android:background="#b4b4b4"
+        android:layout_below="@id/notInterestedPingButton"
+        android:layout_marginTop="16.8dp"
+
+        />
+</RelativeLayout>

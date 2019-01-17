@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="colorPrimary">#f9f9f9</color>
+    <color name="colorPrimaryDark">#00574B</color>
+    <color name="colorAccent">#d60000</color>
+
+    <color name="unpaid_color">#ff3131</color>
+    <color name="paid_color">#0aff00</color>
+    <color name="unpaid_tcfcolor">#80ff0000</color>
+    <color name="fade_white">#40ffffff</color>
+    <color name="white">#fff</color>
+    <color name="paid_tcfcolor">#ff3131</color>
+</resources>
+

@@ -1,0 +1,31 @@
+<RelativeLayout android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@mipmap/about_tcf"
+    xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <ImageView
+        android:id="@+id/aboutfestival_back"
+        android:layout_width="75dp"
+        android:layout_height="65dp"
+        android:layout_marginLeft="5dp"/>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_gravity="bottom|center"
+        android:gravity="bottom|center">
+
+        <ImageView
+            android:id="@+id/aboutfestival_visitsite"
+            android:layout_width="220dp"
+            android:layout_height="60dp"
+            android:layout_marginBottom="16dp"
+            android:layout_gravity="center"
+            android:padding="32dp"/>
+    </RelativeLayout>
+</RelativeLayout>
+
+
+
+
+

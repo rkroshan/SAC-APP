@@ -1,0 +1,253 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#000000"
+    tools:context=".sac.MainActivity">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <RelativeLayout
+            android:id="@+id/profile_block"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16.3dp"
+            android:layout_marginLeft="9dp"
+            android:layout_marginRight="9dp"
+            android:background="@drawable/round_corner_rec"
+            android:backgroundTint="#253237">
+
+            <ImageView
+                android:id="@+id/profile_image"
+                android:layout_width="74dp"
+                android:layout_height="74dp"
+                android:layout_centerHorizontal="true"
+                android:layout_marginTop="18sp"
+                android:src="@drawable/profile" />
+
+            <TextView
+                android:id="@+id/profile_name"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/profile_image"
+                android:layout_centerHorizontal="true"
+                android:layout_marginTop="16dp"
+                android:letterSpacing="0.02"
+                android:lineSpacingExtra="18sp"
+                android:textColor="#ffffff"
+                android:textSize="14sp"
+                android:text="-- --" />
+
+            <android.support.constraint.ConstraintLayout
+                android:id="@+id/constriant_trending"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerHorizontal="true"
+                android:layout_marginTop="6dp"
+                android:layout_below="@+id/profile_name"
+                tools:layout_editor_absoluteX="158dp"
+                tools:layout_editor_absoluteY="10dp">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginEnd="8dp"
+                    android:letterSpacing="0.02"
+                    android:lineSpacingExtra="11sp"
+                    android:textColor="#bdbfc1"
+                    android:textSize="10sp"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toStartOf="@+id/textView"
+                    app:layout_constraintHorizontal_bias="1.0"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    android:text="Trending" />
+
+                <TextView
+                    android:id="@+id/textView"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:lineSpacingExtra="10sp"
+                    android:text="-"
+                    android:textColor="#ffe733"
+                    android:textSize="13sp"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintVertical_bias="1.0" />
+
+            </android.support.constraint.ConstraintLayout>
+
+            <TextView
+                android:id="@+id/button_unregistered"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/constriant_trending"
+                android:layout_centerHorizontal="true"
+                android:layout_marginTop="12dp"
+                android:background="@drawable/round_corner_rec"
+                android:lineSpacingExtra="16sp"
+                android:paddingLeft="23dp"
+                android:textStyle="bold"
+                android:layout_marginBottom="20dp"
+                android:paddingTop="5dp"
+                android:paddingRight="19dp"
+                android:paddingBottom="5dp"
+                android:textColor="#f0a6a6"
+                android:textSize="16sp"
+                android:text="UNREGISTERED" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignTop="@+id/button_unregistered"
+                android:layout_toEndOf="@+id/button_unregistered"
+                android:letterSpacing="0.02"
+                android:lineSpacingExtra="11sp"
+                android:textColor="#bdbfc1"
+                android:textSize="10sp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                android:layout_marginLeft="7dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                android:text="TCF ID" />
+
+        </RelativeLayout>
+
+        <android.support.constraint.ConstraintLayout
+            android:id="@+id/status_box"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@drawable/round_corner_rec"
+            android:layout_below="@+id/profile_block"
+            android:layout_marginTop="14dp"
+            android:layout_marginLeft="9dp"
+            android:layout_marginRight="9dp"
+            android:backgroundTint="#253237">
+
+            <TextView
+                android:id="@+id/textView2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:letterSpacing="0.02"
+                android:lineSpacingExtra="11sp"
+                android:textColor="#bdbfc1"
+                android:layout_marginTop="13dp"
+                android:layout_marginBottom="13dp"
+                android:textSize="10sp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                android:layout_marginLeft="27dp"
+                app:layout_constraintHorizontal_bias="0.0"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                android:text="Payment Status" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="8dp"
+                android:letterSpacing="0.02"
+                android:lineSpacingExtra="11sp"
+                android:textColor="#ff3131"
+                android:textSize="10sp"
+                android:textStyle="bold"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.0"
+                android:layout_marginLeft="11dp"
+                app:layout_constraintStart_toEndOf="@+id/textView2"
+                app:layout_constraintTop_toTopOf="parent"
+                android:text="Unpaid" />
+
+        </android.support.constraint.ConstraintLayout>
+
+        <RelativeLayout
+            android:id="@+id/FOLLOW_STEPS_BOX"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/status_box"
+            android:layout_alignParentStart="true"
+            android:layout_marginTop="15dp"
+            android:background="@drawable/round_corner_rec"
+            android:layout_marginLeft="9dp"
+            android:layout_marginRight="9dp"
+            android:backgroundTint="#253237"
+            android:paddingBottom="19dp"
+            app:layout_constraintBottom_toBottomOf="parent">
+           <RelativeLayout
+               android:layout_width="45dp"
+               android:layout_height="wrap_content"
+               android:layout_alignParentRight="true"
+               android:clickable="true"
+               android:id="@+id/info_relative_clickable">
+               <ImageView
+                   android:layout_width="11.2dp"
+                   android:layout_height="11.2dp"
+                   android:layout_marginRight="37.5dp"
+                   android:layout_marginTop="14.1dp"
+                   android:layout_alignParentRight="true"
+                   android:src="@drawable/ic_info"/>
+               <TextView
+                   android:layout_width="wrap_content"
+                   android:layout_height="wrap_content"
+                   android:textSize="10sp"
+                   android:textColor="#a8adaf"
+                   android:lineSpacingExtra="14sp"
+                   android:text="info"
+                   android:layout_alignParentRight="true"
+                   android:layout_marginRight="16dp"
+                   android:layout_marginTop="13dp"
+                   />
+           </RelativeLayout>
+            <TextView
+                android:id="@+id/FOLLOW_STEPS"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="27dp"
+                android:letterSpacing="0.02"
+                android:lineSpacingExtra="11sp"
+                android:textColor="#bdbfc1"
+                android:layout_marginTop="17dp"
+                android:textSize="10sp"
+                android:text="Follow Steps :-" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentStart="true"
+                android:layout_marginLeft="26dp"
+                android:layout_marginTop="34dp"
+                android:lineSpacingExtra="12sp"
+                android:textColor="#ffffff"
+                android:textStyle="bold"
+                android:textSize="12sp"
+                android:text="1. Register through App or Website \n
+2. Pay Registration Fees at Registration Desk." />
+
+        </RelativeLayout>
+
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/FOLLOW_STEPS_BOX"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="14dp"
+            android:background="@drawable/round_corner_rec"
+            android:backgroundTint="#af0000"
+            android:lineSpacingExtra="16sp"
+            android:paddingLeft="48dp"
+            android:id="@+id/button_register_unregistered"
+            android:textAllCaps="false"
+            android:paddingTop="9dp"
+            android:paddingRight="48dp"
+            android:textStyle="bold"
+            android:paddingBottom="9dp"
+            android:textColor="#ffffff"
+            android:textSize="16sp"
+            android:text="Register" />
+    </RelativeLayout>
+</ScrollView>

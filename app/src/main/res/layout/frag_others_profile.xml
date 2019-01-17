@@ -1,0 +1,384 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@mipmap/bg"
+
+    >
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <RelativeLayout
+            android:id="@+id/profile_block"
+            android:layout_width="match_parent"
+            android:layout_height="209dp"
+            android:layout_marginTop="16.3dp"
+            android:layout_marginLeft="9dp"
+            android:layout_marginRight="9dp"
+            android:background="@drawable/roundcorner_editprofile1"
+            android:backgroundTint="#253237">
+
+
+
+            <com.facebook.drawee.view.SimpleDraweeView
+                android:id="@+id/profile_image"
+                android:layout_width="68dp"
+                android:layout_height="68dp"
+                android:layout_centerHorizontal="true"
+                app:roundedCornerRadius="34dp"
+                android:layout_marginTop="18dp"
+                app:placeholderImage="@drawable/profile"/>
+            <ImageView
+                android:layout_width="12.7dp"
+                android:layout_height="11.9dp"
+                android:layout_marginTop="78.6dp"
+                android:layout_centerHorizontal="true"
+
+                android:src="@drawable/ic_sas_council"/>
+
+            <TextView
+                android:id="@+id/profile_name"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+
+                android:layout_centerHorizontal="true"
+                android:layout_marginTop="102dp"
+                android:letterSpacing="0.02"
+                android:lineSpacingExtra="18sp"
+                android:textColor="#ffffff"
+                android:textSize="14sp"
+                android:text="Rajat Vallabh" />
+
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="8dp"
+                android:letterSpacing="0.02"
+                android:lineSpacingExtra="11sp"
+                android:textColor="#bdbfc1"
+                android:layout_marginTop="122dp"
+                android:layout_alignLeft="@id/profile_name"
+                android:textSize="10sp"
+                android:paddingLeft="8dp"
+                android:text="Trending"/>
+
+            <TextView
+                android:id="@+id/textView"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:lineSpacingExtra="10sp"
+                android:text="#4"
+                android:textColor="#ffe733"
+                android:textSize="13sp"
+                android:layout_alignRight="@id/profile_name"
+                android:paddingRight="8dp"
+                android:layout_marginTop="120dp"
+                />
+
+
+
+            <TextView
+                android:id="@+id/tcf_id_tv_others"
+                android:layout_width="156dp"
+                android:layout_height="27dp"
+
+                android:layout_centerHorizontal="true"
+                android:layout_marginTop="144dp"
+                android:background="@drawable/roundcorner_editprofile1"
+                android:backgroundTint="#ffffff"
+                android:lineSpacingExtra="16sp"
+                android:textStyle="bold"
+                android:layout_marginBottom="20dp"
+                android:textAlignment="center"
+                android:gravity="center_vertical"
+                android:textColor="#d50000"
+                android:textSize="16sp"
+                android:text="TCFG228"/>
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignTop="@+id/tcf_id_tv_others"
+                android:layout_toEndOf="@+id/tcf_id_tv_others"
+                android:letterSpacing="0.02"
+                android:lineSpacingExtra="11sp"
+                android:textColor="#bdbfc1"
+                android:textSize="10sp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                android:layout_marginLeft="7dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                android:text="TCF ID"/>
+
+
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textSize="10sp"
+                android:textColor="#bdbfc1"
+                android:letterSpacing="0.02"
+                android:lineSpacingExtra="11sp"
+                android:text="Crowns"
+                android:id="@+id/crown_textview"
+                android:layout_alignLeft="@id/tcf_id_tv_others"
+                android:layout_marginTop="186dp"
+                android:paddingLeft="31sp"
+                android:layout_centerHorizontal="true"
+                />
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:backgroundTint="#ffe733"
+                android:background="@drawable/ic_crown_down"
+                android:layout_marginTop="186.1dp"
+                android:layout_toRightOf="@id/crown_textview"
+                android:layout_marginBottom="2dp"
+                android:layout_alignBottom="@id/crown_textview"
+                android:layout_marginLeft="11.5dp"
+
+                />
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:backgroundTint="#ffe733"
+                android:background="@drawable/ic_crown_down"
+                android:layout_marginTop="186.1dp"
+                android:layout_toRightOf="@id/crown_textview"
+                android:layout_marginBottom="2dp"
+                android:layout_alignBottom="@id/crown_textview"
+                android:layout_marginLeft="30.5dp"
+
+                />
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:backgroundTint="#ffe733"
+                android:background="@drawable/ic_crown_down"
+                android:layout_marginTop="186.1dp"
+                android:layout_toRightOf="@id/crown_textview"
+                android:layout_marginBottom="2dp"
+                android:layout_alignBottom="@id/crown_textview"
+                android:layout_marginLeft="49.5dp"
+
+                />
+        </RelativeLayout>
+        <RelativeLayout
+            android:id="@+id/designationRelativeLayout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@drawable/roundcorner_editprofile1"
+            android:layout_below="@+id/profile_block"
+            android:layout_marginTop="10dp"
+            android:layout_marginLeft="9dp"
+            android:layout_marginRight="9dp"
+            android:backgroundTint="#253237">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textSize="12sp"
+                android:textColor="@color/white"
+                android:letterSpacing="0.02"
+                android:lineSpacingExtra="13sp"
+                android:gravity="center_horizontal"
+                tools:text="Designation, SAS Council"
+                android:layout_centerHorizontal="true"
+                android:id="@+id/designation_sas_tv"
+                android:layout_marginTop="10dp"
+                />
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textSize="12sp"
+                android:textColor="@color/white"
+                android:letterSpacing="0.02"
+                android:lineSpacingExtra="13sp"
+                android:gravity="center_horizontal"
+                tools:text="Designation, TCF Event"
+                android:layout_below="@id/designation_sas_tv"
+                android:id="@+id/designation_tcf_tv"
+                android:layout_marginTop="10dp"
+                android:layout_marginBottom="10dp"
+                android:layout_centerHorizontal="true"
+                />
+        </RelativeLayout>
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="14sp"
+            android:textColor="#ffeba8"
+            android:letterSpacing="0.02"
+            android:lineSpacingExtra="8sp"
+            android:gravity="center_horizontal"
+            android:layout_below="@id/designationRelativeLayout"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="12.6dp"
+            android:text="â€œNo one can stop you other than youâ€"
+            android:id="@+id/quoteTextView"
+            />
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="10sp"
+            android:textColor="#ffffff"
+            android:letterSpacing="0.02"
+            android:lineSpacingExtra="11sp"
+            android:gravity="center_horizontal"
+            android:text="Basic Info"
+            android:layout_centerHorizontal="true"
+            android:layout_below="@id/designationRelativeLayout"
+            android:layout_marginTop="45.7dp"
+            />
+        <RelativeLayout
+            android:id="@+id/details"
+            android:layout_width="match_parent"
+            android:layout_height="121dp"
+            android:background="@drawable/roundcorner_editprofile1"
+            android:layout_below="@+id/designationRelativeLayout"
+            android:layout_marginTop="65.6dp"
+            android:layout_marginLeft="9dp"
+            android:layout_marginRight="9dp"
+            android:backgroundTint="#253237">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textSize="10sp"
+                android:textColor="#bdbfc1"
+                android:layout_marginTop="24dp"
+                android:layout_marginLeft="27dp"
+                android:letterSpacing="0.02"
+                android:lineSpacingExtra="11sp"
+                android:text="College"
+                />
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textSize="10sp"
+                android:textColor="#bdbfc1"
+                android:letterSpacing="0.02"
+                android:layout_marginLeft="27dp"
+                android:layout_marginTop="46dp"
+                android:lineSpacingExtra="11sp"
+                android:text="Branch"
+                />
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textSize="10sp"
+                android:textColor="#bdbfc1"
+                android:letterSpacing="0.02"
+                android:layout_marginLeft="27dp"
+                android:layout_marginTop="68dp"
+                android:lineSpacingExtra="11sp"
+                android:text="Roll No."
+                />
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textSize="10sp"
+                android:textColor="#bdbfc1"
+                android:letterSpacing="0.02"
+                android:layout_marginLeft="27dp"
+                android:layout_marginTop="90dp"
+                android:lineSpacingExtra="11sp"
+                android:text="Year"
+                />
+
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textSize="10sp"
+                android:textColor="#ffffff"
+                android:layout_marginTop="24dp"
+                android:layout_marginLeft="81dp"
+                android:letterSpacing="0.02"
+                android:lineSpacingExtra="11sp"
+                android:text="NIT Patna"
+                />
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textSize="10sp"
+                android:textColor="#ffffff"
+                android:letterSpacing="0.02"
+                android:layout_marginLeft="81dp"
+                android:layout_marginTop="46dp"
+                android:lineSpacingExtra="11sp"
+                android:text="CSE"
+                />
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textSize="10sp"
+                android:textColor="#ffffff"
+                android:letterSpacing="0.02"
+                android:layout_marginLeft="81dp"
+                android:layout_marginTop="68dp"
+                android:lineSpacingExtra="11sp"
+                android:text="1606089"
+                />
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textSize="10sp"
+                android:textColor="#ffffff"
+                android:letterSpacing="0.02"
+                android:layout_marginLeft="81dp"
+                android:layout_marginTop="90dp"
+                android:lineSpacingExtra="11sp"
+                android:text="3rd"
+                />
+        </RelativeLayout>
+        <RelativeLayout
+            android:visibility="gone"
+            android:layout_width="146dp"
+            android:layout_height="33dp"
+            android:background="@drawable/round_button_registrations"
+            android:layout_below="@id/details"
+            android:layout_marginTop="22dp"
+            android:id="@+id/pingButton_others_profile"
+            android:layout_centerHorizontal="true">
+
+            <ImageView
+                android:layout_width="26.4dp"
+                android:layout_height="26.4dp"
+                android:src="@drawable/ic_finger_color"
+                android:layout_marginRight="25dp"
+                android:layout_alignParentRight="true"/>
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textSize="11sp"
+                android:textColor="#ffffff"
+                android:layout_centerVertical="true"
+                android:letterSpacing="0.05"
+                android:lineSpacingExtra="12sp"
+                android:text="PING HIM"
+                android:layout_marginLeft="15dp"
+                android:layout_marginTop="10.5dp"
+                />
+            />
+        </RelativeLayout>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="10sp"
+            android:textColor="#ffffff"
+            android:letterSpacing="0.02"
+            android:lineSpacingExtra="5sp"
+            android:text="To unlock contact details you need to PING him."
+            android:layout_below="@id/pingButton_others_profile"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="17dp"
+            />
+
+    </RelativeLayout>
+</ScrollView>

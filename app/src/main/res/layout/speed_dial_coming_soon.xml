@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android" android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    >
+<ImageView
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:scaleType="centerCrop"
+    android:src="@mipmap/speeddial_comongsoon"/>
+    <ImageView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_above="@id/relative2"
+        android:src="@drawable/ic_comingsoon"
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="5.7dp"
+        />
+  <RelativeLayout
+      android:layout_width="wrap_content"
+      android:layout_height="wrap_content"
+      android:layout_centerInParent="true"
+      android:id="@+id/relative2">
+      <TextView
+          android:layout_width="wrap_content"
+          android:layout_height="wrap_content"
+          android:textSize="10sp"
+          android:textColor="@color/white"
+          android:lineSpacingExtra="19sp"
+          android:text="Development under construction"
+          android:layout_centerHorizontal="true"
+          android:id="@+id/underprocess"
+          />
+      <TextView
+          android:layout_width="wrap_content"
+          android:layout_height="wrap_content"
+          android:textSize="13sp"
+          android:textColor="#ffe200"
+          android:letterSpacing="0.2"
+          android:lineSpacingExtra="25sp"
+          android:text="COMING SOON"
+          android:layout_centerHorizontal="true"
+          android:layout_below="@id/underprocess"
+          android:layout_marginTop="6dp"
+          />
+  </RelativeLayout>
+</RelativeLayout>

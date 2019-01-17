@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout android:layout_height="match_parent"
+    android:layout_width="match_parent"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+>
+    <ImageView
+        android:layout_width="67.4dp"
+        android:layout_height="79.2dp"
+        android:layout_marginTop="272.5dp"
+        android:backgroundTint="#dbdbdb"
+        android:background="@drawable/ic_event_finder"
+        android:id="@+id/image"
+        android:layout_centerHorizontal="true"/>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textSize="20sp"
+        android:textColor="#ffffff"
+        android:lineSpacingExtra="8sp"
+        android:gravity="center_horizontal"
+        android:text="EVENT FINDER"
+        android:textStyle="bold"
+        android:layout_marginTop="360dp"
+        android:layout_centerHorizontal="true"
+        />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+
+        android:textSize="18sp"
+        android:textColor="#ffffff"
+        android:lineSpacingExtra="6sp"
+        android:gravity="center_horizontal"
+        android:text="One Click Registration
+&amp; Add to Wishlist
+Favourite events"
+
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="116dp"
+        />
+
+</RelativeLayout>

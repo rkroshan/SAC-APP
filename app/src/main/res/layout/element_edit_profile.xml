@@ -1,0 +1,364 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:fresco="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@mipmap/bg">
+<LinearLayout
+    android:layout_width="match_parent"
+    android:orientation="vertical"
+    android:layout_height="match_parent">
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <android.support.v7.widget.Toolbar
+            android:id="@+id/toolbar_editProfile"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:background="#ffffff"
+            android:gravity="center"
+            app:popupTheme="@style/AppTheme.PopupOverlay">
+
+            <ImageView
+                android:id="@+id/edit_profile_back"
+                android:layout_width="wrap_content"
+                android:layout_height="40dp"
+                android:layout_marginRight="8dp"
+                android:foregroundGravity="left"
+                android:src="@drawable/ic_keyboard_backspace_black_24dp" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:lineSpacingExtra="31sp"
+                android:text="Edit Profile"
+                android:textColor="#000000"
+                android:textSize="16sp" />
+        </android.support.v7.widget.Toolbar>
+
+        <RelativeLayout
+            android:id="@+id/relativeforprofile"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/toolbar_editProfile"
+            android:layout_marginLeft="9dp"
+            android:layout_marginTop="11.3dp"
+            android:layout_marginRight="9dp"
+            android:background="@drawable/roundcorner_editprofile1">
+
+            <com.facebook.drawee.view.SimpleDraweeView
+                android:id="@+id/userImage_editProfile"
+                android:layout_width="74dp"
+                android:layout_height="74dp"
+                android:layout_centerHorizontal="true"
+                android:layout_marginTop="15dp"
+                app:placeholderImage="@drawable/profile"
+                app:roundedCornerRadius="37dp" />
+
+            <ProgressBar
+                android:id="@+id/progressBar"
+                android:layout_width="30dp"
+                android:layout_height="30dp"
+                android:layout_alignTop="@id/userImage_editProfile"
+                android:layout_centerHorizontal="true"
+                android:layout_marginTop="27dp" />
+
+            <ImageButton
+                android:id="@+id/edit_profile_button"
+                android:layout_width="20.8dp"
+                android:layout_height="20.8dp"
+                android:layout_alignTop="@+id/userImage_editProfile"
+                android:layout_centerHorizontal="true"
+                android:layout_marginLeft="-25dp"
+                android:layout_marginTop="55dp"
+                android:layout_toRightOf="@+id/userImage_editProfile"
+                android:background="@drawable/edit_profile_round"
+                android:src="@drawable/ic_pen" />
+
+            <TextView
+                android:id="@+id/name_textview"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/userImage_editProfile"
+                android:layout_centerHorizontal="true"
+                android:layout_marginTop="13dp"
+                android:layout_marginBottom="16dp"
+                android:letterSpacing="0.02"
+                android:lineSpacingExtra="18sp"
+                android:text="-- -- --"
+                android:textColor="#ffffff"
+                android:textSize="14sp" />
+        </RelativeLayout>
+
+        <EditText
+            android:id="@+id/quoteTextView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/relativeforprofile"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="16dp"
+            android:gravity="center_horizontal"
+            android:hint="“Add favourite quote|”"
+            android:letterSpacing="0.02"
+            android:lineSpacingExtra="18sp"
+            android:textColor="#ffeba8"
+            android:textColorHint="#75785d"
+            android:textSize="14sp" />
+
+        <TextView
+            android:id="@+id/basic_info"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/quoteTextView"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="14.1dp"
+            android:layout_marginBottom="9.9dp"
+            android:gravity="center_horizontal"
+            android:letterSpacing="0.02"
+            android:lineSpacingExtra="11sp"
+            android:text="Basic Info"
+            android:textColor="#bcbcbc"
+            android:textSize="10sp" />
+
+        <RelativeLayout
+            android:id="@+id/information_student"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/basic_info"
+            android:layout_alignParentStart="true"
+            android:layout_marginLeft="9dp"
+            android:layout_marginTop="10dp"
+            android:layout_marginRight="9dp"
+            android:background="@drawable/roundcorner_editprofile1"
+            android:backgroundTint="#253237">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="27dp"
+                android:layout_marginTop="24dp"
+                android:letterSpacing="0.02"
+                android:lineSpacingExtra="11sp"
+                android:text="College"
+                android:textColor="#bdbfc1"
+                android:textSize="10sp" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="27dp"
+                android:layout_marginTop="46dp"
+                android:letterSpacing="0.02"
+                android:lineSpacingExtra="11sp"
+                android:text="Branch"
+                android:textColor="#bdbfc1"
+                android:textSize="10sp" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="27dp"
+                android:layout_marginTop="68dp"
+                android:letterSpacing="0.02"
+                android:lineSpacingExtra="11sp"
+                android:text="Roll No."
+                android:textColor="#bdbfc1"
+                android:textSize="10sp" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="27dp"
+                android:layout_marginTop="90dp"
+                android:letterSpacing="0.02"
+                android:lineSpacingExtra="11sp"
+                android:text="Year"
+                android:textColor="#bdbfc1"
+                android:textSize="10sp" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="27dp"
+                android:layout_marginTop="112dp"
+                android:letterSpacing="0.02"
+                android:lineSpacingExtra="11sp"
+                android:text="Phone"
+                android:textColor="#bdbfc1"
+                android:textSize="10sp" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="27dp"
+                android:layout_marginTop="134dp"
+                android:layout_marginBottom="23dp"
+                android:letterSpacing="0.02"
+                android:lineSpacingExtra="11sp"
+                android:text="Email"
+                android:textColor="#bdbfc1"
+                android:textSize="10sp" />
+
+            <TextView
+                android:id="@+id/college_name_editprofile"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="81dp"
+                android:layout_marginTop="24dp"
+                android:letterSpacing="0.02"
+                android:lineSpacingExtra="11sp"
+                android:text="NA"
+                android:textColor="#ffffff"
+                android:textSize="10sp" />
+
+            <TextView
+                android:id="@+id/Branch_name_editprofile"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="81dp"
+                android:layout_marginTop="46dp"
+                android:letterSpacing="0.02"
+                android:lineSpacingExtra="11sp"
+                android:text="NA"
+                android:textColor="#ffffff"
+                android:textSize="10sp" />
+
+            <TextView
+                android:id="@+id/rollno_editprofile"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="81dp"
+                android:layout_marginTop="68dp"
+                android:letterSpacing="0.02"
+                android:lineSpacingExtra="11sp"
+                android:text="NA"
+                android:textColor="#ffffff"
+                android:textSize="10sp" />
+
+            <TextView
+                android:id="@+id/year_editprofile"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="81dp"
+                android:layout_marginTop="90dp"
+                android:letterSpacing="0.02"
+                android:lineSpacingExtra="11sp"
+                android:text="NA"
+                android:textColor="#ffffff"
+                android:textSize="10sp" />
+
+            <TextView
+                android:id="@+id/phoneno_editprofile"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="81dp"
+                android:layout_marginTop="112dp"
+                android:letterSpacing="0.02"
+                android:lineSpacingExtra="11sp"
+                android:text="NA"
+                android:textColor="#ffffff"
+                android:textSize="10sp" />
+
+            <TextView
+                android:id="@+id/email_editprofile"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="81dp"
+                android:layout_marginTop="134dp"
+                android:letterSpacing="0.02"
+                android:lineSpacingExtra="11sp"
+                android:text="NA"
+                android:textColor="#ffffff"
+                android:textSize="10sp" />
+        </RelativeLayout>
+
+        <TextView
+            android:id="@+id/privacy"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/information_student"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="12dp"
+            android:layout_marginBottom="10.8dp"
+            android:gravity="center_horizontal"
+            android:letterSpacing="0.02"
+            android:lineSpacingExtra="11sp"
+            android:text="Privacy"
+            android:textColor="#bcbcbc"
+            android:textSize="10sp" />
+
+        <RelativeLayout
+            android:id="@+id/privacy_student"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/privacy"
+            android:layout_marginLeft="9dp"
+            android:layout_marginRight="9dp"
+
+            android:background="@drawable/roundcorner_editprofile1">
+
+            <ImageView
+                android:id="@+id/lock_ic"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:layout_marginLeft="22.8dp"
+                android:layout_marginTop="13dp"
+                android:src="@drawable/ic_lock_black_24dp" />
+
+            <TextView
+                android:id="@+id/make_account_private"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="7.3dp"
+                android:layout_marginTop="16dp"
+                android:layout_marginBottom="16dp"
+                android:layout_toRightOf="@+id/lock_ic"
+                android:letterSpacing="0.02"
+                android:lineSpacingExtra="11sp"
+                android:text="Make Account Private"
+                android:textColor="#bdbfc1"
+                android:textSize="10sp" />
+
+
+            <Switch
+                android:id="@+id/privacy1_switch"
+                android:layout_width="wrap_content"
+                android:layout_height="9dp"
+                android:layout_centerVertical="true"
+                android:layout_marginTop="16dp"
+                android:layout_toRightOf="@id/make_account_private"
+                android:scaleX="0.8"
+                android:scaleY="0.8"
+                android:theme="@style/theme_switch" />
+
+        </RelativeLayout>
+
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:id="@+id/save_editprofile_button"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+
+        android:layout_alignParentBottom="true"
+        android:background="#af0000">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="13dp"
+            android:layout_marginBottom="14dp"
+            android:lineSpacingExtra="14sp"
+            android:text="Save"
+
+            android:textColor="#ffffff"
+            android:textSize="18sp" />
+    </RelativeLayout>
+
+</LinearLayout>
+</ScrollView>

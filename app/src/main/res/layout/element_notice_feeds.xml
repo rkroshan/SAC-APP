@@ -1,0 +1,251 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<RelativeLayout android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:fresco="http://schemas.android.com/tools"
+    >
+
+    <android.support.v7.widget.CardView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentEnd="true"
+        android:layout_marginTop="5dp"
+        android:layout_marginBottom="5dp"
+        android:layout_marginRight="9dp"
+        android:layout_marginLeft="9dp"
+        app:cardCornerRadius="10dp">
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            >
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                >
+
+                <com.facebook.drawee.view.SimpleDraweeView
+                    app:roundAsCircle="true"
+                    android:id="@+id/feed_photos_profile_picture"
+                    android:layout_width="20dp"
+                    android:layout_height="20dp"
+                    android:layout_marginTop="8dp"
+                    android:layout_marginLeft="9dp"
+                    android:layout_marginBottom="7.5dp"
+                    fresco:placeholderImage="@drawable/profile"/>
+
+                <TextView
+                    android:id="@+id/username"
+                    android:layout_marginTop="9dp"
+                    android:layout_marginBottom="9.5dp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textColor="#000000"
+                    android:layout_marginStart="5dp"
+                    android:layout_centerVertical="true"
+                    android:layout_marginLeft="5dp"
+                    android:layout_toEndOf="@+id/feed_photos_profile_picture"
+                    android:layout_toRightOf="@id/feed_photos_profile_picture"
+                    android:text="User Name" />
+
+                <TextView
+                    android:id="@+id/notice"
+                    android:background="@drawable/roundcorner"
+                    android:layout_width="wrap_content"
+                    android:layout_centerVertical="true"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="13dp"
+                    android:layout_centerHorizontal="true"
+                    android:paddingTop="3dp"
+                    android:paddingBottom="3dp"
+                    android:layout_toRightOf="@id/username"
+                    android:gravity="center"
+                    android:letterSpacing="0.1"
+                    android:lineSpacingExtra="12sp"
+                    android:text="NOTICE"
+                    android:textAlignment="gravity"
+                    android:textColor="#ffffff"
+                    android:textSize="8sp"
+                    android:textStyle="bold"
+                    android:layout_marginTop="10dp"
+                    android:layout_marginBottom="10.1dp"
+
+                    />
+
+                <RelativeLayout
+                    android:id="@+id/delete_button_notice"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentEnd="true"
+                    android:visibility="gone"
+                    android:layout_centerVertical="true"
+                    android:layout_marginRight="70dp"
+                    android:paddingTop="3dp"
+                    android:paddingBottom="3dp"
+                    android:paddingLeft="10dp"
+                    android:paddingRight="10.8dp">
+
+                    <ImageView
+                        android:id="@+id/DELETE_SYMBOL"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_centerVertical="true"
+                        android:src="@drawable/ic_delete" />
+
+                </RelativeLayout>
+
+                <TextView
+                    android:id="@+id/time"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentRight="true"
+                    android:layout_centerHorizontal="true"
+                    android:layout_marginTop="10.8dp"
+                    android:layout_marginRight="10dp"
+                    android:layout_marginBottom="11.5dp"
+                    android:gravity="end"
+                    android:lineSpacingExtra="22sp"
+                    android:text="4 hours ago"
+                    android:textColor="#4092e0"
+                    android:textSize="9sp" />
+            </RelativeLayout>
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:layout_marginLeft="6.5dp"
+                android:layout_marginRight="5.5dp"
+                android:background="#d0d0d0"
+                />
+
+            <TextView
+                android:layout_marginTop="6.5dp"
+                android:layout_width="wrap_content"
+                android:layout_marginRight="10dp"
+                android:layout_marginLeft="9dp"
+                android:layout_height="wrap_content"
+                android:textSize="10sp"
+                android:id="@+id/eventdetalis"
+                android:textColor="#000000"
+                android:lineSpacingExtra="4sp"
+                android:lineHeight="14sp"
+                android:text="This nload below. "
+                />
+
+            <View
+                android:id="@+id/divider5"
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:visibility="gone"
+                android:layout_marginLeft="6.5dp"
+                android:layout_marginRight="5.5dp"
+                android:layout_marginTop="6.5dp"
+                android:background="#d0d0d0"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/result_card_message"/>
+
+            <android.support.v7.widget.RecyclerView
+                android:id="@+id/recyclerViewDownloads"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="6.5dp" />
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <RelativeLayout
+                    android:id="@+id/extended_notice"
+                    android:layout_width="wrap_content"
+                    android:layout_marginTop="5.7dp"
+                    android:layout_marginBottom="7.3dp"
+                    android:layout_marginLeft="2.1dp"
+                    android:paddingLeft="10dp"
+                    android:layout_height="wrap_content">
+
+                    <ImageView
+
+                        android:layout_width="13.7dp"
+                        android:layout_height="20dp"
+                        android:src="@drawable/ic_excited"
+                        android:clickable="true"
+                        android:id="@+id/exited_Button"
+                        />
+
+                </RelativeLayout>
+
+
+                <TextView
+
+                    android:id="@+id/numberOfLikes"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="7.5dp"
+                    android:layout_toRightOf="@id/extended_notice"
+                    android:gravity="end"
+                    android:layout_marginTop="8.5dp"
+                    android:text="234"
+                    android:textColor="#555555"
+                    android:textSize="11sp" />
+
+                <TextView
+
+                    android:layout_marginLeft="3dp"
+                    android:id="@+id/exitedtext"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_toRightOf="@id/numberOfLikes"
+                    android:layout_marginTop="14dp"
+                    android:layout_marginBottom="7dp"
+                    android:text="Excited"
+                    android:layout_centerHorizontal="true"
+                    android:textColor="#555555"
+                    android:layout_centerVertical="true"
+                    android:textSize="9sp" />
+                <TextView
+                    android:layout_marginTop="9dp"
+                    android:layout_marginBottom="8dp"
+                    android:layout_toLeftOf="@id/seperator"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textSize="12sp"
+                    android:textColor="#6a6a6a"
+                    android:lineSpacingExtra="19sp"
+                    android:gravity="end"
+                    android:text="RoboWar"
+                    android:id="@+id/nameOfsubevent"
+                    android:layout_centerVertical="true"
+                    />
+                <TextView
+                    android:layout_marginLeft="5dp"
+                    android:layout_toLeftOf="@id/mainEvent"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textSize="12sp"
+                    android:layout_marginBottom="8dp"
+                    android:layout_marginTop="9dp"
+                    android:textColor="#6a6a6a"
+                    android:lineSpacingExtra="19sp"
+                    android:text="|"
+                    android:layout_marginRight="5dp"
+                    android:id="@+id/seperator"
+                    />
+
+                <TextView
+                    android:id="@+id/mainEvent"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentRight="true"
+                    android:layout_marginTop="9dp"
+                    android:layout_marginRight="10dp"
+                    android:text="Robotics"
+                    android:textColor="#6a6a6a"
+                    android:textSize="12sp" />
+            </RelativeLayout>
+        </LinearLayout>
+
+    </android.support.v7.widget.CardView>
+</RelativeLayout>

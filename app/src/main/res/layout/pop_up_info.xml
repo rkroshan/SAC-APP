@@ -1,0 +1,163 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+
+<android.support.v7.widget.CardView android:id="@+id/pop_blog_card_view"
+    android:layout_width="match_parent"
+    android:layout_height="525dp"
+android:background="@drawable/round_corner_textview_popup_info"
+    android:layout_alignParentTop="true"
+    app:cardCornerRadius="8dp"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <ImageView
+                android:layout_width="20.3dp"
+                android:layout_height="23.8dp"
+                android:src="@drawable/ic_cm"
+                android:layout_marginLeft="59.8dp"
+                android:layout_marginTop="17.7dp"/>
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textSize="15sp"
+                android:textStyle="bold"
+                android:textColor="#1a1a1a"
+                android:lineSpacingExtra="24sp"
+                android:layout_marginTop="22dp"
+                android:layout_centerHorizontal="true"
+                android:text="TCF’19 Registration Fees"
+                />
+            <ImageView
+                android:layout_width="13.3dp"
+                android:layout_height="13.8dp"
+                android:src="@drawable/ic_close"
+                android:layout_alignParentRight="true"
+                android:layout_marginTop="22.1dp"
+                android:id="@+id/close"
+                android:layout_marginRight="17.6dp"/>
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:background="#d0d0d0"
+                android:layout_marginTop="53.5dp"
+                android:layout_marginRight="7.5dp"
+                android:layout_marginLeft="7.5dp"
+                />
+            <TextView
+                android:layout_width="209dp"
+                android:layout_height="25dp"
+                android:text="For NIT Patna College Participants"
+                android:textSize="12dp"
+                android:background="@drawable/round_corner_textview_popup_info"
+                android:textAlignment="center"
+                android:gravity="center_vertical"
+                android:layout_marginTop="65dp"
+                android:layout_centerHorizontal="true"
+                />
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textSize="11sp"
+                android:textColor="#606060"
+                android:lineSpacingExtra="8sp"
+                android:text="EVENTS"
+                android:layout_marginTop="102dp"
+                android:layout_marginLeft="26dp"
+                />
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textSize="12sp"
+                android:textColor="#000000"
+                android:lineSpacingExtra="7sp"
+                android:textStyle="bold"
+                android:layout_marginLeft="26dp"
+                android:layout_marginTop="127dp"
+                android:text=" Technical \n Cultural \n Technical + Cultural (Combo) \n Pratibimb \n Parliamentary Debate \n Hackathon \n Robo War"
+                />
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textSize="11sp"
+                android:textColor="#606060"
+                android:lineSpacingExtra="8sp"
+                android:text="Fees"
+                android:layout_marginTop="102dp"
+                android:layout_marginRight="28dp"
+                android:layout_alignParentRight="true"
+                />
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textSize="12sp"
+                android:textColor="#1d8000"
+                android:layout_marginTop="127dp"
+                android:layout_alignParentRight="true"
+                android:layout_marginRight="21dp"
+                android:textStyle="bold"
+                android:lineSpacingExtra="7sp"
+                android:text=" 150 / Person \n 150 / Person \n 250 / Person \n 150 / Person \n 100 / Person \n 600 / Team \n 400 / Team"
+                />
+            <TextView
+                android:layout_width="209dp"
+                android:layout_height="25dp"
+                android:text="For other College Participants"
+                android:textSize="12dp"
+                android:gravity="center_vertical"
+                android:background="@drawable/round_corner_textview_popup_info"
+                android:textAlignment="center"
+                android:layout_marginTop="279dp"
+                android:layout_centerHorizontal="true"
+                />
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textSize="11sp"
+                android:textColor="#606060"
+                android:lineSpacingExtra="8sp"
+                android:text="EVENTS"
+                android:layout_marginTop="325dp"
+                android:layout_marginLeft="26dp"
+                />
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textSize="12sp"
+                android:textColor="#000000"
+                android:lineSpacingExtra="7sp"
+                android:textStyle="bold"
+                android:layout_marginLeft="26dp"
+                android:layout_marginTop="350dp"
+                android:text=" Technical \n Cultural \n Technical + Cultural (Combo) \n Pratibimb \n Parliamentary Debate \n Hackathon \n Robo War"
+                />
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textSize="11sp"
+                android:textColor="#606060"
+                android:lineSpacingExtra="8sp"
+                android:text="Fees"
+                android:layout_marginTop="325dp"
+                android:layout_marginRight="28dp"
+                android:layout_alignParentRight="true"
+                />
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textSize="12sp"
+                android:textColor="#1d8000"
+                android:layout_marginTop="350dp"
+                android:layout_alignParentRight="true"
+                android:layout_marginRight="21dp"
+                android:textStyle="bold"
+                android:lineSpacingExtra="7sp"
+                android:text=" 150 / Person \n 150 / Person \n 250 / Person \n 150 / Person \n 100 / Person \n 600 / Team \n 400 / Team"
+                />
+        </RelativeLayout>
+
+    </android.support.v7.widget.CardView>
+

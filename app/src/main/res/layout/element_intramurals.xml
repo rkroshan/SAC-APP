@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:background="@mipmap/bg">
+    <android.support.v7.widget.Toolbar
+        android:id="@+id/toolbar_intramurals"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:gravity="center"
+        android:background="#ffffff"
+        app:popupTheme="@style/AppTheme.PopupOverlay">
+
+        <ImageView
+            android:id="@+id/intramuralsdetailsback"
+            android:layout_width="wrap_content"
+            android:foregroundGravity="left"
+            android:layout_height="40dp"
+            android:src="@drawable/ic_keyboard_backspace_black_24dp"
+            android:layout_marginRight="8dp"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="16sp"
+            android:textColor="#000000"
+            android:lineSpacingExtra="31sp"
+            android:text="INRAMURALS  2019"
+            android:textStyle="bold"
+            />
+    </android.support.v7.widget.Toolbar>
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="296dp"
+        android:layout_height="wrap_content"
+        android:textSize="20sp"
+        android:textColor="@color/white"
+        android:lineSpacingExtra="39sp"
+        android:text="INRAMURALS  2019"
+        android:id="@+id/Intramurals_2019"
+        />
+    <TextView
+        android:layout_below="@id/Intramurals_2019"
+        android:layout_width="wrap_content"
+        android:layout_marginTop="5dp"
+        android:layout_centerHorizontal="true"
+        android:layout_height="wrap_content"
+        android:textSize="17sp"
+        android:textColor="#898989"
+        android:lineSpacingExtra="27sp"
+        android:gravity="center_horizontal"
+        android:text="Coming soon…"
+        />
+
+</RelativeLayout>

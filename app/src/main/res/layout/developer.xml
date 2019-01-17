@@ -1,0 +1,424 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@mipmap/bg">
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <android.support.v7.widget.Toolbar
+                android:id="@+id/toolbar_dashboard"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:background="#ffffff"
+                android:gravity="center"
+                app:popupTheme="@style/AppTheme.PopupOverlay">
+
+                <RelativeLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content">
+
+                    <ImageView
+                        android:id="@+id/devlopers_back_bttn"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentLeft="true"
+                        android:layout_centerVertical="true"
+                        android:layout_marginLeft="14.9dp"
+                        android:layout_marginTop="13.9dp"
+                        android:layout_marginRight="8dp"
+                        android:layout_marginBottom="37dp"
+                        android:src="@drawable/ic_keyboard_backspace_black_24dp" />
+
+                    <RelativeLayout
+                        android:id="@+id/logo_layout"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="18.6dp"
+                        android:layout_toRightOf="@+id/devlopers_back_bttn">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_alignEnd="@+id/icon"
+                            android:layout_marginTop="60dp"
+                            android:lineSpacingExtra="4sp"
+                            android:text="2.0"
+                            android:textColor="#000000"
+                            android:textSize="8sp" />
+
+                        <ImageView
+                            android:id="@+id/icon"
+                            android:layout_width="49dp"
+                            android:layout_height="51.9dp"
+                            android:layout_gravity="center"
+                            android:layout_marginTop="13.7dp"
+                            android:layout_marginBottom="13.8dp"
+                            android:src="@drawable/ic_sac3" />
+
+                    </RelativeLayout>
+
+                    <LinearLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="11.5dp"
+                        android:layout_marginTop="16dp"
+                        android:layout_toRightOf="@+id/logo_layout"
+                        android:orientation="vertical">
+
+                        <TextView
+                            android:id="@+id/sac_app"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:lineSpacingExtra="31sp"
+                            android:text="SAC APP"
+                            android:textColor="#000000"
+                            android:textSize="18sp"
+                            android:textStyle="bold" />
+
+                        <TextView
+                            android:id="@+id/devlopers"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_below="@+id/sac_app"
+                            android:layout_marginTop="0dp"
+                            android:layout_marginBottom="14.7dp"
+                            android:lineSpacingExtra="31sp"
+                            android:text="DEVELOPERS"
+                            android:textColor="#000000"
+                            android:textSize="14sp"
+                            android:textStyle="bold" />
+                    </LinearLayout>
+
+                </RelativeLayout>
+
+            </android.support.v7.widget.Toolbar>
+
+            <com.gigamole.infinitecycleviewpager.HorizontalInfiniteCycleViewPager
+                android:id="@+id/horizontal_cycle"
+                android:layout_width="wrap_content"
+                android:layout_height="270dp"
+                android:layout_marginTop="9dp"
+                app:icvp_center_page_scale_offset="2dp"
+                app:icvp_interpolator="@android:anim/accelerate_decelerate_interpolator"
+                app:icvp_max_page_scale="0.8"
+                app:icvp_medium_scaled="false"
+                app:icvp_min_page_scale="0.55"
+                app:icvp_min_page_scale_offset="5dp"
+                app:icvp_scroll_duration="1000" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:orientation="vertical">
+
+                <android.support.v7.widget.CardView
+                    android:layout_width="match_parent"
+                    android:layout_height="100dp"
+                    android:layout_marginLeft="26.5dp"
+                    android:layout_marginRight="26.5dp"
+                    android:backgroundTint="#253237"
+                    app:cardCornerRadius="17dp"
+                    app:cardElevation="5dp">
+
+                    <RelativeLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="100dp">
+
+                        <com.facebook.drawee.view.SimpleDraweeView
+                            android:id="@+id/image"
+                            android:layout_width="86.4dp"
+                            android:layout_height="86.4dp"
+                            android:layout_centerVertical="true"
+                            android:layout_marginStart="7.3dp"
+                            app:placeholderImage="@drawable/atul"
+                            app:roundAsCircle="true" />
+
+                        <TextView
+                            android:id="@+id/name"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="14dp"
+                            android:layout_marginTop="25dp"
+                            android:layout_toEndOf="@+id/image"
+                            android:letterSpacing="0.02"
+                            android:lineSpacingExtra="18sp"
+                            android:text="Atul Kumar"
+                            android:textColor="@color/white"
+                            android:textSize="14sp" />
+
+                        <TextView
+                            android:id="@+id/android_developer"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="14dp"
+                            android:layout_marginTop="44dp"
+                            android:layout_toEndOf="@+id/image"
+                            android:letterSpacing="0.02"
+                            android:lineSpacingExtra="11sp"
+                            android:text="Android App Developer"
+                            android:textColor="#bdbfc1"
+                            android:textSize="10sp" />
+
+                        <View
+                            android:layout_width="155dp"
+                            android:layout_height="1dp"
+                            android:layout_marginLeft="10.6dp"
+                            android:layout_marginTop="64.5dp"
+                            android:layout_toEndOf="@+id/image"
+                            android:background="#899193" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_alignParentStart="true"
+                            android:layout_marginLeft="107.5dp"
+                            android:layout_marginTop="72dp"
+                            android:letterSpacing="0.02"
+                            android:lineSpacingExtra="11sp"
+                            android:text="kumar.atul.2122@gmail.com"
+                            android:textColor="#ffa700"
+                            android:textSize="10sp" />
+
+                    </RelativeLayout>
+                </android.support.v7.widget.CardView>
+
+
+                <android.support.v7.widget.CardView
+                    android:layout_width="match_parent"
+                    android:layout_height="100dp"
+                    android:layout_marginLeft="26.5dp"
+                    android:layout_marginTop="20dp"
+                    android:layout_marginRight="26.5dp"
+                    android:backgroundTint="#253237"
+                    app:cardCornerRadius="17dp"
+                    app:cardElevation="5dp">
+
+                    <RelativeLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="100dp">
+
+                        <com.facebook.drawee.view.SimpleDraweeView
+                            android:id="@+id/image1"
+                            android:layout_width="86.4dp"
+                            android:layout_height="86.4dp"
+                            android:layout_centerVertical="true"
+                            android:layout_marginStart="7.3dp"
+                            app:placeholderImage="@drawable/aman"
+                            app:roundAsCircle="true" />
+
+                        <TextView
+                            android:id="@+id/name1"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="14dp"
+                            android:layout_marginTop="25dp"
+                            android:layout_toEndOf="@+id/image1"
+                            android:letterSpacing="0.02"
+                            android:lineSpacingExtra="18sp"
+                            android:text="Aman Raj Sundram"
+                            android:textColor="@color/white"
+                            android:textSize="14sp" />
+
+                        <TextView
+                            android:id="@+id/android_developer1"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="14dp"
+                            android:layout_marginTop="44dp"
+                            android:layout_toEndOf="@+id/image1"
+                            android:letterSpacing="0.02"
+                            android:lineSpacingExtra="11sp"
+                            android:text="Android App Developer"
+                            android:textColor="#bdbfc1"
+                            android:textSize="10sp" />
+
+                        <View
+                            android:layout_width="155dp"
+                            android:layout_height="1dp"
+                            android:layout_marginLeft="10.6dp"
+                            android:layout_marginTop="64.5dp"
+                            android:layout_toEndOf="@+id/image1"
+                            android:background="#899193" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_alignParentStart="true"
+                            android:layout_marginLeft="107.5dp"
+                            android:layout_marginTop="72dp"
+                            android:letterSpacing="0.02"
+                            android:lineSpacingExtra="11sp"
+                            android:text="arsundram@gmail.com"
+                            android:textColor="#ffa700"
+                            android:textSize="10sp" />
+
+                    </RelativeLayout>
+                </android.support.v7.widget.CardView>
+
+
+                <android.support.v7.widget.CardView
+                    android:layout_width="match_parent"
+                    android:layout_height="100dp"
+                    android:layout_marginLeft="26.5dp"
+                    android:layout_marginTop="20dp"
+                    android:layout_marginRight="26.5dp"
+                    android:backgroundTint="#253237"
+                    app:cardCornerRadius="17dp"
+                    app:cardElevation="5dp">
+
+                    <RelativeLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="100dp">
+
+                        <com.facebook.drawee.view.SimpleDraweeView
+                            android:id="@+id/image2"
+                            android:layout_width="86.4dp"
+                            android:layout_height="86.4dp"
+                            android:layout_centerVertical="true"
+                            android:layout_marginStart="7.3dp"
+                            app:placeholderImage="@drawable/ravikant"
+                            app:roundAsCircle="true" />
+
+                        <TextView
+                            android:id="@+id/name2"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="14dp"
+                            android:layout_marginTop="25dp"
+                            android:layout_toEndOf="@+id/image2"
+                            android:letterSpacing="0.02"
+                            android:lineSpacingExtra="18sp"
+                            android:text="Ravikant Singh"
+                            android:textColor="@color/white"
+                            android:textSize="14sp" />
+
+                        <TextView
+                            android:id="@+id/android_developer2"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="14dp"
+                            android:layout_marginTop="44dp"
+                            android:layout_toEndOf="@+id/image2"
+                            android:letterSpacing="0.02"
+                            android:lineSpacingExtra="11sp"
+                            android:text="Android App Developer"
+                            android:textColor="#bdbfc1"
+                            android:textSize="10sp" />
+
+                        <View
+                            android:layout_width="155dp"
+                            android:layout_height="1dp"
+                            android:layout_marginLeft="10.6dp"
+                            android:layout_marginTop="64.5dp"
+                            android:layout_toEndOf="@+id/image2"
+                            android:background="#899193" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_alignParentStart="true"
+                            android:layout_marginLeft="107.5dp"
+                            android:layout_marginTop="72dp"
+                            android:letterSpacing="0.02"
+                            android:lineSpacingExtra="11sp"
+                            android:text="ravikantsingh2308@gmail.com"
+                            android:textColor="#ffa700"
+                            android:textSize="10sp" />
+
+                    </RelativeLayout>
+                </android.support.v7.widget.CardView>
+
+                <android.support.v7.widget.CardView
+                    android:layout_width="match_parent"
+                    android:layout_height="100dp"
+                    android:layout_marginLeft="26.5dp"
+                    android:layout_marginTop="20dp"
+                    android:layout_marginRight="26.5dp"
+                    android:backgroundTint="#253237"
+                    app:cardCornerRadius="17dp"
+                    app:cardElevation="5dp">
+
+                    <RelativeLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="100dp">
+
+                        <com.facebook.drawee.view.SimpleDraweeView
+                            android:id="@+id/image3"
+                            android:layout_width="86.4dp"
+                            android:layout_height="86.4dp"
+                            android:layout_centerVertical="true"
+                            android:layout_marginStart="7.3dp"
+                            app:placeholderImage="@drawable/archana"
+                            app:roundAsCircle="true" />
+
+                        <TextView
+                            android:id="@+id/name3"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="14dp"
+                            android:layout_marginTop="25dp"
+                            android:layout_toEndOf="@+id/image3"
+                            android:letterSpacing="0.02"
+                            android:lineSpacingExtra="18sp"
+                            android:text="Archna Bharti"
+                            android:textColor="@color/white"
+                            android:textSize="14sp" />
+
+                        <TextView
+                            android:id="@+id/android_developer3"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="14dp"
+                            android:layout_marginTop="44dp"
+                            android:layout_toEndOf="@+id/image3"
+                            android:letterSpacing="0.02"
+                            android:lineSpacingExtra="11sp"
+                            android:text="Android App Developer"
+                            android:textColor="#bdbfc1"
+                            android:textSize="10sp" />
+
+                        <View
+                            android:layout_width="155dp"
+                            android:layout_height="1dp"
+                            android:layout_marginLeft="10.6dp"
+                            android:layout_marginTop="64.5dp"
+                            android:layout_toEndOf="@+id/image3"
+                            android:background="#899193" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_alignParentStart="true"
+                            android:layout_marginLeft="107.5dp"
+                            android:layout_marginTop="72dp"
+                            android:letterSpacing="0.02"
+                            android:lineSpacingExtra="11sp"
+                            android:text="bhartiarchna4@gmail.com"
+                            android:textColor="#ffa700"
+                            android:textSize="10sp" />
+
+                    </RelativeLayout>
+                </android.support.v7.widget.CardView>
+            </LinearLayout>
+        </LinearLayout>
+    </ScrollView>
+</RelativeLayout>
+
+
+
+
+
+

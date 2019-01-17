@@ -1,0 +1,101 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:background="#00171d">
+
+    <android.support.v7.widget.CardView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="5dp"
+        android:layout_marginRight="13dp"
+        app:cardCornerRadius="10dp"
+        android:layout_marginTop="9dp">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="#000000">
+
+                <TextView
+                    android:id="@+id/subevent_name_textview"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textSize="15sp"
+                    android:textColor="#ffffff"
+                    android:letterSpacing="0.02"
+                    android:lineSpacingExtra="17sp"
+                    android:text="ROBO WAR"
+                    android:layout_alignParentLeft="true"
+                    android:layout_marginLeft="18dp"
+                    android:layout_marginTop="11dp"
+                    android:layout_marginRight="7dp"
+                    android:layout_marginBottom="9dp"/>
+
+            <TextView
+                android:id="@+id/event_name_textview"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textSize="10sp"
+                android:textColor="#ffffff"
+                android:letterSpacing="0.02"
+                android:lineSpacingExtra="12sp"
+                android:text="ROBOTICS"
+                android:layout_toRightOf="@+id/subevent_name_textview"
+                android:layout_marginTop="16dp"/>
+
+            <ImageView
+                android:id="@+id/clock"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/subevent_name_textview"
+                android:layout_alignParentLeft="true"
+                android:layout_marginLeft="20.2dp"
+                android:layout_marginRight="5.4dp"
+                android:src="@drawable/ic_time"
+                android:layout_marginTop="1.8dp"/>
+
+            <TextView
+                android:id="@+id/event_time_textview"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textSize="10sp"
+                android:textColor="#ffffff"
+                android:letterSpacing="0.02"
+                android:lineSpacingExtra="11sp"
+                android:text="5:30 PM"
+                android:layout_toRightOf="@+id/clock"
+                android:layout_marginBottom="10.9dp"
+                android:layout_below="@+id/subevent_name_textview"/>
+
+            <ImageView
+                android:id="@+id/pin_location"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/event_time_textview"
+                android:layout_alignParentLeft="true"
+                android:layout_marginLeft="20.2dp"
+                android:layout_marginRight="5.4dp"
+                android:src="@drawable/ic_location"
+                android:layout_marginTop="1.5dp"/>
+
+            <TextView
+                android:id="@+id/event_location_textview"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textSize="10sp"
+                android:textColor="#ffffff"
+                android:letterSpacing="0.02"
+                android:lineSpacingExtra="11sp"
+                android:text="At Tennis Court"
+                android:layout_below="@+id/event_time_textview"
+                android:layout_toRightOf="@+id/pin_location"
+                android:layout_marginBottom="12dp"/>
+
+        </RelativeLayout>
+
+
+    </android.support.v7.widget.CardView>
+
+</RelativeLayout>

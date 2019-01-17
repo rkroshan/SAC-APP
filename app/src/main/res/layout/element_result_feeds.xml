@@ -1,0 +1,265 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:fresco="http://schemas.android.com/tools"
+    >
+
+    <android.support.v7.widget.CardView
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        xmlns:tools="http://schemas.android.com/tools"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="9dp"
+        android:layout_marginBottom="5dp"
+        android:layout_marginTop="5dp"
+        app:cardCornerRadius="10dp"
+        android:layout_marginRight="9dp">
+
+        <LinearLayout
+            android:orientation="vertical"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <com.facebook.drawee.view.SimpleDraweeView
+                    app:roundAsCircle="true"
+                    android:id="@+id/result_card_imageview"
+                    android:layout_width="20dp"
+                    android:layout_height="20dp"
+                    android:layout_marginLeft="9dp"
+                    android:layout_marginTop="6.8dp"
+                    fresco:placeholderImage="@drawable/profile"
+                    tools:srcCompat="@tools:sample/backgrounds/scenic" />
+
+                <TextView
+                    android:id="@+id/result_card_name"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentStart="true"
+                    android:layout_marginLeft="38dp"
+                    android:layout_marginTop="8.8dp"
+                    android:layout_marginBottom="9.5dp"
+                    android:lineSpacingExtra="19sp"
+                    android:textColor="#000000"
+                    android:textSize="12sp"
+                    android:text="Sanamika Surra" />
+
+                <TextView
+                    android:id="@+id/result"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="9.8dp"
+                    android:layout_marginBottom="10.1dp"
+                    android:layout_toEndOf="@+id/result_card_name"
+                    android:background="@drawable/round_register_button"
+                    android:layout_marginStart="13dp"
+                    android:gravity="center"
+                    android:letterSpacing="0.1"
+                    android:lineSpacingExtra="12dp"
+                    android:paddingLeft="10dp"
+                    android:paddingTop="3dp"
+                    android:paddingRight="10dp"
+                    android:paddingBottom="3dp"
+                    android:text="RESULT"
+                    android:textAlignment="gravity"
+                    android:textColor="#ffffff"
+                    android:textSize="8sp"
+                    android:textStyle="bold" />
+                <RelativeLayout
+                    android:id="@+id/delete_button_result"
+                    android:visibility="gone"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentEnd="true"
+                    android:layout_centerVertical="true"
+                    android:layout_marginRight="70dp"
+                    android:paddingTop="3dp"
+                    android:paddingBottom="3dp"
+                    android:paddingLeft="10dp"
+                    android:paddingRight="10.8dp">
+
+                    <ImageView
+                        android:id="@+id/DELETE_SYMBOL"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_centerVertical="true"
+                        android:src="@drawable/ic_delete" />
+
+
+
+                </RelativeLayout>
+
+                <TextView
+                    android:id="@+id/result_card_timeview"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentRight="true"
+                    android:layout_marginTop="10.8dp"
+                    android:layout_marginRight="10dp"
+                    android:layout_marginBottom="11.5dp"
+                    android:gravity="end"
+                    android:lineSpacingExtra="22sp"
+                    android:textColor="#4092e0"
+                    android:textSize="9sp"
+                    android:text="1 day ago" />
+
+            </RelativeLayout>
+
+            <View
+                android:id="@+id/divider1"
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:layout_marginLeft="6.5dp"
+                android:layout_marginRight="5.5dp"
+                android:background="#d0d0d0"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.0"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <TextView
+                android:id="@+id/result_card_message"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="9dp"
+                android:layout_marginTop="6.5dp"
+                android:layout_marginRight="10dp"
+                android:lineSpacingExtra="4sp"
+                android:text="These following students are winners of Short Film Making :-
+1st - Shivam Kumar
+2nd - Suman Devi
+3rd - Ravi Kumar"
+                android:textColor="#000000"
+                android:textSize="10sp"
+                app:layout_constraintEnd_toEndOf="@+id/download_bar"
+                app:layout_constraintHorizontal_bias="0.0"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/divider1" />
+
+            <View
+                android:id="@+id/divider2"
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:layout_marginLeft="6.5dp"
+                android:layout_marginRight="5.5dp"
+                android:layout_marginTop="6.5dp"
+                android:background="#d0d0d0"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/result_card_message"/>
+
+            <android.support.v7.widget.RecyclerView
+                android:id="@+id/download_bar"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="6.5dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/result_card_message"/>
+
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/download_bar">
+
+
+                <RelativeLayout
+                    android:id="@+id/result_card_likesview1"
+                    android:layout_width="wrap_content"
+                    android:layout_marginLeft="1dp"
+                    android:layout_marginStart="2.1dp"
+                    android:layout_marginTop="6.2dp"
+                    android:paddingRight="10dp"
+                    android:paddingLeft="10dp"
+                    android:layout_marginBottom="7.3dp"
+                    android:layout_height="wrap_content">
+
+                    <android.support.v7.widget.AppCompatImageView
+                        android:id="@+id/result_card_likesview"
+                        android:layout_width="13.7dp"
+                        android:layout_height="20dp"
+                        android:src="@drawable/ic_excited" />
+
+                </RelativeLayout>
+
+
+
+                <TextView
+                    android:id="@+id/result_card_likes"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="8dp"
+                    android:layout_marginTop="11.5dp"
+                    android:layout_toEndOf="@+id/result_card_likesview1"
+                    android:lineSpacingExtra="20sp"
+                    android:text="674"
+                    android:textColor="#555555"
+                    android:textSize="11sp" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="4dp"
+                    android:layout_marginLeft="57dp"
+                    android:layout_marginTop="12.5dp"
+                    android:layout_marginBottom="6dp"
+                    android:layout_toEndOf="@+id/result_card_likes"
+                    android:lineSpacingExtra="16sp"
+                    android:text="Excited"
+                    android:textColor="#555555"
+                    android:textSize="9sp" />
+
+
+                <TextView
+                    android:id="@+id/event_name"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentEnd="true"
+                    android:layout_marginTop="9.5dp"
+                    android:layout_marginEnd="10dp"
+                    android:layout_marginBottom="8dp"
+                    android:lineSpacingExtra="19sp"
+                    android:text="Abhinay"
+                    android:textColor="#6a6a6a"
+                    android:textSize="12sp" />
+
+                <TextView
+                    android:id="@+id/temp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="8.5dp"
+                    android:layout_marginEnd="6dp"
+                    android:layout_marginBottom="8dp"
+                    android:layout_toStartOf="@+id/event_name"
+                    android:lineSpacingExtra="19sp"
+                    android:text="|"
+                    android:textColor="#6a6a6a"
+                    android:textSize="12sp" />
+
+                <TextView
+                    android:id="@+id/result_card_subevent"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="9.5dp"
+                    android:layout_marginEnd="4dp"
+                    android:layout_marginBottom="8dp"
+                    android:layout_toStartOf="@+id/temp"
+                    android:gravity="end"
+                    android:lineSpacingExtra="19sp"
+                    android:text="Short Film Making"
+                    android:textColor="#6a6a6a"
+                    android:textSize="12sp" />
+
+            </RelativeLayout>
+
+        </LinearLayout>
+
+    </android.support.v7.widget.CardView>
+</RelativeLayout>

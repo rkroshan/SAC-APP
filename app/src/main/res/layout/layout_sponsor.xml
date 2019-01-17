@@ -1,0 +1,224 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView android:layout_height="match_parent"
+    android:layout_width="match_parent"
+
+    xmlns:android="http://schemas.android.com/apk/res/android" >
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android" android:layout_width="match_parent"
+    android:layout_height="match_parent"
+
+    >
+<TextView
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:textColor="@color/white"
+    android:lineSpacingExtra="19sp"
+    android:text="Title"
+    android:textSize="20dp"
+    android:id="@+id/title"
+    android:layout_centerHorizontal="true"
+    android:layout_marginTop="90dp"
+    />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textColor="@color/white"
+        android:lineSpacingExtra="19sp"
+        android:text="Sponsor"
+        android:layout_below="@id/title"
+        android:textSize="20dp"
+        android:id="@+id/sponsor"
+        android:layout_centerHorizontal="true"
+        />
+    <ImageView
+        android:layout_width="80dp"
+        android:layout_height="90dp"
+        android:layout_centerHorizontal="true"
+        android:layout_below="@id/sponsor"
+        android:id="@+id/ce"
+        android:layout_marginTop="40dp"
+        android:src="@drawable/ce_logo_white"/>
+
+    <RelativeLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerInParent="true"
+        android:layout_below="@id/ce"
+        android:layout_marginTop="15dp"
+        android:id="@+id/relative2">
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="20dp"
+            android:textColor="#e4e4e4"
+            android:text="CRICKET"
+            android:layout_centerHorizontal="true"
+            android:id="@+id/underprocess"
+            />
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="20dp"
+            android:textColor="#e4e4e4"
+            android:letterSpacing="0.2"
+            android:lineSpacingExtra="25sp"
+            android:text="EXCHANGE"
+            android:layout_centerHorizontal="true"
+            android:layout_below="@id/underprocess"
+            android:id="@+id/exchange"
+            />
+    </RelativeLayout>
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textSize="20dp"
+        android:textColor="#e4e4e4"
+        android:letterSpacing="0.2"
+        android:lineSpacingExtra="25sp"
+        android:id="@+id/other_sponsors"
+        android:text="Other Sponsors"
+        android:layout_marginTop="100dp"
+        android:layout_centerHorizontal="true"
+        android:layout_below="@id/relative2"
+        />
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="35dp"
+        android:layout_below="@id/other_sponsors"
+        android:layout_marginRight="10dp"
+        android:layout_marginLeft="10dp"
+        android:layout_marginTop="50dp"
+        android:id="@+id/comingsoon"
+        android:background="@drawable/roundcorner_editprofile1"
+        >
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="20dp"
+            android:textColor="#ffffff"
+            android:letterSpacing="0.2"
+            android:lineSpacingExtra="25sp"
+            android:layout_centerInParent="true"
+            android:text="Coming Soon"
+            android:layout_centerHorizontal="true"
+            />
+    </RelativeLayout>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/comingsoon"
+        android:orientation="vertical">
+
+        <LinearLayout
+            android:layout_marginTop="32dp"
+            android:layout_width="match_parent"
+            android:orientation="vertical"
+            android:layout_below="@id/comingsoon"
+            android:gravity="center"
+            android:layout_height="wrap_content">
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:textColor="#ffffff"
+                android:text="Ankur Singh"
+                android:textAppearance="?android:textAppearanceMedium"
+                android:textStyle="bold"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:textColor="#d4d4d4"
+
+                android:text="President, SAS Council\nStudent Coordinator, TCF’19\n+91 8294556381"
+                android:textAppearance="?android:textAppearanceSmall"
+                />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_marginTop="32dp"
+            android:layout_width="match_parent"
+            android:orientation="vertical"
+            android:layout_below="@id/comingsoon"
+            android:gravity="center"
+            android:layout_height="wrap_content">
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:textColor="#ffffff"
+                android:text="Devat Singh"
+                android:textAppearance="?android:textAppearanceMedium"
+                android:textStyle="bold"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:textColor="#d4d4d4"
+
+                android:text="Vice President, SAS Council\nTreasurer, TCF’19\n+91 9534318089"
+                android:textAppearance="?android:textAppearanceSmall"
+                />
+        </LinearLayout>
+        <LinearLayout
+            android:layout_marginTop="32dp"
+            android:layout_width="match_parent"
+            android:orientation="vertical"
+            android:layout_below="@id/comingsoon"
+            android:gravity="center"
+            android:layout_height="wrap_content">
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:textColor="#ffffff"
+                android:text="Sarika Gautam"
+                android:textAppearance="?android:textAppearanceMedium"
+                android:textStyle="bold"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:textColor="#d4d4d4"
+
+                android:text="Vice President, SAS Council\nMedia Coordinator, TCF’19\n+91 8127800711"
+                android:textAppearance="?android:textAppearanceSmall"
+                />
+        </LinearLayout>
+        <LinearLayout
+            android:layout_marginTop="32dp"
+            android:layout_width="match_parent"
+            android:orientation="vertical"
+            android:layout_below="@id/comingsoon"
+            android:gravity="center"
+            android:layout_height="wrap_content">
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:textColor="#ffffff"
+                android:text="Abdul Aziz Quereshi"
+                android:textAppearance="?android:textAppearanceMedium"
+                android:textStyle="bold"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:textColor="#d4d4d4"
+
+                android:text="Sponsorship Coordinator, SAS Council\nGMT Coordinator, TCF’19\n+91 9618200347"
+                android:textAppearance="?android:textAppearanceSmall"
+                />
+        </LinearLayout>
+
+    </LinearLayout>
+
+
+</RelativeLayout>
+
+</ScrollView>

@@ -1,0 +1,51 @@
+{
+  "SASMemberData" : 0,
+  "TCFMemberData" : 0,
+  "UserUID" : "17dcvFJzzBZYu94SZYQdMgTNfcy1",
+  "admin" : 0,
+  "app" : {
+    "Blogs" : {
+      "-LVVHaFMuLsHv4RkUIt3" : "-LVVHaANDDA6BZTPerqT"
+    },
+    "ProfileComplete" : 0,
+    "SpeedDial" : "",
+    "Trending_Data" : {
+      "Blogger" : {
+        "OfTheDay" : 0,
+        "OverallLikes" : 0,
+        "Trend" : 4
+      },
+      "Personality" : {
+        "OfTheDay" : 0,
+        "OverallLikes" : 0,
+        "Trend" : 4
+      }
+    },
+    "WishList" : "",
+    "private" : 0,
+    "publish" : 1,
+    "quote" : "somewejwdhbhe"
+  },
+  "branch" : "Ecell",
+  "collegeId" : "nitp",
+  "collegeName" : "National Institute of Technology Patna",
+  "degree" : "B.Tech",
+  "email" : "ecellnitpatna2018@gmail.com",
+  "name" : "Ecell Nit Patna",
+  "packages" : [ "package name", "package name" ],
+  "phoneNumber" : 12345678890,
+  "photoUrl" : "",
+  "referrer" : "",
+  "registration" : {
+    "solo" : {
+      "event-id" : 0
+    },
+    "team" : {
+      "event-id" : 0
+    }
+  },
+  "rollNo" : 1604009,
+  "tcfId" : "TCFNITP76",
+  "verified" : 1,
+  "yearOfCompletion" : 2020
+}

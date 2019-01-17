@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout android:layout_height="match_parent"
+    android:layout_width="match_parent"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+>    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textSize="18sp"
+        android:textColor="#ffffff"
+        android:lineSpacingExtra="6sp"
+        android:layout_marginTop="126dp"
+        android:text="Getting Started"
+        android:layout_centerHorizontal="true"
+        />
+    <ImageView
+        android:layout_width="90dp"
+        android:layout_height="90dp"
+        android:layout_marginTop="226dp"
+        android:backgroundTint="#dbdbdb"
+        android:background="@drawable/ic_sac"
+        android:id="@+id/image1"
+        android:layout_centerHorizontal="true"/>
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textSize="16sp"
+        android:layout_toRightOf="@id/image1"
+        android:textColor="#dbdbdb"
+        android:layout_marginTop="298dp"
+        android:lineSpacingExtra="6sp"
+
+        android:text="2.0"
+        />
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textSize="20sp"
+        android:textColor="#ffffff"
+        android:lineSpacingExtra="7sp"
+        android:text="SAC NIT PATNA"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="337dp"
+        />
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textSize="12sp"
+        android:textColor="#d3d3d3"
+        android:letterSpacing="0.15"
+        android:lineSpacingExtra="4sp"
+        android:text="TCF’19 Special Edition"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="365.5dp"
+        />
+
+</RelativeLayout>

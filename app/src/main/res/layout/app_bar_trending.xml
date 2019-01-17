@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.v7.widget.Toolbar xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    >
+
+    <android.support.design.widget.CoordinatorLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <android.support.design.widget.CollapsingToolbarLayout
+            android:layout_width="match_parent"
+            android:layout_height="40dp"
+            android:background="#f8f8f8"
+            >
+
+            <android.support.v7.widget.Toolbar
+                android:id="@+id/toolbar"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:background="#f8f8f8"
+                app:popupTheme="@style/AppTheme.PopupOverlay">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="25dp"
+                    android:layout_marginTop="16dp"
+                    android:lineSpacingExtra="26sp"
+                    android:text="#Trending"
+                    android:textStyle="bold"
+                    android:textColor="#000000"
+                    android:textSize="21sp" />
+
+
+            </android.support.v7.widget.Toolbar>
+
+            <!-- #009846-->
+
+        </android.support.design.widget.CollapsingToolbarLayout>
+    </android.support.design.widget.CoordinatorLayout>
+</android.support.v7.widget.Toolbar>

@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <group android:checkableBehavior="single"
+        android:id="@+id/group1">
+        <item
+            android:id="@+id/sasCouncilMenu"
+            android:icon="@drawable/ic_sas_council"
+            android:title="SAS Council 2018-2019"
+
+            />
+    </group>
+    <group android:checkableBehavior="single"
+        android:id="@+id/group2">
+        <item
+            android:icon="@drawable/ic_inramurals"
+            android:id="@+id/Intramurals_2019"
+            android:title="Intramurals 2019"
+            />
+    </group>
+    <group android:checkableBehavior="single"
+        android:id="@+id/group3">
+        <item
+            android:icon="@drawable/ic_about"
+            android:id="@+id/nit_patna_clubs"
+            android:title="NIT Patna Clubs"/>
+    </group>
+    <group android:checkableBehavior="single"
+        android:id="@+id/group4">
+        <item
+            android:id="@+id/AboutNitp"
+            android:icon="@drawable/ic_about"
+            android:title="About NIT Patna" />
+    </group>
+    <group android:checkableBehavior="single"
+        android:id="@+id/group5">
+        <item
+            android:id="@+id/AboutSac"
+             android:icon="@drawable/ic_sac"
+            android:title="About SAC" />
+    </group>
+    <group android:checkableBehavior="single"
+        android:id="@+id/group6">
+        <item
+
+            android:icon="@drawable/ic_tcf"
+            android:id="@+id/About_tcf19"
+            android:title="About TCF'19"/>
+    </group>
+    <group android:checkableBehavior="single"
+        android:id="@+id/group7">
+        <item
+            android:id="@+id/nitp_maps"
+            android:icon="@drawable/ic_menu_maps"
+            android:title="NITP Map" />
+    </group>
+
+    <group android:checkableBehavior="single"
+        android:id="@+id/group8">
+        <item
+
+            android:id="@+id/dev"
+            android:icon="@drawable/ic_developer_mode_black_24dp"
+            android:title="Developers" />
+    </group>
+    <group android:checkableBehavior="single"
+        android:id="@+id/group9">
+        <item
+
+            android:id="@+id/sasfill"
+            android:icon="@drawable/ic_developer_mode_black_24dp"
+            android:title="SAS Registration" />
+    </group>
+
+    <item
+
+        android:id="@+id/logout"
+        android:icon="@drawable/ic_log_out"
+        android:title="Log Out" />
+
+
+
+</menu>

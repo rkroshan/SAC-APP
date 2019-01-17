@@ -1,0 +1,41 @@
+{
+  "description" : "Round 1: Students from each year will compete in a pen and paper round .  After that 10 students from each year would be selected for round 2 on the basis of marks obtained in this round.  Round 2: 10 Teams would be divided containing 3 members( 1 member from each year),  who would then participate in a coding competition hosted on website.",
+  "endsAt" : 1547958624000,
+  "links" : [ {
+    "description" : "",
+    "url" : ""
+  }, {
+    "description" : "",
+    "url" : ""
+  } ],
+  "name" : "Algo Z Ripper",
+  "registrationDetail" : {
+    "endsAt" : 1547909908663,
+    "packages" : [ "technical-events", "technical-cultural-combo" ],
+    "restricted" : true,
+    "startsAt" : 1547391463360,
+    "type" : "solo"
+  },
+  "rounds" : [ {
+    "description" : " Students from each year will compete in a pen and paper round .  After that 10 students from each year would be selected for round 2 on the basis of marks obtained in this round. ",
+    "endsAt" : 1547982024000,
+    "name" : "round 1",
+    "rules" : [ {
+      "description" : "Pen and Paper Round."
+    } ],
+    "startsAt" : 1547973024000,
+    "type" : "pen and paper",
+    "venue" : "CWRS ( T1,T2,T3,T4,T5) , NIT PATNA."
+  }, {
+    "description" : "10 Teams would be divided containing 3 members( 1 member from each year),  who would then participate in a coding competition hosted on a coding platform.",
+    "endsAt" : 1548066624000,
+    "name" : "round 2",
+    "rules" : [ {
+      "description" : "All contestants must have id on codechef."
+    } ],
+    "startsAt" : 1548055824000,
+    "type" : "online test",
+    "venue" : "ONLINE (CODECHEF)"
+  } ],
+  "startsAt" : 1547973024000
+}

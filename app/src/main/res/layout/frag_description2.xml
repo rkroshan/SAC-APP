@@ -1,0 +1,294 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#01171d">
+
+    <android.support.v7.widget.Toolbar
+        android:id="@+id/toolbar_dashboard"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:gravity="center"
+        android:background="#ffffff"
+        app:popupTheme="@style/AppTheme.PopupOverlay">
+
+        <ImageView
+            android:id="@+id/description_back"
+            android:layout_width="wrap_content"
+            android:foregroundGravity="left"
+            android:layout_height="40dp"
+            android:src="@drawable/ic_keyboard_backspace_black_24dp"
+            android:layout_marginRight="8dp"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/event_name"
+            android:text="DESCRIPTION"
+            android:textSize="16sp"
+            android:textColor="#000000"
+            android:lineSpacingExtra="31sp"
+            android:textStyle="bold"/>
+
+    </android.support.v7.widget.Toolbar>
+
+    <android.support.v4.widget.NestedScrollView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentStart="true"
+        android:layout_marginStart="0dp"
+        android:layout_marginTop="0dp"
+        android:layout_below="@+id/toolbar_dashboard">
+
+        <android.support.constraint.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="#01171d">
+
+            <TextView
+                android:id="@+id/about_event"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="21dp"
+                android:layout_marginTop="13.3dp"
+
+                android:letterSpacing="0.02"
+                android:lineSpacingExtra="11sp"
+                android:text="About Event"
+                android:textColor="#ffffff"
+                android:textSize="10sp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.0"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintVertical_bias="0.006"
+                app:layout_goneMarginTop="11.5dp" />
+
+
+            <TextView
+                android:id="@+id/about_event_box"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="9dp"
+                android:layout_marginTop="11dp"
+                android:layout_marginRight="9dp"
+                android:background="@drawable/round_corner_rec"
+                android:backgroundTint="#253237"
+                android:letterSpacing="0.02"
+                android:lineSpacingExtra="8sp"
+                android:paddingLeft="20dp"
+                android:paddingRight="20dp"
+                android:text="Students have to design a semi autonomous pathfollower that will traverse the path given to it and identify the."
+                android:textColor="#aab1b3"
+                android:textSize="10sp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.0"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/about_event" />
+
+            <TextView
+                android:id="@+id/rules_tv"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="21dp"
+                android:layout_marginTop="20.3dp"
+                android:letterSpacing="0.02"
+                android:lineSpacingExtra="11sp"
+                android:text="Round wise Info &amp; Rules"
+                android:textColor="#ffffff"
+                android:textSize="10sp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/about_event_box" />
+
+            <android.support.v7.widget.RecyclerView
+                android:id="@+id/recyclerview_events"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="9dp"
+                android:layout_marginTop="12dp"
+                android:layout_marginRight="9dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/rules_tv">
+
+            </android.support.v7.widget.RecyclerView>
+
+            <TextView
+                android:id="@+id/description_temp4"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="9dp"
+                android:letterSpacing="0.02"
+                android:lineSpacingExtra="11sp"
+                android:text="TIME &amp; VENUE"
+                android:textColor="#ffffff"
+                android:textSize="10sp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.5"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/recyclerview_events" />
+
+            <android.support.v7.widget.RecyclerView
+                android:id="@+id/timeline_box"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="9dp"
+                android:layout_marginTop="12dp"
+                android:layout_marginRight="9dp"
+                android:background="@drawable/round_corner_rec"
+                android:backgroundTint="#253237"
+                android:paddingTop="20dp"
+                android:paddingBottom="20dp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/description_temp4">
+
+            </android.support.v7.widget.RecyclerView>
+
+            <TextView
+                android:id="@+id/attach"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="21dp"
+                android:layout_marginTop="23dp"
+                android:letterSpacing="0.02"
+                android:lineSpacingExtra="11sp"
+                android:text="External Links"
+                android:textColor="#fff"
+                android:textSize="10sp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/timeline_box" />
+
+            <android.support.v7.widget.RecyclerView
+                android:id="@+id/attachment_recycler"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="9dp"
+                android:layout_marginTop="11dp"
+                android:layout_marginRight="9dp"
+                android:paddingBottom="10dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/attach"></android.support.v7.widget.RecyclerView>
+
+        </android.support.constraint.ConstraintLayout>
+
+
+    </android.support.v4.widget.NestedScrollView>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="54dp"
+        android:visibility="gone"
+        android:layout_alignParentBottom="true"
+        android:orientation="horizontal"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent">
+
+
+        <android.support.constraint.ConstraintLayout
+            android:id="@+id/registerConstraint"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:visibility="gone"
+            android:layout_weight="1"
+            android:background="#f8f8f8">
+
+            <android.support.v7.widget.AppCompatImageView
+                android:id="@+id/ic_addition_desc"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="8dp"
+                android:layout_marginTop="8dp"
+                android:layout_marginEnd="8dp"
+                android:layout_marginBottom="8dp"
+                android:src="@drawable/ic_register"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.2"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintVertical_bias="0.565" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="11dp"
+                android:letterSpacing="0.02"
+                android:lineSpacingExtra="13sp"
+                android:id="@+id/register_yourself_tv"
+                android:text="Register Yourself"
+                android:textColor="#000000"
+                android:textSize="12sp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.0"
+                app:layout_constraintStart_toEndOf="@+id/ic_addition_desc"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintVertical_bias="0.5" />
+
+
+        </android.support.constraint.ConstraintLayout>
+
+        <TextView
+            android:layout_width="1dp"
+            android:layout_height="match_parent"
+            android:background="#253237"
+            android:text="0" />
+
+        <RelativeLayout
+            android:visibility="gone"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+
+            android:id="@+id/addToWishlist_constr"
+            android:background="#f8f8f8">
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerInParent="true">
+                <android.support.v7.widget.AppCompatImageView
+                    android:id="@+id/ic_heart_desc"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="8dp"
+                    android:layout_marginTop="8dp"
+                    android:layout_marginEnd="8dp"
+                    android:layout_marginBottom="8dp"
+                    android:src="@drawable/ic_heart"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_bias="0.2"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintVertical_bias="0.565" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="11dp"
+                    android:letterSpacing="0.02"
+                    android:textStyle="bold"
+                    android:lineSpacingExtra="13sp"
+                    android:id="@+id/add_to_wishlist_tv"
+                    android:text="Add to Wishlist"
+                    android:textColor="#000000"
+                    android:textSize="12sp"
+                    android:layout_marginTop="8dp"
+                    />
+
+            </LinearLayout>
+        </RelativeLayout>
+
+    </LinearLayout>
+
+</RelativeLayout>
+
