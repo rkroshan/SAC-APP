@@ -103,7 +103,7 @@ public class FragmentMyDashboard extends Fragment {
         mdialog.getWindow().getDecorView().setBackgroundResource(android.R.color.transparent);
         mdialog.getWindow().addFlags(WindowManager.LayoutParams.FLAG_BLUR_BEHIND);
         mdialog.getWindow().setLayout(ViewGroup.LayoutParams.WRAP_CONTENT, ViewGroup.LayoutParams.WRAP_CONTENT);
-        mdialog.show();
+        //mdialog.show();
         mdialog.setCanceledOnTouchOutside(false);
         mdialog.setCancelable(false);
         yesbtn = mdialog.findViewById(R.id.yes_btn);
@@ -116,7 +116,7 @@ public class FragmentMyDashboard extends Fragment {
                 ndialog.getWindow().getDecorView().setBackgroundResource(android.R.color.transparent);
                 ndialog.getWindow().addFlags(WindowManager.LayoutParams.FLAG_BLUR_BEHIND);
                 ndialog.getWindow().setLayout(ViewGroup.LayoutParams.WRAP_CONTENT, ViewGroup.LayoutParams.WRAP_CONTENT);
-                ndialog.show();
+                //ndialog.show();
                 seconddialogevent();
             }
         });

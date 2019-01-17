@@ -90,53 +90,12 @@ public class FragmentBlogsActivity extends Fragment {
     @Override
     public void onActivityCreated(@Nullable Bundle savedInstanceState) {
         super.onActivityCreated(savedInstanceState);
-        currentUserUID = "";
-        try {
+        blogsViewPagerAdapter=new BlogsViewPagerAdapter(getChildFragmentManager());
+        blogsViewPagerAdapter.addFragment(new BlogsFrag(),"All");
+        blogsViewPagerAdapter.addFragment(new MyBlogs(),"My Blogs");
 
-            currentUserUID = FirebaseAuth.getInstance().getCurrentUser().getUid();
-        } catch (Exception e) {
-        }
-        try {
-            dbProfile = FirebaseDatabase.getInstance().getReference().child(StringVariable.USERS).child(currentUserUID).child(StringVariable.APP).child(StringVariable.USER_IS_PROFILE_COMPLETED);
-            dbProfile.addListenerForSingleValueEvent(new ValueEventListener() {
-                @Override
-                public void onDataChange(DataSnapshot dataSnapshot) {
-//                    Log.e("complete",dataSnapshot.toString());
-                    Log.e("complete", String.valueOf(dataSnapshot.child(StringVariable.USER_IS_PROFILE_COMPLETED).getValue()));
-                    if (String.valueOf(dataSnapshot.getValue()).equalsIgnoreCase("0") ||
-                            String.valueOf(dataSnapshot.getValue()).equalsIgnoreCase("null")) {
-                        blogsViewPagerAdapter = new BlogsViewPagerAdapter(getChildFragmentManager());
-                        blogsViewPagerAdapter.addFragment(new RegisterNowFragment(), "All");
-                        blogsViewPagerAdapter.addFragment(new RegisterNowFragment(), "My Blogs");
-
-                        viewPager.setAdapter(blogsViewPagerAdapter);
-                        tabLayout.setupWithViewPager(viewPager);
-
-
-                    } else {
-                        blogsViewPagerAdapter = new BlogsViewPagerAdapter(getChildFragmentManager());
-                        blogsViewPagerAdapter.addFragment(new BlogsFrag(), "All");
-                        blogsViewPagerAdapter.addFragment(new MyBlogs(), "My Blogs");
-
-                        viewPager.setAdapter(blogsViewPagerAdapter);
-                        tabLayout.setupWithViewPager(viewPager);
-
-                    }
-                }
-
-                @Override
-                public void onCancelled(DatabaseError databaseError) {
-
-                }
-            });
-        } catch (Exception e) {
-        }
-//        blogsViewPagerAdapter=new BlogsViewPagerAdapter(getChildFragmentManager());
-//        blogsViewPagerAdapter.addFragment(new BlogsFrag(),"All");
-//        blogsViewPagerAdapter.addFragment(new MyBlogs(),"My Blogs");
-//
-//        viewPager.setAdapter(blogsViewPagerAdapter);
-//        tabLayout.setupWithViewPager(viewPager);
+        viewPager.setAdapter(blogsViewPagerAdapter);
+        tabLayout.setupWithViewPager(viewPager);
         SharedPreferences sharedPreferences = getActivity().getSharedPreferences(StringVariable.UserData_SharedPreference, Context.MODE_PRIVATE);
         Gson gson = new Gson();
         String data = sharedPreferences.getString(StringVariable.UserData_Object_SharedPref, "");

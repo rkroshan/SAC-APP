@@ -16,11 +16,11 @@ import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import com.rajatv.surajv.roshank.sac.AnalyticsApplication;
 import com.google.android.gms.analytics.HitBuilders;
 import com.google.android.gms.analytics.Tracker;
+import com.rajatv.surajv.roshank.sac.AnalyticsApplication;
 import com.rajatv.surajv.roshank.sac.R;
-import com.rajatv.surajv.roshank.sac.StringVariable;
+
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;
@@ -31,6 +31,7 @@ import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 import com.google.gson.Gson;
+import com.rajatv.surajv.roshank.sac.StringVariable;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -198,8 +199,8 @@ public class Login_activity extends AppCompatActivity implements View.OnClickLis
 
             @Override
             public void onCancelled(@NonNull DatabaseError databaseError) {
-                    progressDialog.dismiss();
-                    Toast.makeText(getApplicationContext(),databaseError.toString(),Toast.LENGTH_SHORT).show();
+                progressDialog.dismiss();
+                Toast.makeText(getApplicationContext(),databaseError.toString(),Toast.LENGTH_SHORT).show();
             }
         });
     }
@@ -272,3 +273,4 @@ public class Login_activity extends AppCompatActivity implements View.OnClickLis
                 .build());
     }
 }
+

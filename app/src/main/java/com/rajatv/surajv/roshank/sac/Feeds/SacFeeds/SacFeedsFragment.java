@@ -156,56 +156,13 @@ public class SacFeedsFragment extends Fragment implements View.OnClickListener {
     private void init(View v) {
 
         feeds_home_viewPagerAdapter = new Feeds_Home_ViewPagerAdapter(getChildFragmentManager());
+        feeds_home_viewPagerAdapter.addFragment(new FeedsAllFrag(), "All");
+        feeds_home_viewPagerAdapter.addFragment(new FeedsNoticeFrag(), "Notice");
+        feeds_home_viewPagerAdapter.addFragment(new FeedsResultFrag(), "Results");
 
-        currentUserUID="";
-        try {
-            currentUserUID=FirebaseAuth.getInstance().getCurrentUser().getUid();
-        }
-        catch (Exception e){}
-        try {
-            dbProfile=FirebaseDatabase.getInstance().getReference().child(StringVariable.USERS).child(currentUserUID).child(StringVariable.APP).child(StringVariable.USER_IS_PROFILE_COMPLETED);
-            dbProfile.addListenerForSingleValueEvent(new ValueEventListener() {
-                @Override
-                public void onDataChange(DataSnapshot dataSnapshot) {
-//                    Log.e("complete",dataSnapshot.toString());
-                    Log.e("complete",String.valueOf(dataSnapshot.child(StringVariable.USER_IS_PROFILE_COMPLETED).getValue()));
-                    if(String.valueOf(dataSnapshot.getValue()).equalsIgnoreCase("0") ||
-                            String.valueOf(dataSnapshot.getValue()).equalsIgnoreCase("null")){
-                        feeds_home_viewPagerAdapter.addFragment(new RegisterNowFragment(), "All");
-                        feeds_home_viewPagerAdapter.addFragment(new RegisterNowFragment(), "Notice");
-                        feeds_home_viewPagerAdapter.addFragment(new RegisterNowFragment(), "Results");
-                        viewPager.setAdapter(feeds_home_viewPagerAdapter);
+        viewPager.setAdapter(feeds_home_viewPagerAdapter);
 
-                        tabLayout.setupWithViewPager(viewPager);
-
-
-                    }
-                    else {
-                        feeds_home_viewPagerAdapter.addFragment(new FeedsAllFrag(), "All");
-                        feeds_home_viewPagerAdapter.addFragment(new FeedsNoticeFrag(), "Notice");
-                        feeds_home_viewPagerAdapter.addFragment(new FeedsResultFrag(), "Results");
-                        viewPager.setAdapter(feeds_home_viewPagerAdapter);
-
-                        tabLayout.setupWithViewPager(viewPager);
-
-
-                    }
-                }
-
-                @Override
-                public void onCancelled(DatabaseError databaseError) {
-
-                }
-            });
-        }
-        catch (Exception e){}
-//        feeds_home_viewPagerAdapter.addFragment(new FeedsAllFrag(), "All");
-//        feeds_home_viewPagerAdapter.addFragment(new FeedsNoticeFrag(), "Notice");
-//        feeds_home_viewPagerAdapter.addFragment(new FeedsResultFrag(), "Results");
-
-//        viewPager.setAdapter(feeds_home_viewPagerAdapter);
-//
-//        tabLayout.setupWithViewPager(viewPager);
+        tabLayout.setupWithViewPager(viewPager);
 
         /*refresh_layout = v.findViewById(R.id.refresh_layout);
         refresh_layout.setColorSchemeResources(R.color.colorAccent);
