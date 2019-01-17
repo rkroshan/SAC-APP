@@ -662,20 +662,27 @@ dbref2.addValueEventListener(new ValueEventListener() {
                 .build());
         auth.addAuthStateListener(authStateListener);
         super.onStart();
+        try {
+            SharedPreferences sharedPreferences = this.getSharedPreferences("loadonce", Context.MODE_PRIVATE);
+            int data = sharedPreferences.getInt("once", 0);
+            if (data == 0) {
+                //Not registered.
+                navigation.setSelectedItemId(R.id.navigation_dashboard);
+                navigation.findViewById(R.id.navigation_dashboard).performClick();
+                SharedPreferences.Editor editor = sharedPreferences.edit();
+                editor.putInt("once", 1);
+                editor.apply();
+            }
+            if (data == 1) {
+                //registered.
+                navigation.setSelectedItemId(R.id.navigation_sacfeeds);
+                navigation.findViewById(R.id.navigation_sacfeeds).performClick();
+            }
 
-        SharedPreferences sharedPreferences = this.getSharedPreferences("MemberPref", Context.MODE_PRIVATE);
-        int data = sharedPreferences.getInt("Memberbox", 0);
-        if (data == 0) {
-            //Not registered.
-            navigation.setSelectedItemId(R.id.navigation_dashboard);
-            navigation.findViewById(R.id.navigation_dashboard).performClick();
-        }
-        if(data==1){
-            //registered.
-        }
+        }catch (Exception e){
 
+        }
     }
-
 
     @Override
     public void onStop() {
