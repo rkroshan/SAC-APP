@@ -69,7 +69,7 @@
 
             android:id="@+id/sasfill"
             android:icon="@drawable/ic_developer_mode_black_24dp"
-            android:title="SAS Registration" />
+            android:title="SAS/TCF Registration" />
     </group>
 
     <item
