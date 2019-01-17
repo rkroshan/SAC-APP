@@ -97,8 +97,8 @@ public class BydateFragment extends Fragment {
                     }
 
                 }
-                    Log.e("bydate5",fDate.toString());
-                    Log.e("bydate5",event.toString());
+//                    Log.e("bydate5",fDate.toString());
+//                    Log.e("bydate5",event.toString());
                 recyclerViewAdapter.notifyDataSetChanged();
 
                 }catch (Exception e){

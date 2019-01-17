@@ -75,52 +75,14 @@ public class TrendingBloggerFragment extends Fragment {
         super.onActivityCreated(savedInstanceState);
         currentUserUID="";
         currentUserUID=FirebaseAuth.getInstance().getCurrentUser().getUid();
-        viewPagerAdapter = new ViewPagerAdapter(getChildFragmentManager());
         Log.e("currentuseruid",currentUserUID);
+        viewPagerAdapter = new ViewPagerAdapter(getChildFragmentManager());
+        viewPagerAdapter.addFragment(new TrendingFragment(),StringVariable.PERSONALITY);
+        viewPagerAdapter.addFragment(new BloggerFragment(),StringVariable.BLOGGER);
 
-        try {
-            dbProfile=FirebaseDatabase.getInstance().getReference().child(StringVariable.USERS).child(currentUserUID).child(StringVariable.APP).child(StringVariable.USER_IS_PROFILE_COMPLETED);
-            dbProfile.addListenerForSingleValueEvent(new ValueEventListener() {
-                @Override
-                public void onDataChange(DataSnapshot dataSnapshot) {
-//                    Log.e("complete",dataSnapshot.toString());
-                    Log.e("complete",String.valueOf(dataSnapshot.getValue()));
-                    if(String.valueOf(dataSnapshot.getValue()).equalsIgnoreCase("0") ||
-                            String.valueOf(dataSnapshot.getValue()).equalsIgnoreCase("null")){
+        viewPagerAdapter.addFragment(new TrendingFragment(),StringVariable.PERSONALITY);
+        viewPagerAdapter.addFragment(new BloggerFragment(),StringVariable.BLOGGER);
 
-                        viewPagerAdapter.addFragment(new RegisterNowFragment(),StringVariable.PERSONALITY);
-                        viewPagerAdapter.addFragment(new RegisterNowFragment(),StringVariable.BLOGGER);
-
-                        viewPager.setAdapter(viewPagerAdapter);
-
-                        tablayout.setupWithViewPager(viewPager);
-
-                    }
-                    else {
-                        viewPagerAdapter.addFragment(new TrendingFragment(),StringVariable.PERSONALITY);
-                        viewPagerAdapter.addFragment(new BloggerFragment(),StringVariable.BLOGGER);
-
-                        viewPager.setAdapter(viewPagerAdapter);
-
-                        tablayout.setupWithViewPager(viewPager);
-
-
-                    }
-                }
-
-                @Override
-                public void onCancelled(DatabaseError databaseError) {
-
-                }
-            });
-        }
-        catch (Exception e){}
-//        viewPagerAdapter.addFragment(new TrendingFragment(),StringVariable.PERSONALITY);
-//        viewPagerAdapter.addFragment(new BloggerFragment(),StringVariable.BLOGGER);
-
-//        viewPagerAdapter.addFragment(new TrendingFragment(),StringVariable.PERSONALITY);
-//        viewPagerAdapter.addFragment(new BloggerFragment(),StringVariable.BLOGGER);
-//
         viewPager.setAdapter(viewPagerAdapter);
 
         tablayout.setupWithViewPager(viewPager);

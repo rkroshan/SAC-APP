@@ -650,6 +650,7 @@ dbref2.addValueEventListener(new ValueEventListener() {
                 }
                 // ...
             }
+
         };
 
         mTracker.send(new HitBuilders.ScreenViewBuilder().build());
@@ -659,6 +660,10 @@ dbref2.addValueEventListener(new ValueEventListener() {
                 .build());
         auth.addAuthStateListener(authStateListener);
         super.onStart();
+
+        navigation.setSelectedItemId(R.id.navigation_dashboard);
+        navigation.findViewById(R.id.navigation_dashboard).performClick();
+
     }
 
 

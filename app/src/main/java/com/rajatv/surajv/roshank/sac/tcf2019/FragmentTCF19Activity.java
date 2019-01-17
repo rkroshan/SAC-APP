@@ -7,6 +7,7 @@ import android.support.annotation.Nullable;
 import android.support.design.widget.TabLayout;
 import android.support.v4.app.Fragment;
 import android.support.v4.view.ViewPager;
+import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.util.Log;
 import android.view.LayoutInflater;
@@ -38,7 +39,6 @@ public class FragmentTCF19Activity extends Fragment {
 
 
     private TabLayout tabLayout;
-    private DatabaseReference dbProfile;
     String currentUserUID;
     private ViewPager viewPager;
     private TCF19HomeViewPagerAdapter tcfViewPagerAdapter;
@@ -65,66 +65,17 @@ private Toolbar toolbar;
         super.onActivityCreated(savedInstanceState);
         setHasOptionsMenu(true);
 
-        currentUserUID="";
-        try {
-            currentUserUID=FirebaseAuth.getInstance().getCurrentUser().getUid();
-        }
-        catch (Exception e){}
-        try {
-            dbProfile=FirebaseDatabase.getInstance().getReference().child(StringVariable.USERS).child(currentUserUID).child(StringVariable.APP).child(StringVariable.USER_IS_PROFILE_COMPLETED);
-            dbProfile.addListenerForSingleValueEvent(new ValueEventListener() {
-                @Override
-                public void onDataChange(DataSnapshot dataSnapshot) {
-//                    Log.e("complete",dataSnapshot.toString());
-                    Log.e("complete",String.valueOf(dataSnapshot.getValue()));
-                    if(String.valueOf(dataSnapshot.getValue()).equalsIgnoreCase("0") ||
-                            String.valueOf(dataSnapshot.getValue()).equalsIgnoreCase("null")){
-                        tcfViewPagerAdapter = new TCF19HomeViewPagerAdapter(getChildFragmentManager());
-                        tcfViewPagerAdapter.addFragment(new RegisterNowFragment(), "Home");
-                        tcfViewPagerAdapter.addFragment(new RegisterNowFragment(), "Technical");
-                        tcfViewPagerAdapter.addFragment(new RegisterNowFragment(), "Cultural");
-                        tcfViewPagerAdapter.addFragment(new RegisterNowFragment(), "Fun Events"); //Testing
-                        tcfViewPagerAdapter.addFragment(new SponsorFragment(), "Sponsors");
-                        viewPager.setAdapter(tcfViewPagerAdapter);
+        tcfViewPagerAdapter = new TCF19HomeViewPagerAdapter(getChildFragmentManager());
+        tcfViewPagerAdapter.addFragment(new TCFHomeFrag(), "Home");
+        tcfViewPagerAdapter.addFragment(new TechnicalEventsFrag(), "Technical");
+        tcfViewPagerAdapter.addFragment(new CulturalEventsFrag(), "Cultural");
+        tcfViewPagerAdapter.addFragment(new FunEventsFrag(), "Fun Events"); //Testing
+        tcfViewPagerAdapter.addFragment(new SponsorFragment(), "Sponsors");
 
-                        tabLayout.setupWithViewPager(viewPager);
-
-
-                    }
-                    else {
-                        tcfViewPagerAdapter = new TCF19HomeViewPagerAdapter(getChildFragmentManager());
-                        tcfViewPagerAdapter.addFragment(new TCFHomeFrag(), "Home");
-                        tcfViewPagerAdapter.addFragment(new TechnicalEventsFrag(), "Technical");
-                        tcfViewPagerAdapter.addFragment(new CulturalEventsFrag(), "Cultural");
-                        tcfViewPagerAdapter.addFragment(new FunEventsFrag(), "Fun Events"); //Testing
-                        tcfViewPagerAdapter.addFragment(new SponsorFragment(), "Sponsors");
-
-                        viewPager.setAdapter(tcfViewPagerAdapter);
-
-                        tabLayout.setupWithViewPager(viewPager);
-
-
-                    }
-                }
-
-                @Override
-                public void onCancelled(DatabaseError databaseError) {
-
-                }
-            });
-        }
-        catch (Exception e){}
-//        tcfViewPagerAdapter = new TCF19HomeViewPagerAdapter(getChildFragmentManager());
-//        tcfViewPagerAdapter.addFragment(new TCFHomeFrag(), "Home");
-//        tcfViewPagerAdapter.addFragment(new TechnicalEventsFrag(), "Technical");
-//        tcfViewPagerAdapter.addFragment(new CulturalEventsFrag(), "Cultural");
-//        tcfViewPagerAdapter.addFragment(new FunEventsFrag(), "Fun Events"); //Testing
-//        tcfViewPagerAdapter.addFragment(new SponsorFragment(), "Sponsors");
-//
-//        viewPager.setAdapter(tcfViewPagerAdapter);
-//        tabLayout.setupWithViewPager(viewPager);
+        viewPager.setAdapter(tcfViewPagerAdapter);
+        tabLayout.setupWithViewPager(viewPager);
 //        toolbar=((AppCompatActivity)getActivity()).getSupportActionBar();
- //       toolbar.setDisplayShowCustomEnabled(true);
+//        toolbar.setDisplayShowCustomEnabled(true);
 //
 /*
     @Override
