@@ -45,6 +45,8 @@ dependencies {
     implementation 'pl.droidsonroids.gif:android-gif-drawable:1.1.0'
     implementation 'com.github.devlight:infinitecycleviewpager:1.0.2'
     implementation 'com.google.android.gms:play-services-analytics:15.0.2'
+    implementation 'com.google.firebase:firebase-crash:15.0.2'
+    implementation 'com.google.firebase:firebase-messaging:15.0.2'
 
 
 }

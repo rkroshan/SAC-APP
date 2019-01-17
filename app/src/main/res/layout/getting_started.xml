@@ -144,7 +144,6 @@
     </android.support.constraint.ConstraintLayout>
 
     <android.support.constraint.ConstraintLayout
-        android:visibility="gone"
         android:id="@+id/constraintLayout4"
         android:layout_width="240dp"
         android:layout_height="wrap_content"
