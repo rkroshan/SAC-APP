@@ -109,7 +109,7 @@ public class SplashActivity extends AppCompatActivity implements View.OnClickLis
         progressDialog.setCancelable(false);
 
         toolbar = getSupportActionBar();
-     //   toolbar.hide();
+        //   toolbar.hide();
 
 
 
@@ -183,53 +183,53 @@ public class SplashActivity extends AppCompatActivity implements View.OnClickLis
         //checkingUserExist();
 
         viewPager.addOnPageChangeListener(new ViewPager.OnPageChangeListener() {
-    @Override
-    public void onPageScrolled(int i, float v, int i1) {
+            @Override
+            public void onPageScrolled(int i, float v, int i1) {
 
-    }
-    @Override
-    public void onPageSelected(int i) {
-        addBottomDots(i);
+            }
+            @Override
+            public void onPageSelected(int i) {
+                addBottomDots(i);
 
 
-        if(i==layouts.length-1)
-        {
-            // next_slide.setVisibility(View.GONE);
-            constraintLayout3.setVisibility(View.VISIBLE);
-//            constraintLayout4.setVisibility(View.VISIBLE);
-            constraintLayout5.setVisibility(View.VISIBLE);
+                if(i==layouts.length-1)
+                {
+                    // next_slide.setVisibility(View.GONE);
+                    constraintLayout3.setVisibility(View.VISIBLE);
+                    constraintLayout4.setVisibility(View.VISIBLE);
+                    constraintLayout5.setVisibility(View.VISIBLE);
 
-            SharedPreferences.Editor editor = sharedprefsFirstRun.edit();
-            editor.putInt("first", 1);
-            editor.commit();
-        }
-        else
-        {
-            constraintLayout3.setVisibility(View.GONE);
-            constraintLayout4.setVisibility(View.GONE);
-            constraintLayout5.setVisibility(View.GONE);
-        }
-        if(i==layouts.length-2 || i==layouts.length-3 || i==layouts.length-4 || i==layouts.length-5)
-        {
-            skipButton.setVisibility(View.VISIBLE);
-        }
-        else {
-            skipButton.setVisibility(View.GONE);
-        }
-        if(i==5 || i==1 || i==2 || i==3 || i==4)
-        {
-            whatsNew.setVisibility(View.VISIBLE);
-        }
-        else {
-            whatsNew.setVisibility(View.GONE);
-        }
-    }
+                    SharedPreferences.Editor editor = sharedprefsFirstRun.edit();
+                    editor.putInt("first", 1);
+                    editor.commit();
+                }
+                else
+                {
+                    constraintLayout3.setVisibility(View.GONE);
+                    constraintLayout4.setVisibility(View.GONE);
+                    constraintLayout5.setVisibility(View.GONE);
+                }
+                if(i==layouts.length-2 || i==layouts.length-3 || i==layouts.length-4 || i==layouts.length-5)
+                {
+                    skipButton.setVisibility(View.VISIBLE);
+                }
+                else {
+                    skipButton.setVisibility(View.GONE);
+                }
+                if(i==5 || i==1 || i==2 || i==3 || i==4)
+                {
+                    whatsNew.setVisibility(View.VISIBLE);
+                }
+                else {
+                    whatsNew.setVisibility(View.GONE);
+                }
+            }
 
-    @Override
-    public void onPageScrollStateChanged(int i) {
+            @Override
+            public void onPageScrollStateChanged(int i) {
 
-    }
-});
+            }
+        });
 
         skipButton.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -431,28 +431,28 @@ public class SplashActivity extends AppCompatActivity implements View.OnClickLis
     }
 
     private int getItem(int i) {
-    Log.e("CurrentItem",String.valueOf(viewPager.getCurrentItem()+i));
+        Log.e("CurrentItem",String.valueOf(viewPager.getCurrentItem()+i));
 
-    return viewPager.getCurrentItem() + i;
-}
+        return viewPager.getCurrentItem() + i;
+    }
     private void addBottomDots(int position)
-        {
-            dots = new TextView[layouts.length];
-            int colorActive = Color.parseColor("#2bff85");
-            int colorInactive = Color.parseColor("#7a8689");
+    {
+        dots = new TextView[layouts.length];
+        int colorActive = Color.parseColor("#2bff85");
+        int colorInactive = Color.parseColor("#7a8689");
 
-            dotsBar.removeAllViews();
-            for(int i=0; i<dots.length; i++)
-            {
-                dots[i] = new TextView(this);
-                dots[i].setText(Html.fromHtml("&#8226;"));
-                dots[i].setTextSize(35);
-                dots[i].setTextColor(colorInactive);
-                dotsBar.addView(dots[i]);
-            }
-            if(dots.length>0)
-                dots[position].setTextColor(colorActive);
+        dotsBar.removeAllViews();
+        for(int i=0; i<dots.length; i++)
+        {
+            dots[i] = new TextView(this);
+            dots[i].setText(Html.fromHtml("&#8226;"));
+            dots[i].setTextSize(35);
+            dots[i].setTextColor(colorInactive);
+            dotsBar.addView(dots[i]);
         }
+        if(dots.length>0)
+            dots[position].setTextColor(colorActive);
+    }
 
 
       /*  next_slide.setOnClickListener(new View.OnClickListener() {

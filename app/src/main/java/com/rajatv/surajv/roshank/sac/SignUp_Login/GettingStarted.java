@@ -20,18 +20,15 @@ import android.widget.Button;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import com.rajatv.surajv.roshank.sac.AnalyticsApplication;
 import com.google.android.gms.analytics.HitBuilders;
 import com.google.android.gms.analytics.Tracker;
-import com.rajatv.surajv.roshank.sac.BottomNavigationActivity;
-import com.rajatv.surajv.roshank.sac.R;
-import com.rajatv.surajv.roshank.sac.StringVariable;
 import com.google.android.gms.auth.api.Auth;
 import com.google.android.gms.auth.api.signin.GoogleSignInAccount;
 import com.google.android.gms.auth.api.signin.GoogleSignInOptions;
 import com.google.android.gms.auth.api.signin.GoogleSignInResult;
 import com.google.android.gms.common.ConnectionResult;
 import com.google.android.gms.common.api.GoogleApiClient;
+import com.rajatv.surajv.roshank.sac.R;
 //import com.google.android.gms.common.oob.SignUp;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
@@ -46,7 +43,9 @@ import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 import com.google.gson.Gson;
-
+import com.rajatv.surajv.roshank.sac.AnalyticsApplication;
+import com.rajatv.surajv.roshank.sac.BottomNavigationActivity;
+import com.rajatv.surajv.roshank.sac.StringVariable;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -106,7 +105,6 @@ public class GettingStarted extends AppCompatActivity implements View.OnClickLis
         constraintLayout3.setOnClickListener(this);
         constraintLayout4.setOnClickListener(this);
         textView7.setOnClickListener(this);
-
 
         //
         sharedPreferences = getSharedPreferences(StringVariable.UserData_SharedPreference, MODE_PRIVATE);
@@ -244,9 +242,9 @@ public class GettingStarted extends AppCompatActivity implements View.OnClickLis
                     String name = "";
                     String photo = "";
                     try{
-                       mailid = auth.getCurrentUser().getEmail();
-                       name = auth.getCurrentUser().getDisplayName();
-                       photo = auth.getCurrentUser().getPhotoUrl().toString();
+                        mailid = auth.getCurrentUser().getEmail();
+                        name = auth.getCurrentUser().getDisplayName();
+                        photo = auth.getCurrentUser().getPhotoUrl().toString();
                     }
                     catch (Exception e){
                         Log.e("Getting Started",e.getMessage());
@@ -279,18 +277,18 @@ public class GettingStarted extends AppCompatActivity implements View.OnClickLis
         String key = auth.getCurrentUser().getUid();
         DatabaseReference db = FirebaseDatabase.getInstance().getReference().child(StringVariable.USERS).child(key);
 
-            db.child(StringVariable.USER_ADMIN).setValue(0);
-            db.child(StringVariable.USER_email).setValue(mailid);
-            db.child(StringVariable.USER_name).setValue(name);
-            db.child(StringVariable.USER_USER_UID).setValue(key);
+        db.child(StringVariable.USER_ADMIN).setValue(0);
+        db.child(StringVariable.USER_email).setValue(mailid);
+        db.child(StringVariable.USER_name).setValue(name);
+        db.child(StringVariable.USER_USER_UID).setValue(key);
 
 
-            db.child(StringVariable.USER_EMAIL_VERIFIED).setValue(1);
-            db.child(StringVariable.USER_IMAGE).setValue(photo);
+        db.child(StringVariable.USER_EMAIL_VERIFIED).setValue(1);
+        db.child(StringVariable.USER_IMAGE).setValue(photo);
 
-            db.child(StringVariable.APP).child(StringVariable.USER_IS_PROFILE_COMPLETED).setValue(0);
+        db.child(StringVariable.APP).child(StringVariable.USER_IS_PROFILE_COMPLETED).setValue(0);
 
-            //sending email verification
+        //sending email verification
         auth.getCurrentUser().sendEmailVerification();
 
 
@@ -366,7 +364,7 @@ public class GettingStarted extends AppCompatActivity implements View.OnClickLis
 
                             }
                         });
-                        alertDialog.setNegativeButton("OK", new DialogInterface.OnClickListener() {
+                        alertDialog.setNegativeButton("NO", new DialogInterface.OnClickListener() {
                             public void onClick(DialogInterface dialog, int which) {
                                 dialog.cancel();
                             }

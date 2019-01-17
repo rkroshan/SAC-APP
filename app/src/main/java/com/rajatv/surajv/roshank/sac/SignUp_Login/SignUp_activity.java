@@ -31,7 +31,6 @@ import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 import com.google.gson.Gson;
-
 import java.util.HashMap;
 import java.util.Map;
 
@@ -250,8 +249,8 @@ public class SignUp_activity extends AppCompatActivity implements View.OnClickLi
 
             @Override
             public void onCancelled(DatabaseError databaseError) {
-                    progressDialog.dismiss();
-                    nextActivity();
+                progressDialog.dismiss();
+                nextActivity();
             }
         });
 
@@ -268,3 +267,4 @@ public class SignUp_activity extends AppCompatActivity implements View.OnClickLi
                 .build());
     }
 }
+
