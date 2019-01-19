@@ -149,7 +149,7 @@
                 android:backgroundTint="#ffffff"
                 android:lineSpacingExtra="16sp"
                 android:textStyle="bold"
-                android:layout_marginBottom="20dp"
+                android:layout_marginBottom="10dp"
                 android:textAlignment="center"
                 android:gravity="center_vertical"
                 android:textColor="#d50000"
@@ -170,60 +170,74 @@
                 android:text="TCF ID"/>
 
 
-
-            <TextView
+            <LinearLayout
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:textSize="10sp"
-                android:textColor="#bdbfc1"
-                android:letterSpacing="0.02"
-                android:lineSpacingExtra="11sp"
-                android:text="Crowns"
-                android:id="@+id/crown_textview"
-                android:layout_alignLeft="@id/others_profile_tcf_id"
                 android:layout_below="@id/others_profile_tcf_id"
-                android:paddingLeft="31sp"
-                android:visibility="invisible"
-                android:layout_centerHorizontal="true"
-                />
+                android:visibility="gone"
+                android:layout_marginBottom="5dp"
+                android:id="@+id/crownLayout1"
+                android:layout_centerHorizontal="true">
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textSize="12sp"
+                    android:textColor="#bdbfc1"
+                    android:lineSpacingExtra="11sp"
+                    android:text="Crowns:"
+                    android:id="@+id/crown_textview1"
+                    />
 
-            <ImageView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:backgroundTint="#ffe733"
-                android:background="@drawable/ic_crown_down"
-                android:layout_toRightOf="@id/crown_textview"
-                android:layout_marginBottom="2dp"
-                android:visibility="invisible"
-                android:layout_alignBottom="@id/crown_textview"
-                android:layout_marginLeft="11.5dp"
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content">
+                    <ImageView
+                        android:id="@+id/crownsImageView1"
+                        android:layout_width="15dp"
+                        android:layout_height="15dp"
+                        android:layout_gravity="center_vertical"
+                        android:background="@drawable/ic_crown_down2"
+                        android:layout_marginLeft="11.5dp"
 
-                />
+                        />
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:textSize="12sp"
+                        android:layout_gravity="center_vertical"
+                        android:textColor="#bdbfc1"
+                        android:lineSpacingExtra="11sp"
+                        android:text="0"
+                        android:id="@+id/totalCrowns1"
+                        android:paddingLeft="5dp"
+                        />
+                    <ImageView
+                        android:id="@+id/crownsImageView2"
+                        android:layout_width="15dp"
+                        android:layout_height="15dp"
+                        android:layout_gravity="center_vertical"
+                        android:background="@drawable/ic_crown_down1"
+                        android:layout_marginLeft="11.5dp"
 
-            <ImageView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_alignBottom="@id/crown_textview"
-                android:layout_marginLeft="30.5dp"
-                android:layout_marginBottom="2dp"
-                android:layout_toRightOf="@id/crown_textview"
-                android:background="@drawable/ic_crown_down"
-                android:visibility="invisible"
-                android:backgroundTint="#ffe733"
+                        />
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:textSize="12sp"
+                        android:layout_gravity="center_vertical"
+                        android:textColor="#bdbfc1"
+                        android:lineSpacingExtra="11sp"
+                        android:text="0"
+                        android:id="@+id/totalCrowns2"
+                        android:paddingLeft="5dp"
+                        />
+                </LinearLayout>
 
-                />
-            <ImageView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:backgroundTint="#ffe733"
-                android:background="@drawable/ic_crown_down"
-                android:layout_toRightOf="@id/crown_textview"
-                android:visibility="invisible"
-                android:layout_marginBottom="2dp"
-                android:layout_alignBottom="@id/crown_textview"
-                android:layout_marginLeft="49.5dp"
+            </LinearLayout>
 
-                />
+
+
+
         </RelativeLayout>
         <RelativeLayout
             android:id="@+id/designationRelativeLayout"

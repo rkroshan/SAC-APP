@@ -21,10 +21,12 @@ import android.view.animation.LinearInterpolator;
 import android.view.animation.RotateAnimation;
 import android.widget.Button;
 import android.widget.ImageView;
+import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.google.firebase.auth.FirebaseAuth;
 import com.rajatv.surajv.roshank.sac.R;
 import com.rajatv.surajv.roshank.sac.StringVariable;
 import com.facebook.drawee.view.SimpleDraweeView;
@@ -51,6 +53,13 @@ public class ProfileRegisteredFragment extends Fragment implements View.OnClickL
     private Snackbar mySnackbar;
     private ProgressDialog progressDialog;
     private RelativeLayout rel_b,rel_p;
+    private DatabaseReference crowndb;
+//    LinearLayout crownLayout;
+//    private TextView totalCrowns;
+    TextView totalCrowns1,totalCrowns2;
+    LinearLayout crownLayout1;
+    ImageView crownsImageView1,crownsImageView2;
+
 
     View view;
     @Nullable
@@ -81,7 +90,16 @@ public class ProfileRegisteredFragment extends Fragment implements View.OnClickL
         recheck_button = v.findViewById(R.id.recheck_button);
         digital_id_button = v.findViewById(R.id.digital_id_button);
         FOLLOW_STEPS_BOX = v.findViewById(R.id.FOLLOW_STEPS_BOX);
-        crownsBar=v.findViewById(R.id.crownsBar);
+        //crownsBar=v.findViewById(R.id.crownsBar);
+//        crownLayout=v.findViewById(R.id.crownLayout);
+//        totalCrowns=v.findViewById(R.id.totalCrowns);
+        totalCrowns1=view.findViewById(R.id.totalCrowns1);
+        crownLayout1=view.findViewById(R.id.crownLayout1);
+        totalCrowns2=view.findViewById(R.id.totalCrowns2);
+        // crownLayout2=view.findViewById(R.id.crownLayout2);
+        crownsImageView1=view.findViewById(R.id.crownsImageView1);
+        crownsImageView2=view.findViewById(R.id.crownsImageView2);
+
 
         getData();
 
@@ -134,7 +152,7 @@ public class ProfileRegisteredFragment extends Fragment implements View.OnClickL
             paying_status_textview.setText("Unpaid");
             paying_status_textview.setTextColor(ContextCompat.getColor(getActivity(),R.color.unpaid_color));
             FOLLOW_STEPS_BOX.setVisibility(View.VISIBLE);
-            crownsBar.setVisibility(View.GONE);
+//            crownsBar.setVisibility(View.GONE);
         }
 
 
@@ -291,7 +309,96 @@ public class ProfileRegisteredFragment extends Fragment implements View.OnClickL
         }catch (Exception e){
 //            Log.e("quote--",e.getMessage());
             quoteTextView.setText("-");
+
+
+
+
         }
+
+        try {
+            crowndb=FirebaseDatabase.getInstance().getReference().child(StringVariable.USERS).child(FirebaseAuth.getInstance().getCurrentUser().getUid()).child(StringVariable.APP).child(StringVariable.TRENDING_DATA);
+
+        }
+        catch (Exception e){}
+        try{
+
+            crowndb.addListenerForSingleValueEvent(new ValueEventListener() {
+                @Override
+                public void onDataChange(DataSnapshot dataSnapshot) {
+                    // Log.e("crowns",String.valueOf(dataSnapshot.getValue()));
+                    if(String.valueOf(dataSnapshot.child(StringVariable.BLOGGER).child(StringVariable.USER_TRENDING_OFTHEDAY).getValue()).equalsIgnoreCase("null")
+                            || String.valueOf(dataSnapshot.child(StringVariable.BLOGGER).child(StringVariable.USER_TRENDING_OFTHEDAY).getValue()).equalsIgnoreCase("0"))
+                    {
+                        if(String.valueOf(dataSnapshot.child(StringVariable.PERSONALITY).child(StringVariable.USER_TRENDING_OFTHEDAY).getValue()).equalsIgnoreCase("null")
+                                || String.valueOf(dataSnapshot.child(StringVariable.PERSONALITY).child(StringVariable.USER_TRENDING_OFTHEDAY).getValue()).equalsIgnoreCase("0"))
+                            crownLayout1.setVisibility(View.GONE);
+
+                    }
+
+
+
+                    if(String.valueOf(dataSnapshot.child(StringVariable.BLOGGER).child(StringVariable.USER_TRENDING_OFTHEDAY).getValue()).equalsIgnoreCase("null") || String.valueOf(dataSnapshot.child(StringVariable.BLOGGER).child(StringVariable.USER_TRENDING_OFTHEDAY).getValue()).equalsIgnoreCase("0"))
+                    {
+                        crownsImageView2.setVisibility(View.GONE);
+                        totalCrowns2.setVisibility(View.GONE);
+
+
+                    }
+                    else
+                    {
+                        crownLayout1.setVisibility(View.VISIBLE);
+                        totalCrowns2.setText("X "+String.valueOf(dataSnapshot.child(StringVariable.BLOGGER).child(StringVariable.USER_TRENDING_OFTHEDAY).getValue()));
+                    }
+                    if(String.valueOf(dataSnapshot.child(StringVariable.PERSONALITY).child(StringVariable.USER_TRENDING_OFTHEDAY).getValue()).equalsIgnoreCase("null") || String.valueOf(dataSnapshot.child(StringVariable.PERSONALITY).child(StringVariable.USER_TRENDING_OFTHEDAY).getValue()).equalsIgnoreCase("0"))
+                    {
+                        crownsImageView1.setVisibility(View.GONE);
+                        totalCrowns1.setVisibility(View.GONE);
+
+                    }
+                    else
+                    {
+                        crownLayout1.setVisibility(View.VISIBLE);
+                        totalCrowns1.setText("X "+String.valueOf(dataSnapshot.child(StringVariable.PERSONALITY).child(StringVariable.USER_TRENDING_OFTHEDAY).getValue()));
+                    }
+
+
+
+                }
+
+                @Override
+                public void onCancelled(DatabaseError databaseError) {
+
+                }
+            });
+
+        }
+        catch (Exception e){}
+//        crowndb=FirebaseDatabase.getInstance().getReference().child(StringVariable.USERS).child(FirebaseAuth.getInstance().getCurrentUser().getUid()).child(StringVariable.APP).child("Crowns");
+//        crowndb.addListenerForSingleValueEvent(new ValueEventListener() {
+//            @Override
+//            public void onDataChange(DataSnapshot dataSnapshot) {
+//                Log.e("crowns",String.valueOf(dataSnapshot.getValue()));
+//                if(String.valueOf(dataSnapshot.getValue()).equalsIgnoreCase("null") || String.valueOf(dataSnapshot.getValue()).equalsIgnoreCase("0"))
+//                {
+//                    crownLayout.setVisibility(View.GONE);
+//
+//                }
+//                else
+//                {
+//                    crownLayout.setVisibility(View.VISIBLE);
+//                    totalCrowns.setText("X "+String.valueOf(dataSnapshot.getValue()));
+//                }
+//
+//            }
+//
+//            @Override
+//            public void onCancelled(DatabaseError databaseError) {
+//
+//            }
+//
+//        });
+
+
 
     }
 private  void animate(View v) {

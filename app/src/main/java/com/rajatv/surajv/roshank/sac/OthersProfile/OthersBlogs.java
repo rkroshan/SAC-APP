@@ -13,6 +13,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
+import com.google.firebase.auth.FirebaseAuth;
 import com.rajatv.surajv.roshank.sac.Blogssacapp.Blogs;
 import com.rajatv.surajv.roshank.sac.Blogssacapp.BlogsRecyclerViewAdapter;
 import com.rajatv.surajv.roshank.sac.Feeds.Result.FeedsResultFrag;
@@ -33,7 +34,7 @@ public class OthersBlogs extends Fragment {
     private List<Blogs> myBlogsList;
     DatabaseReference blogsDatabase;
     BlogsRecyclerViewAdapter recyclerViewAdapter;
-    private String userUID;
+    private String userUID,otherUserUID;
     private SharedPreferences sharedPreferences;
 
     @Override
@@ -55,11 +56,13 @@ public class OthersBlogs extends Fragment {
     public void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
+        otherUserUID=getActivity().getIntent().getStringExtra("userUID");
+
         myBlogsList = new ArrayList<>();
         blogsDatabase = FirebaseDatabase.getInstance().getReference().child(StringVariable.BLOGS);
         try {
-            SharedPreferences sharedPreferences = getActivity().getSharedPreferences(StringVariable.UserData_SharedPreference, Context.MODE_PRIVATE);
-            userUID = getActivity().getIntent().getStringExtra("userUID");
+
+            userUID = FirebaseAuth.getInstance().getCurrentUser().getUid();
         } catch (Exception e) {
 
         }
@@ -71,20 +74,25 @@ public class OthersBlogs extends Fragment {
                     for (DataSnapshot postSnapshot : dataSnapshot.getChildren()) {
                         int liked = 0;
                         for (DataSnapshot ds : postSnapshot.child(StringVariable.BLOG_LIKES_BY).getChildren()) {
-                            if (ds.getValue().toString().equals(userUID)) {
+                            if (ds.getKey().equals(userUID)) {
                                 liked = 1;
                                 break;
                             }
                         }
+                        int likes = 0;
+                        try {
+                            likes = (int) postSnapshot.child(StringVariable.BLOG_LIKES_BY).getChildrenCount();
+                        } catch (Exception e) {
+                        }
 
-                        if (String.valueOf(postSnapshot.child("UserUID").getValue()).equals(userUID)) {
+                        if (String.valueOf(postSnapshot.child("UserUID").getValue()).equals(otherUserUID)) {
                             myBlogsList.add(0, new Blogs(
                                     liked,
                                     String.valueOf(postSnapshot.getKey()),
                                     String.valueOf(postSnapshot.child(StringVariable.BLOG_CONTENT).getValue()),
                                     String.valueOf(postSnapshot.child(StringVariable.BLOG_PUBLISHER_NAME).getValue()),
                                     String.valueOf(postSnapshot.child(StringVariable.BLOG_USERUID).getValue()),
-                                    String.valueOf(postSnapshot.child(StringVariable.BLOG_LIKES).getValue()),
+                                    likes+"",
                                     FeedsResultFrag.getTimestamp(Long.valueOf(postSnapshot.child(StringVariable.BLOG_TIMEPSTAMP).getValue().toString())),
                                     String.valueOf(postSnapshot.child(StringVariable.BLOG_USER_IMAGEURL).getValue())));
                             recyclerViewAdapter.notifyDataSetChanged();

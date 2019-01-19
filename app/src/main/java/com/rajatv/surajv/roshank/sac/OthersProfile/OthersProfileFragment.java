@@ -13,6 +13,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
+import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 
@@ -29,7 +30,7 @@ import com.google.firebase.database.ValueEventListener;
 public class OthersProfileFragment extends Fragment {
 
     private String userUID;
-    DatabaseReference dbref,mydb;
+    DatabaseReference dbref,mydb,crowndb;
     TextView mUsername;
     SimpleDraweeView mUserImage;
     TextView mTcfID;
@@ -48,6 +49,9 @@ public class OthersProfileFragment extends Fragment {
     private ImageView fingerImage;
     TextView mPhone,mEmail;
     TextView mstaticText1,mstaticText2,mayKnow;
+    TextView totalCrowns1,totalCrowns2;
+    LinearLayout crownLayout1;
+    ImageView crownsImageView1,crownsImageView2;
 
 
 
@@ -78,6 +82,13 @@ public class OthersProfileFragment extends Fragment {
         whatsAppButton=view.findViewById(R.id.whatsAppButton);
         mailButton=view.findViewById(R.id.mailButton);
         callButton=view.findViewById(R.id.callButton);
+        totalCrowns1=view.findViewById(R.id.totalCrowns1);
+        crownLayout1=view.findViewById(R.id.crownLayout1);
+        totalCrowns2=view.findViewById(R.id.totalCrowns2);
+       // crownLayout2=view.findViewById(R.id.crownLayout2);
+        crownsImageView1=view.findViewById(R.id.crownsImageView1);
+        crownsImageView2=view.findViewById(R.id.crownsImageView2);
+
 
         mstaticText1.setVisibility(View.GONE);
         mstaticText2.setVisibility(View.GONE);
@@ -88,7 +99,7 @@ public class OthersProfileFragment extends Fragment {
         callButton.setVisibility(View.GONE);
 
         userUID=getActivity().getIntent().getStringExtra("userUID");
-        Log.e("USERIT",userUID);
+//        Log.e("USERIT",userUID);
         myUserUID=FirebaseAuth.getInstance().getCurrentUser().getUid();
         dbref=FirebaseDatabase.getInstance().getReference().child(StringVariable.USERS).child(userUID);
 
@@ -176,6 +187,69 @@ catch (Exception e){}
             }
         });
 
+        try {
+            crowndb=FirebaseDatabase.getInstance().getReference().child(StringVariable.USERS).child(userUID).child(StringVariable.APP).child(StringVariable.TRENDING_DATA);
+
+        }
+        catch (Exception e){}
+
+
+try {
+    crowndb.addListenerForSingleValueEvent(new ValueEventListener() {
+        @Override
+        public void onDataChange(DataSnapshot dataSnapshot) {
+            // Log.e("crowns",String.valueOf(dataSnapshot.getValue()));
+            if(String.valueOf(dataSnapshot.child(StringVariable.BLOGGER).child(StringVariable.USER_TRENDING_OFTHEDAY).getValue()).equalsIgnoreCase("null")
+                    || String.valueOf(dataSnapshot.child(StringVariable.BLOGGER).child(StringVariable.USER_TRENDING_OFTHEDAY).getValue()).equalsIgnoreCase("0"))
+            {
+                if(String.valueOf(dataSnapshot.child(StringVariable.PERSONALITY).child(StringVariable.USER_TRENDING_OFTHEDAY).getValue()).equalsIgnoreCase("null")
+                        || String.valueOf(dataSnapshot.child(StringVariable.PERSONALITY).child(StringVariable.USER_TRENDING_OFTHEDAY).getValue()).equalsIgnoreCase("0"))
+                    crownLayout1.setVisibility(View.GONE);
+
+            }
+
+
+
+            if(String.valueOf(dataSnapshot.child(StringVariable.BLOGGER).child(StringVariable.USER_TRENDING_OFTHEDAY).getValue()).equalsIgnoreCase("null") || String.valueOf(dataSnapshot.child(StringVariable.BLOGGER).child(StringVariable.USER_TRENDING_OFTHEDAY).getValue()).equalsIgnoreCase("0"))
+            {
+                crownsImageView2.setVisibility(View.GONE);
+                totalCrowns2.setVisibility(View.GONE);
+
+
+            }
+            else
+            {
+                crownLayout1.setVisibility(View.VISIBLE);
+                totalCrowns2.setText("X "+String.valueOf(dataSnapshot.child(StringVariable.BLOGGER).child(StringVariable.USER_TRENDING_OFTHEDAY).getValue()));
+            }
+            if(String.valueOf(dataSnapshot.child(StringVariable.PERSONALITY).child(StringVariable.USER_TRENDING_OFTHEDAY).getValue()).equalsIgnoreCase("null") || String.valueOf(dataSnapshot.child(StringVariable.PERSONALITY).child(StringVariable.USER_TRENDING_OFTHEDAY).getValue()).equalsIgnoreCase("0"))
+            {
+                crownsImageView1.setVisibility(View.GONE);
+                totalCrowns1.setVisibility(View.GONE);
+
+            }
+            else
+            {
+                crownLayout1.setVisibility(View.VISIBLE);
+                totalCrowns1.setText("X "+String.valueOf(dataSnapshot.child(StringVariable.PERSONALITY).child(StringVariable.USER_TRENDING_OFTHEDAY).getValue()));
+            }
+
+
+
+        }
+
+        @Override
+        public void onCancelled(DatabaseError databaseError) {
+
+        }
+    });
+
+}
+catch (Exception e){}
+        if(userUID.equalsIgnoreCase(myUserUID)){
+            pingButton.setVisibility(View.GONE);
+
+        }
 
         dbref.addValueEventListener(new ValueEventListener() {
             @Override

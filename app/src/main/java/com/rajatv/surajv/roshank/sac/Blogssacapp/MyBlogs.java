@@ -85,13 +85,19 @@ public class MyBlogs extends Fragment {
                             }
                         }
 
+                        int likes = 0;
+                        try {
+                            likes = (int) postSnapshot.child(StringVariable.BLOG_LIKES_BY).getChildrenCount();
+                        } catch (Exception e) {
+                        }
+
                         myBlogsList.add(0,new Blogs(
                                 liked,
                                 String.valueOf(postSnapshot.getKey()),
                                 String.valueOf(postSnapshot.child(StringVariable.BLOG_CONTENT).getValue()),
                                 String.valueOf(postSnapshot.child(StringVariable.BLOG_PUBLISHER_NAME).getValue()),
                                 UserUid,
-                                String.valueOf(postSnapshot.child(StringVariable.BLOG_LIKES).getValue()),
+                                likes+"",
                                 FeedsResultFrag.getTimestamp(Long.parseLong(String.valueOf(postSnapshot.child(StringVariable.BLOG_TIMEPSTAMP).getValue()))),
                                 String.valueOf(postSnapshot.child(StringVariable.BLOG_USER_IMAGEURL).getValue())));
                     }
