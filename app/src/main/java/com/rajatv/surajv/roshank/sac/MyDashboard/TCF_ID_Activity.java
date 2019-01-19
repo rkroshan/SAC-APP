@@ -89,6 +89,7 @@ public class TCF_ID_Activity extends AppCompatActivity {
 
     private void setData(Map<String,Object> obj) {
 
+        Log.e("data",obj.toString());
         String fee = null;
         try{
             fee = obj.get(StringVariable.USER_PACKAGES).toString();
