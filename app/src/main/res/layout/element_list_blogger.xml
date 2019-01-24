@@ -87,7 +87,7 @@
                         android:textColor="#c1c1c1"
                         android:lineSpacingExtra="21sp"
                         android:gravity="end"
-                        android:text="Total"/>
+                        android:text="Today"/>
 
                     <TextView
                         android:id="@+id/likes_count"

@@ -9,6 +9,7 @@ import android.graphics.drawable.Drawable;
 import android.net.Uri;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
+import android.support.v4.content.ContextCompat;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.util.Log;
@@ -196,7 +197,7 @@ public class AllFeedsRecyclerViewAdapter extends RecyclerView.Adapter<RecyclerVi
                 DatabaseReference db = FirebaseDatabase.getInstance().getReference().child(StringVariable.RESULT).child(POSTUID);
                 DatabaseReference db_t = FirebaseDatabase.getInstance().getReference().child(StringVariable.TIMELINE).child(POSTUID);
 
-                Drawable.ConstantState notlike = context.getDrawable(R.drawable.ic_excited).getConstantState();
+                Drawable.ConstantState notlike = ContextCompat.getDrawable(context,R.drawable.ic_excited).getConstantState();
                 // Drawable.ConstantState like = context.getDrawable(R.drawable.ic_excited_2).getConstantState();
                 if (viewHolder.result_card_likesview.getDrawable().getConstantState() == notlike) {
 
@@ -272,7 +273,7 @@ public class AllFeedsRecyclerViewAdapter extends RecyclerView.Adapter<RecyclerVi
                 DatabaseReference db = FirebaseDatabase.getInstance().getReference().child(StringVariable.NOTICE).child(POSTUID);
                 DatabaseReference db_t = FirebaseDatabase.getInstance().getReference().child(StringVariable.TIMELINE).child(POSTUID);
 
-                Drawable.ConstantState notlike = context.getDrawable(R.drawable.ic_excited).getConstantState();
+                Drawable.ConstantState notlike = ContextCompat.getDrawable(context,R.drawable.ic_excited).getConstantState();
                 // Drawable.ConstantState like = context.getDrawable(R.drawable.ic_excited_2).getConstantState();
                 if (viewHolder.exited_Button.getDrawable().getConstantState() == notlike) {
 
@@ -364,7 +365,7 @@ public class AllFeedsRecyclerViewAdapter extends RecyclerView.Adapter<RecyclerVi
                 DatabaseReference db = FirebaseDatabase.getInstance().getReference().child(StringVariable.POSTS).child(POSTUID);
                 DatabaseReference db_t = FirebaseDatabase.getInstance().getReference().child(StringVariable.TIMELINE).child(POSTUID);
 
-                Drawable.ConstantState notlike = context.getDrawable(R.drawable.ic_excited).getConstantState();
+                Drawable.ConstantState notlike = ContextCompat.getDrawable(context,R.drawable.ic_excited).getConstantState();
                // Drawable.ConstantState like = context.getDrawable(R.drawable.ic_excited_2).getConstantState();
                 if (viewHolder.excitedImageButton.getDrawable().getConstantState() == notlike) {
 
