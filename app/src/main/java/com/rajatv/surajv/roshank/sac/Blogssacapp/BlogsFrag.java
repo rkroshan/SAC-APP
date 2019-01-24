@@ -7,6 +7,7 @@ import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentActivity;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -72,6 +73,7 @@ try {
                     likes = (int) postSnapshot.child(StringVariable.BLOG_LIKES_BY).getChildrenCount();
                 } catch (Exception e) {
                 }
+                Log.e("null",postSnapshot.getKey());
                 blogsList.add(0, new Blogs(
                         liked,
                         String.valueOf(postSnapshot.getKey()),

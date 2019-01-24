@@ -160,9 +160,10 @@
                 <RelativeLayout
                     android:id="@+id/extended_notice"
                     android:layout_width="wrap_content"
-                    android:layout_marginTop="5.7dp"
-                    android:layout_marginBottom="7.3dp"
+                    android:paddingTop="5.7dp"
+                    android:paddingBottom="7.3dp"
                     android:layout_marginLeft="2.1dp"
+                    android:paddingRight="10dp"
                     android:paddingLeft="10dp"
                     android:layout_height="wrap_content">
 

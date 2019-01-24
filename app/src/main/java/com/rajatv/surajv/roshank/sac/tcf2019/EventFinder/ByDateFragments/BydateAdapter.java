@@ -155,14 +155,14 @@ public class BydateAdapter extends RecyclerView.Adapter<BydateAdapter.ViewHolder
                     String monthClicked = date_clicked.getText().toString().split(" ")[1].substring(0,3);
 
                     String eventdate = dayClicked+", "+monthClicked+" "+dateClicked+", '19";
-                    Log.e("byDateEvent-Date",eventdate);
+//                    Log.e("byDateEvent-Date",eventdate);
                     if(eventModalClassList.contains(eventdate)){
                         int index = eventModalClassList.indexOf(eventdate);
-                        Log.e("byDateEvent-index",String.valueOf(index));
+//                        Log.e("byDateEvent-index",String.valueOf(index));
                         subEvent = eventModalClassEvent.get(index);
                         Intent subeventintent = new Intent(context,ByDateOnclick.class);
                         subeventintent.putExtra("event_name",subEvent);
-                        Log.e("byDateEvent-string",subEvent);
+//                        Log.e("byDateEvent-string",subEvent);
                         context.startActivity(subeventintent);
                     }
                     }

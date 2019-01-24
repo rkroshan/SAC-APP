@@ -49,6 +49,9 @@ public class BydateFragment extends Fragment {
 
         final FragmentActivity c = getActivity();
         recyclerView = (RecyclerView) view.findViewById(R.id.bydate_recyclerview);
+
+
+
         recyclerViewAdapter = new BydateAdapter(getContext(), fDate,event);
         final LinearLayoutManager layoutManager = new LinearLayoutManager(c);
         layoutManager.setOrientation(LinearLayoutManager.VERTICAL);

@@ -78,7 +78,7 @@ public class FeedsAllFrag extends Fragment {
                             //Log.e("Frag", ds.getValue().toString());
                             OldKey = ds.getKey();
                             String Type = "";
-                            Type = ds.child(StringVariable.POST_TYPE).getValue().toString();
+                            Type = String.valueOf(ds.child(StringVariable.POST_TYPE).getValue());
                             switch (Type) {
                                 case "0":
                                     addPost(ds);
@@ -94,6 +94,8 @@ public class FeedsAllFrag extends Fragment {
                                     break;
                                 case "4":
                                     addPersonality(ds);
+                                    break;
+                                default:
                                     break;
                             }
 

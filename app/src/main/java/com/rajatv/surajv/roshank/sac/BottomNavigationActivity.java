@@ -673,11 +673,11 @@ dbref2.addValueEventListener(new ValueEventListener() {
                 editor.putInt("once", 1);
                 editor.apply();
             }
-            if (data == 1) {
-                //registered.
-                navigation.setSelectedItemId(R.id.navigation_sacfeeds);
-                navigation.findViewById(R.id.navigation_sacfeeds).performClick();
-            }
+//            if (data == 1) {
+//                //registered.
+//                navigation.setSelectedItemId(R.id.navigation_sacfeeds);
+//                navigation.findViewById(R.id.navigation_sacfeeds).performClick();
+//            }
 
         }catch (Exception e){
 

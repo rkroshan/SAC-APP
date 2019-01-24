@@ -2,8 +2,11 @@ package com.rajatv.surajv.roshank.sac.Feeds;
 
 import android.app.Dialog;
 import android.content.Context;
+import android.content.DialogInterface;
 import android.content.Intent;
+import android.graphics.drawable.ColorDrawable;
 import android.graphics.drawable.Drawable;
+import android.net.Uri;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.support.v7.widget.LinearLayoutManager;
@@ -12,6 +15,7 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.view.Window;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
@@ -461,10 +465,31 @@ public class AllFeedsRecyclerViewAdapter extends RecyclerView.Adapter<RecyclerVi
                 @Override
                 public void onClick(View v) {
                     String mainimageuri = mlist.get(getAdapterPosition()).getPOSTS_PHOTOURL();
+
+//                        Dialog builder = new Dialog(context);
+//                        builder.requestWindowFeature(Window.FEATURE_NO_TITLE);
+//                        builder.getWindow().setBackgroundDrawable(
+//                                new ColorDrawable(android.graphics.Color.TRANSPARENT));
+//                        builder.setOnDismissListener(new DialogInterface.OnDismissListener() {
+//                            @Override
+//                            public void onDismiss(DialogInterface dialogInterface) {
+//                                //nothing;
+//                            }
+//                        });
+//
+//                        ImageView imageView = new ImageView(context);
+//                        imageView.setImageURI(Uri.parse(mainimageuri));
+//                        builder.addContentView(imageView, new RelativeLayout.LayoutParams(
+//                                ViewGroup.LayoutParams.MATCH_PARENT,
+//                                ViewGroup.LayoutParams.MATCH_PARENT));
+//                        builder.show();
+
+
+//
                     Dialog mdialog = new Dialog(context);
                     mdialog.setContentView(R.layout.pop_up_main_photo);
                     mdialog.getWindow().setLayout(ViewGroup.LayoutParams.WRAP_CONTENT, ViewGroup.LayoutParams.WRAP_CONTENT);
-
+                    mdialog.getWindow().setBackgroundDrawable(new ColorDrawable(android.graphics.Color.TRANSPARENT));
                     SimpleDraweeView main_pic = mdialog.findViewById(R.id.mainphoto);
                     ImageView close=mdialog.findViewById(R.id.close_view);
 
