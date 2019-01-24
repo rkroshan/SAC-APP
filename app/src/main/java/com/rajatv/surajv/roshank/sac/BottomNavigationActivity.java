@@ -276,7 +276,7 @@ dbref2.addValueEventListener(new ValueEventListener() {
     @Override
     public void onDataChange(DataSnapshot dataSnapshot) {
         for(DataSnapshot ds:dataSnapshot.getChildren()){
-            if(String.valueOf(ds.getValue()).equalsIgnoreCase("0")){
+            if(String.valueOf(ds.getValue()).equalsIgnoreCase("0") && sacFeedsFragment.isInLayout()){
                 blueIcon.setVisibility(View.VISIBLE);
                 newNotification="true";
                 break;

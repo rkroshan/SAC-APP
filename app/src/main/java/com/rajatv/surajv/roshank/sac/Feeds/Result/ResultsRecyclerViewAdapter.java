@@ -6,6 +6,7 @@ import android.content.SharedPreferences;
 import android.graphics.drawable.Drawable;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
+import android.support.v4.content.ContextCompat;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.util.Log;
@@ -179,8 +180,7 @@ public class ResultsRecyclerViewAdapter extends  RecyclerView.Adapter<ResultsRec
                 DatabaseReference db_t = FirebaseDatabase.getInstance().getReference().child(StringVariable.TIMELINE).child(s);
 
                 // ChangingLikes(viewHolder,StringVariable.photoView,s);
-                Drawable.ConstantState notlike = context.getDrawable(R.drawable.ic_excited).getConstantState();
-                Drawable.ConstantState like = context.getDrawable(R.drawable.ic_excited_2).getConstantState();
+                Drawable.ConstantState notlike = ContextCompat.getDrawable(context,R.drawable.ic_excited).getConstantState();
                 if (holder.result_card_likesview.getDrawable().getConstantState() == notlike) {
 
                     holder.result_card_likesview.setImageResource(R.drawable.ic_excited_2);

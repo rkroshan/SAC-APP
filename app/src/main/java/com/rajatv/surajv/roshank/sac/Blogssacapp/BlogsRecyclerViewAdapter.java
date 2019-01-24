@@ -6,6 +6,7 @@ import android.content.SharedPreferences;
 import android.graphics.drawable.Drawable;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
+import android.support.v4.content.ContextCompat;
 import android.support.v7.widget.RecyclerView;
 import android.util.Log;
 import android.view.LayoutInflater;
@@ -135,7 +136,7 @@ public class BlogsRecyclerViewAdapter extends RecyclerView.Adapter<BlogsRecycler
             public void onClick(View view) {
                 // ChangingLikes(viewHolder,StringVariable.photoView,s);
                 DatabaseReference db = FirebaseDatabase.getInstance().getReference().child(StringVariable.BLOGS).child(s);
-                Drawable.ConstantState notlike = context.getDrawable(R.drawable.ic_excited).getConstantState();
+                Drawable.ConstantState notlike = ContextCompat.getDrawable(context,R.drawable.ic_excited).getConstantState();
                 if (viewHolder.excitedImageButton.getDrawable().getConstantState() == notlike) {
 
                     viewHolder.excitedImageButton.setImageResource(R.drawable.ic_excited_2);
@@ -196,8 +197,13 @@ public class BlogsRecyclerViewAdapter extends RecyclerView.Adapter<BlogsRecycler
                     //  Log.e("doTransaction--", mutableData.getKey());
                     Log.e("POST LIKES---", mutableData.getValue().toString());
                     int count = Integer.valueOf(mutableData.getValue().toString());
+
                     count = (count) + val;
                     Log.e("Post likes count---", count+"");
+
+                    if(count<0){
+                        count = 0;
+                    }
 
                     //setting new points in posts as per the given criterion in posts as well as timeline
                     mutableData.setValue(count);
