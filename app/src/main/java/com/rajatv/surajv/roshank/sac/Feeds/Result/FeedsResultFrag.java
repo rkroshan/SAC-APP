@@ -67,7 +67,6 @@ public class FeedsResultFrag extends Fragment {
                 try {
                     listResult.clear();
                     for (DataSnapshot postSnapshot : dataSnapshot.getChildren()) {
-
                         int liked = 0;
                         for (DataSnapshot ds : postSnapshot.child(StringVariable.POSTS_LIKES_BY).getChildren()) {
                             if (ds.getKey().equals(uid)) {
@@ -93,6 +92,7 @@ public class FeedsResultFrag extends Fragment {
                         for (int i = 0; i < downloadItem; i++) {
                             downloadList.add(String.valueOf(postSnapshot.child("Links").child(Integer.toString(i)).getValue()));
                         }
+                        Log.e("datasnapshotresult",postSnapshot.toString());
                         listResult.add(0, new Results(
                                 liked,
                                 String.valueOf(postSnapshot.getKey()),

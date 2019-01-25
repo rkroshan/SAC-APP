@@ -72,10 +72,10 @@ public class FeedsAllFrag extends Fragment {
                 mlist.clear();
                 if (dataSnapshot.exists() && dataSnapshot.hasChildren()) {
                     try {
-                        // Log.e("Feed Frag --", dataSnapshot.toString());
+                         Log.e("Feed Frag --", dataSnapshot.toString());
 
                         for (DataSnapshot ds : dataSnapshot.getChildren()) {
-                            //Log.e("Frag", ds.getValue().toString());
+                            Log.e("Frag", ds.getValue().toString());
                             OldKey = ds.getKey();
                             String Type = "";
                             Type = String.valueOf(ds.child(StringVariable.POST_TYPE).getValue());
