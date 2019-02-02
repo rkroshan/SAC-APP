@@ -12,6 +12,19 @@ public class StringVariable {
     public static final String YES = "1.0";
     public static final String NO = "0.0";
 
+    //Intramurals
+    public static final String INTRAMURALS="Intramurals";
+    public static final String MEN="men";
+    public static final String CRICKET="Cricket";
+    public static final String VOLLEYBALL="Volleyball";
+    public static final String SQUASH="Squash";
+    public static final String KABADDI="Kabaddi";
+    public static final String FOOTBALL="Football";
+    public static final String BADMINTON="Badminton";
+    public static final String TABLETENNIS="Table_Tennis";
+    public static final String WOMEN="women";
+
+
     //Posts
     public static final String POSTS = "Posts";
     public static final String POSTS_CONTENT = "Content";

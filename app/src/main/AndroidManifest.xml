@@ -74,7 +74,11 @@
         <activity
             android:name=".Splash.Splash2"
             android:screenOrientation="portrait">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
 
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
         </activity>
         <activity
             android:name=".SignUp_Login.Login_activity"
@@ -114,11 +118,7 @@
         <activity android:name=".Pings.PingRequestActivity"/>
 
         <activity android:name=".TestApplication">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
 
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
 
         </activity>
 

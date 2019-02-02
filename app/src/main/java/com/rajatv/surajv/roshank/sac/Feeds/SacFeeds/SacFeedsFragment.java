@@ -348,7 +348,6 @@ public class SacFeedsFragment extends Fragment implements View.OnClickListener {
 
         });
 
-
     }
 
 

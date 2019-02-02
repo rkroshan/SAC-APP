@@ -26,8 +26,8 @@ import java.util.ArrayList;
 public class FeedsAllFrag extends Fragment {
     private Dialog updatenow;
     private RecyclerView recyclerView;
-    private String timelineType="";
-    private String timelinePostUID="" ;
+    private String timelineType = "";
+    private String timelinePostUID = "";
     private AllFeedsRecyclerViewAdapter recyclerViewAdapter;
     private String OldKey = "";
     private boolean userScrolled = false;
@@ -45,17 +45,17 @@ public class FeedsAllFrag extends Fragment {
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
-        View view=inflater.inflate(R.layout.frag_all,container,false);
+        View view = inflater.inflate(R.layout.frag_all, container, false);
 
 
-        recyclerView= view.findViewById(R.id.all_recycler_view);
+        recyclerView = view.findViewById(R.id.all_recycler_view);
         useruid = FirebaseAuth.getInstance().getCurrentUser().getUid();
         try {
             settimeline();
-        }catch (Exception e){
+        } catch (Exception e) {
 
         }
-        recyclerViewAdapter=new AllFeedsRecyclerViewAdapter(getContext(),mlist);
+        recyclerViewAdapter = new AllFeedsRecyclerViewAdapter(getContext(), mlist);
         linearLayout = new LinearLayoutManager(getActivity());
         recyclerView.setLayoutManager(linearLayout);
         recyclerView.setAdapter(recyclerViewAdapter);
@@ -70,12 +70,12 @@ public class FeedsAllFrag extends Fragment {
             @Override
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
                 mlist.clear();
-                if(dataSnapshot.exists()&&dataSnapshot.hasChildren()){
+                if (dataSnapshot.exists() && dataSnapshot.hasChildren()) {
                     try {
-                       // Log.e("Feed Frag --", dataSnapshot.toString());
+                         Log.e("Feed Frag --", dataSnapshot.toString());
 
                         for (DataSnapshot ds : dataSnapshot.getChildren()) {
-                            //Log.e("Frag", ds.getValue().toString());
+                            Log.e("Frag", ds.getValue().toString());
                             OldKey = ds.getKey();
                             String Type = "";
                             Type = String.valueOf(ds.child(StringVariable.POST_TYPE).getValue());
@@ -100,7 +100,7 @@ public class FeedsAllFrag extends Fragment {
                             }
 
                         }
-                    }catch (Exception e){
+                    } catch (Exception e) {
 //                        Log.e("All frag---",e.getMessage());
                     }
 
@@ -153,14 +153,14 @@ public class FeedsAllFrag extends Fragment {
         databaseReference.orderByChild(StringVariable.NOTICE_TIMESTAMP).startAt(oldKey).limitToFirst(10).addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
-                if(dataSnapshot.exists()){
+                if (dataSnapshot.exists()) {
 //                    Log.e("Feed Frag --","Data exist");
-                    for (DataSnapshot ds : dataSnapshot.getChildren()){
+                    for (DataSnapshot ds : dataSnapshot.getChildren()) {
                         try {
 //                            Log.e("datasnapshot", ds.getKey());
                             OldKey = ds.getKey();
                             String Type = "";
-                            Type = ds.child(StringVariable.POST_TYPE).getValue().toString();
+                            Type = String.valueOf(ds.child(StringVariable.POST_TYPE).getValue());
                             switch (Type) {
                                 case "0":
                                     addPost(ds);
@@ -179,7 +179,7 @@ public class FeedsAllFrag extends Fragment {
                                     break;
                             }
 
-                        }catch (Exception e){
+                        } catch (Exception e) {
 //                            Log.e("All frag---",e.getMessage());
                         }
 
@@ -198,7 +198,7 @@ public class FeedsAllFrag extends Fragment {
 
     private void addPersonality(DataSnapshot dataSnapshot) {
 
-        mlist.add(0,new PostsModalClass(
+        mlist.add(0, new PostsModalClass(
                 4,
                 dataSnapshot.getKey(),
                 null,
@@ -207,13 +207,13 @@ public class FeedsAllFrag extends Fragment {
                 null,
                 null,
                 null,
-                dataSnapshot.child(StringVariable.PERSONALITY_NAME).getValue().toString(),
-                dataSnapshot.child(StringVariable.PERSONALITY_PROFILE_PIC).getValue().toString(),
-                dataSnapshot.getKey(),
+                String.valueOf(dataSnapshot.child(StringVariable.PERSONALITY_NAME).getValue()),
+                String.valueOf(dataSnapshot.child(StringVariable.PERSONALITY_PROFILE_PIC).getValue()),
+                String.valueOf(dataSnapshot.child(StringVariable.USER_USER_UID).getValue()),
                 null,
                 0,
-                dataSnapshot.child(StringVariable.PERSONALITY_OVERALLIKES).getValue().toString(),
-                dataSnapshot.child(StringVariable.PERSONALITY_CURRENTDAYLIKES).getValue().toString(),
+                String.valueOf(dataSnapshot.child(StringVariable.PERSONALITY_OVERALLIKES).getValue()),
+                String.valueOf(dataSnapshot.child(StringVariable.PERSONALITY_CURRENTDAYLIKES).getValue()),
                 0
 
         ));
@@ -221,7 +221,7 @@ public class FeedsAllFrag extends Fragment {
     }
 
     private void addBlogger(DataSnapshot dataSnapshot) {
-        mlist.add(0,new PostsModalClass(
+        mlist.add(0, new PostsModalClass(
                 3,
                 dataSnapshot.getKey(),
                 null,
@@ -230,15 +230,14 @@ public class FeedsAllFrag extends Fragment {
                 null,
                 null,
                 null,
-                dataSnapshot.child(StringVariable.BLOGGER_NAME).getValue().toString(),
-                dataSnapshot.child(StringVariable.BLOGGER_PROFILE_PIC).getValue().toString(),
-                dataSnapshot.getKey(),
+                String.valueOf(dataSnapshot.child(StringVariable.BLOGGER_NAME).getValue()),
+                String.valueOf(dataSnapshot.child(StringVariable.BLOGGER_PROFILE_PIC).getValue()),
+                String.valueOf(dataSnapshot.child(StringVariable.USER_USER_UID).getValue()),
                 null,
                 0,
-                dataSnapshot.child(StringVariable.BLOGGER_OVERALLIKES).getValue().toString(),
-                dataSnapshot.child(StringVariable.BLOGGER_CURRENTDAYLIKES).getValue().toString(),
+                String.valueOf(dataSnapshot.child(StringVariable.BLOGGER_OVERALLIKES).getValue()),
+                String.valueOf(dataSnapshot.child(StringVariable.BLOGGER_CURRENTDAYLIKES).getValue()),
                 0
-
         ));
         recyclerViewAdapter.notifyDataSetChanged();
     }
@@ -246,24 +245,24 @@ public class FeedsAllFrag extends Fragment {
     private void addResult(DataSnapshot dataSnapshot) {
 
 
-        int liked=0;
+        int liked = 0;
 
-        for(DataSnapshot ds : dataSnapshot.child(StringVariable.POSTS_LIKES_BY).getChildren()){
+        for (DataSnapshot ds : dataSnapshot.child(StringVariable.POSTS_LIKES_BY).getChildren()) {
 //            Log.e("user1",ds.getKey());
-            if(ds.getKey().equals(useruid)) {
+            if (ds.getKey().equals(useruid)) {
 //                Log.e("user",ds.getKey());
                 liked = 1;
                 break;
             }
         }
 
-        int likes=0;
+        int likes = 0;
 
-        try{
+        try {
             likes = (int) dataSnapshot.child(StringVariable.POSTS_LIKES_BY).getChildrenCount();
-            Log.e("Likes",likes+"");
-        }catch (Exception e){
-            Log.e("Posts likes by",e.getMessage());
+            Log.e("Likes", likes + "");
+        } catch (Exception e) {
+            Log.e("Posts likes by", e.getMessage());
         }
 
 
@@ -279,19 +278,18 @@ public class FeedsAllFrag extends Fragment {
         }
 
 
-
-        mlist.add(0,new PostsModalClass(
+        mlist.add(0, new PostsModalClass(
                 2,
                 dataSnapshot.getKey(),
-                dataSnapshot.child(StringVariable.RESULT_DATA).getValue().toString(),
-                likes+"",
+                String.valueOf(dataSnapshot.child(StringVariable.RESULT_DATA).getValue()),
+                likes + "",
                 null,
-                dataSnapshot.child(StringVariable.RESULT_TIMESTAMP).getValue().toString(),
-                dataSnapshot.child(StringVariable.RESULT_SUB_EVENT_NAME).getValue().toString(),
-                dataSnapshot.child(StringVariable.RESULT_EVENT_NAME).getValue().toString(),
-                dataSnapshot.child(StringVariable.RESULT_POSTED_BY).child(StringVariable.NOTICE_NAME).getValue().toString(),
-                dataSnapshot.child(StringVariable.RESULT_POSTED_BY).child(StringVariable.RESULT_USERIMAGEURL).getValue().toString(),
-                dataSnapshot.child(StringVariable.POSTS_POSTEDBY).child(StringVariable.POSTS_PUBLISHER_USERUID).getValue().toString(),
+                String.valueOf(dataSnapshot.child(StringVariable.RESULT_TIMESTAMP).getValue()),
+                String.valueOf(dataSnapshot.child(StringVariable.RESULT_SUB_EVENT_NAME).getValue()),
+                String.valueOf(dataSnapshot.child(StringVariable.RESULT_EVENT_NAME).getValue()),
+                String.valueOf(dataSnapshot.child(StringVariable.RESULT_POSTED_BY).child(StringVariable.NOTICE_NAME).getValue()),
+                String.valueOf(dataSnapshot.child(StringVariable.RESULT_POSTED_BY).child(StringVariable.RESULT_USERIMAGEURL).getValue()),
+                String.valueOf(dataSnapshot.child(StringVariable.POSTS_POSTEDBY).child(StringVariable.POSTS_PUBLISHER_USERUID).getValue()),
                 downloadList,
                 (int) downloadItem,
                 null,
@@ -304,21 +302,21 @@ public class FeedsAllFrag extends Fragment {
 
     private void addNotice(DataSnapshot dataSnapshot) {
 
-        int liked=0;
+        int liked = 0;
 
-        for(DataSnapshot ds : dataSnapshot.child(StringVariable.POSTS_LIKES_BY).getChildren()){
+        for (DataSnapshot ds : dataSnapshot.child(StringVariable.POSTS_LIKES_BY).getChildren()) {
 
-            if(ds.getKey().equals(useruid)) {
+            if (ds.getKey().equals(useruid)) {
                 liked = 1;
                 break;
             }
         }
 
-        int likes=0;
+        int likes = 0;
 
-        try{
-           likes = (int) dataSnapshot.child(StringVariable.POSTS_LIKES_BY).getChildrenCount();
-        }catch (Exception e){
+        try {
+            likes = (int) dataSnapshot.child(StringVariable.POSTS_LIKES_BY).getChildrenCount();
+        } catch (Exception e) {
 //            Log.e("Posts likes by",e.getMessage());
         }
 
@@ -334,18 +332,18 @@ public class FeedsAllFrag extends Fragment {
         }
 
 
-        mlist.add(0,new PostsModalClass(
+        mlist.add(0, new PostsModalClass(
                 1,
                 dataSnapshot.getKey(),
-                dataSnapshot.child(StringVariable.NOTICE_CONTENT).getValue().toString(),
+               String.valueOf( dataSnapshot.child(StringVariable.NOTICE_CONTENT).getValue()),
                 String.valueOf(likes),
                 null,
-                dataSnapshot.child(StringVariable.NOTICE_TIMESTAMP).getValue().toString(),
-                dataSnapshot.child(StringVariable.NOTICE_SUB_EVENT_NAME).getValue().toString(),
-                dataSnapshot.child(StringVariable.NOTICE_EVENT_NAME).getValue().toString(),
-                dataSnapshot.child(StringVariable.NOTICE_POSTED_BY).child(StringVariable.NOTICE_NAME).getValue().toString(),
-                dataSnapshot.child(StringVariable.NOTICE_POSTED_BY).child(StringVariable.NOTICE_USER_IMAGE).getValue().toString(),
-                dataSnapshot.child(StringVariable.POSTS_POSTEDBY).child(StringVariable.POSTS_PUBLISHER_USERUID).getValue().toString(),
+                String.valueOf(dataSnapshot.child(StringVariable.NOTICE_TIMESTAMP).getValue()),
+                String.valueOf(dataSnapshot.child(StringVariable.NOTICE_SUB_EVENT_NAME).getValue()),
+                String.valueOf(dataSnapshot.child(StringVariable.NOTICE_EVENT_NAME).getValue()),
+                String.valueOf(dataSnapshot.child(StringVariable.NOTICE_POSTED_BY).child(StringVariable.NOTICE_NAME).getValue()),
+                String.valueOf(dataSnapshot.child(StringVariable.NOTICE_POSTED_BY).child(StringVariable.NOTICE_USER_IMAGE).getValue()),
+                String.valueOf(dataSnapshot.child(StringVariable.POSTS_POSTEDBY).child(StringVariable.POSTS_PUBLISHER_USERUID).getValue()),
                 downloadList,
                 (int) downloadItem,
                 null,
@@ -358,35 +356,35 @@ public class FeedsAllFrag extends Fragment {
     }
 
     private void addPost(DataSnapshot dataSnapshot) {
-        int liked=0;
+        int liked = 0;
 
-        for(DataSnapshot ds : dataSnapshot.child(StringVariable.POSTS_LIKES_BY).getChildren()){
-            if(ds.getKey().equals(useruid)) {
+        for (DataSnapshot ds : dataSnapshot.child(StringVariable.POSTS_LIKES_BY).getChildren()) {
+            if (ds.getKey().equals(useruid)) {
                 liked = 1;
                 break;
             }
         }
 
-        int likes=0;
+        int likes = 0;
 
-        try{
+        try {
             likes = (int) dataSnapshot.child(StringVariable.POSTS_LIKES_BY).getChildrenCount();
-        }catch (Exception e){
-          //  Log.e("Posts likes by",e.getMessage());
+        } catch (Exception e) {
+            //  Log.e("Posts likes by",e.getMessage());
         }
 
-        mlist.add(0,new PostsModalClass(
+        mlist.add(0, new PostsModalClass(
                 0,
                 dataSnapshot.getKey(),
-                dataSnapshot.child(StringVariable.POSTS_CONTENT).getValue().toString(),
+                String.valueOf(dataSnapshot.child(StringVariable.POSTS_CONTENT).getValue()),
                 String.valueOf(likes),
-                dataSnapshot.child(StringVariable.POSTS_PHOTOURL).getValue().toString(),
-                dataSnapshot.child(StringVariable.POSTS_TIMESTAMP).getValue().toString(),
-                dataSnapshot.child(StringVariable.POSTS_SUBEVENTNAME).getValue().toString(),
-                dataSnapshot.child(StringVariable.POSTS_EVENTNAME).getValue().toString(),
-                dataSnapshot.child(StringVariable.POSTS_POSTEDBY).child(StringVariable.POSTS_PUBLISHER_NAME).getValue().toString(),
-                dataSnapshot.child(StringVariable.POSTS_POSTEDBY).child(StringVariable.POSTS_PUBLISHER_USERIMAGEURL).getValue().toString(),
-                dataSnapshot.child(StringVariable.POSTS_POSTEDBY).child(StringVariable.POSTS_PUBLISHER_USERUID).getValue().toString(),
+                String.valueOf(dataSnapshot.child(StringVariable.POSTS_PHOTOURL).getValue()),
+                String.valueOf(dataSnapshot.child(StringVariable.POSTS_TIMESTAMP).getValue()),
+                String.valueOf(dataSnapshot.child(StringVariable.POSTS_SUBEVENTNAME).getValue()),
+                String.valueOf(dataSnapshot.child(StringVariable.POSTS_EVENTNAME).getValue()),
+                String.valueOf(dataSnapshot.child(StringVariable.POSTS_POSTEDBY).child(StringVariable.POSTS_PUBLISHER_NAME).getValue()),
+                String.valueOf(dataSnapshot.child(StringVariable.POSTS_POSTEDBY).child(StringVariable.POSTS_PUBLISHER_USERIMAGEURL).getValue()),
+                String.valueOf(dataSnapshot.child(StringVariable.POSTS_POSTEDBY).child(StringVariable.POSTS_PUBLISHER_USERUID).getValue()),
                 null,
                 0,
                 null,
@@ -397,9 +395,6 @@ public class FeedsAllFrag extends Fragment {
 //        Log.e("mlist--",mlist.get(1).toString());
         recyclerViewAdapter.notifyDataSetChanged();
     }
-
-
-
 
 
 }

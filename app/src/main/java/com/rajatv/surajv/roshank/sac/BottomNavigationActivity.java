@@ -29,6 +29,7 @@ import android.widget.TextView;
 import com.google.android.gms.analytics.HitBuilders;
 import com.google.android.gms.analytics.Tracker;
 import com.rajatv.surajv.roshank.sac.Blogssacapp.FragmentBlogsActivity;
+import com.rajatv.surajv.roshank.sac.Intramurals.FragmentIntramurals;
 import com.rajatv.surajv.roshank.sac.MyDashboard.EditProfileActivity;
 import com.rajatv.surajv.roshank.sac.NavDrawerActivities.AboutTCF;
 import com.rajatv.surajv.roshank.sac.NavDrawerActivities.Intramurals2019;
@@ -67,7 +68,8 @@ public class BottomNavigationActivity extends AppCompatActivity {
     TrendingBloggerFragment trendingBloggerFragment;
    // RegisterNowFragment registerNowFragment;
     FragmentMyDashboard fragmentMyDashboard;
-    FragmentTCF19Activity tcf19fragment;
+//    FragmentTCF19Activity tcf19fragment;
+    FragmentIntramurals fragmentIntramurals;
     Fragment currentFragment;
     TextView titletext;
     TextView subtitle;
@@ -513,23 +515,45 @@ dbref2.addValueEventListener(new ValueEventListener() {
                     navigation.setItemIconTintList(ColorStateList2);
                     navigation.setItemTextColor(ColorStateList2);
 
-                    titletext.setText("TCF'19");
+                    titletext.setText("Intramurals");
                     subtitle.setTypeface(type2);
                     subtitle.setVisibility(View.VISIBLE);
                     toolbar_rightIcon.setVisibility(View.GONE);
                     blueIcon.setVisibility(View.GONE);
 
 
-                    if (tcf19fragment == null) {
+                    if (fragmentIntramurals == null) {
                         Log.e("check", "1");
-                        tcf19fragment = new FragmentTCF19Activity();
-                        fm.beginTransaction().add(R.id.frame_container, tcf19fragment, "2").hide(currentFragment).show(tcf19fragment).commit();
+                        fragmentIntramurals = new FragmentIntramurals();
+                        fm.beginTransaction().add(R.id.frame_container, fragmentIntramurals, "2").hide(currentFragment).show(fragmentIntramurals).commit();
                     } else {
                         Log.e("check", "2");
-                        fm.beginTransaction().hide(currentFragment).show(tcf19fragment).commit();
+                        fm.beginTransaction().hide(currentFragment).show(fragmentIntramurals).commit();
                     }
-                    currentFragment = tcf19fragment;
+                    currentFragment = fragmentIntramurals;
                     return true;
+//                case R.id.navigation_tcf_19:
+//
+//                    navigation.setItemIconTintList(ColorStateList2);
+//                    navigation.setItemTextColor(ColorStateList2);
+//
+//                    titletext.setText("TCF'19");
+//                    subtitle.setTypeface(type2);
+//                    subtitle.setVisibility(View.VISIBLE);
+//                    toolbar_rightIcon.setVisibility(View.GONE);
+//                    blueIcon.setVisibility(View.GONE);
+//
+//
+//                    if (tcf19fragment == null) {
+//                        Log.e("check", "1");
+//                        tcf19fragment = new FragmentTCF19Activity();
+//                        fm.beginTransaction().add(R.id.frame_container, tcf19fragment, "2").hide(currentFragment).show(tcf19fragment).commit();
+//                    } else {
+//                        Log.e("check", "2");
+//                        fm.beginTransaction().hide(currentFragment).show(tcf19fragment).commit();
+//                    }
+//                    currentFragment = tcf19fragment;
+//                    return true;
                 case R.id.navigation_blogs:
 
                     navigation.setItemIconTintList(ColorStateList3);
