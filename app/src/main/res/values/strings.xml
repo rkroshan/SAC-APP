@@ -9,6 +9,7 @@
     <string name="blogs">Blogs</string>
     <string name="trending">Trending</string>
     <string name="dashboard">My Dashboard</string>
+    <string name="intramurals">Intramurals</string>
     <string name="body">Since the beginning of the internet, millions and millions and millions of blogs have been created. Many have died due to lost interest or their owners giving up on the idea, while others have thrived and continue to grow, making money and earning their owners a steady income. It’s a constant evolution of content that keeps people coming back for more, especially if these blogs contact highly resourceful material that people find useful and interesting.Each example listed in this blog post are all different in some way and all bring something unique to their readers and subscribers. I want to show you what is possible and how you can take inspiration from them and create an awesome blog of your own.</string>
     <string name="title_activity_feeds">FeedsActivity</string>
     <string name="tab_text_1">All</string>

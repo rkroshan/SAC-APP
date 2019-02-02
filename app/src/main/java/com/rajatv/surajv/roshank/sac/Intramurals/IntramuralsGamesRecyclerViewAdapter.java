@@ -9,6 +9,7 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.rajatv.surajv.roshank.sac.R;
@@ -27,7 +28,10 @@ public class IntramuralsGamesRecyclerViewAdapter extends RecyclerView.Adapter<In
         this.context = context;
         this.gamesList = gamesList;
     }
-    public IntramuralsGamesRecyclerViewAdapter(){}
+
+    public IntramuralsGamesRecyclerViewAdapter() {
+    }
+
     @NonNull
     @Override
     public ViewHolder onCreateViewHolder(@NonNull ViewGroup viewGroup, int i) {
@@ -39,27 +43,56 @@ public class IntramuralsGamesRecyclerViewAdapter extends RecyclerView.Adapter<In
 
     @Override
     public void onBindViewHolder(@NonNull ViewHolder viewHolder, int i) {
-        viewHolder.mGamename.setText(gamesList.get(i).getGame());
+        viewHolder.mGamename.setText(gamesList.get(i).getGame().substring(1));
 
-        viewHolder.mGamechar.setText(gamesList.get(i).getGame().substring(0,1));
+        viewHolder.mGamechar.setText(gamesList.get(i).getGame().substring(0, 1));
+
+//        switch (gamesList.get(i).getGame()) {
+//            case "Cricket":
+//                viewHolder.mGameImage.setImageResource(R.mipmap.cricketmen);
+//                break;
+//            case "Volleyball":
+//                viewHolder.mGameImage.setImageResource(R.mipmap.volleymen);
+//                break;
+//            case "Football":
+//                viewHolder.mGameImage.setImageResource(R.mipmap.footballmen);
+//                break;
+//            case "Badminton":
+//                viewHolder.mGameImage.setImageResource(R.mipmap.badmintonmen);
+//                break;
+//            case "Kabaddi":
+//                viewHolder.mGameImage.setImageResource(R.mipmap.kabaddimen);
+//                break;
+//            case "Table_Tennis":
+//                viewHolder.mGameImage.setImageResource(R.mipmap.ttmen);
+//                break;
+//            case "Squash":
+//                viewHolder.mGameImage.setImageResource(R.mipmap.squashmen);
+//                break;
+//
+//
+//            default:
+//        }
     }
 
     @Override
     public int getItemCount() {
-       return   gamesList.size();
+        return gamesList.size();
     }
 
-    public class ViewHolder extends RecyclerView.ViewHolder{
-        public TextView mGamename,mGamechar;
+    public class ViewHolder extends RecyclerView.ViewHolder {
+        public TextView mGamename, mGamechar;
+        public ImageView mGameImage;
         Intent subeventintent;
-        CardView cardView;
+
 
         private final String EVENT_NAME = "event name";
 
         public ViewHolder(@NonNull View itemView) {
             super(itemView);
             mGamechar = itemView.findViewById(R.id.element_intramurals_games_gamechar);
-            mGamename=itemView.findViewById(R.id.element_intramurals_games_gamename);
+            mGamename = itemView.findViewById(R.id.element_intramurals_games_gamename);
+            mGameImage = itemView.findViewById(R.id.element_intramurals_games_image);
 
 
         }

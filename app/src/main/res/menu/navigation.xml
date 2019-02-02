@@ -9,7 +9,7 @@
     <item
         android:id="@+id/navigation_tcf_19"
         android:icon="@drawable/ic_tcf"
-        android:title="@string/tcf_19" />
+        android:title="@string/intramurals" />
 
     <item
         android:id="@+id/navigation_blogs"
