@@ -13,9 +13,9 @@
     <group android:checkableBehavior="single"
         android:id="@+id/group2">
         <item
-            android:icon="@drawable/ic_inramurals"
+            android:icon="@drawable/ic_tcf"
             android:id="@+id/Intramurals_2019"
-            android:title="Intramurals 2019"
+            android:title="TCF'19"
             />
     </group>
     <group android:checkableBehavior="single"

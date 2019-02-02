@@ -34,6 +34,7 @@ import com.rajatv.surajv.roshank.sac.MyDashboard.EditProfileActivity;
 import com.rajatv.surajv.roshank.sac.NavDrawerActivities.AboutTCF;
 import com.rajatv.surajv.roshank.sac.NavDrawerActivities.Intramurals2019;
 import com.rajatv.surajv.roshank.sac.NavDrawerActivities.MapsActivity;
+import com.rajatv.surajv.roshank.sac.NavDrawerActivities.TCF19Activity;
 import com.rajatv.surajv.roshank.sac.Pings.PingRequestActivity;
 import com.rajatv.surajv.roshank.sac.SASCouncil.SASCouncilActivity;
 import com.rajatv.surajv.roshank.sac.SASCouncil.SASRegistration;
@@ -340,7 +341,7 @@ dbref2.addValueEventListener(new ValueEventListener() {
                         }else if  (id == R.id.nit_patna_clubs) {
                             startActivity(new Intent(BottomNavigationActivity.this, NitpClubs.class));
                         }else if (id==R.id.Intramurals_2019){
-                            startActivity(new Intent(BottomNavigationActivity.this,Intramurals2019.class));
+                            startActivity(new Intent(BottomNavigationActivity.this,TCF19Activity.class));
                         }else if  (id == R.id.About_tcf19) {
                             startActivity(new Intent(BottomNavigationActivity.this, AboutTCF.class));
                         }else if(id == R.id.nitp_maps){
