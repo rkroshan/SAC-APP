@@ -556,13 +556,6 @@ public class SubeventsDetailsRecyclerViewAdapter extends RecyclerView.Adapter<Su
         Intent intent;
 
         private final String SUB_EVENT_NAME = "event-name";
-        private final String SUB_EVENT_VENUE1 = "event venue1";
-        private final String SUB_EVENT_VENUE2 = "event venue2";
-        private final String SUB_EVENT_TIME1 = "event time1";
-        private final String SUB_EVENT_TIME2 = "event time2";
-        private final String SUB_EVENT_DATE1 = "event date1";
-        private final String SUB_EVENT_DATE2 = "event date2";
-
 
         //ADD ELEMENT VARIABLES
         private ImageView ic_time, ic_location, ic_addition, ic_heart;
@@ -600,13 +593,6 @@ public class SubeventsDetailsRecyclerViewAdapter extends RecyclerView.Adapter<Su
                     intent.putExtra("packages", currentItem.getPackages());
                     intent.putExtra("toolbarTitle", currentItem.getSubeventname());
                     intent.putExtra("registrationTime",registration_open.getText().toString());
-
-//                    intent.putExtra(SUB_EVENT_VENUE1,currentItem.getCurrentplace());
-//                    intent.putExtra(SUB_EVENT_VENUE2,currentItem.getCurrentplace());
-//                    intent.putExtra(SUB_EVENT_TIME1,currentItem.getCurrenttime());
-//                    intent.putExtra(SUB_EVENT_TIME2,currentItem.getCurrenttime());
-//                    intent.putExtra(SUB_EVENT_DATE1,currentItem.getCurrenttime());
-//                    intent.putExtra(SUB_EVENT_DATE2,currentItem.getCurrenttime());
                     context.startActivity(intent);
                 }
             });
