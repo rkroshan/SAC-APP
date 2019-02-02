@@ -62,7 +62,7 @@ try {
                 //ADD THE DATA FROM DATABASE AS PER THE FIELDS
                 String name = String.valueOf(postSnapshot.child("name").getValue());
                 final String id = String.valueOf(postSnapshot.child("id").getValue());
-                Log.d(id, "dataSnapshot");
+//                Log.d(id, "dataSnapshot");
                 subeventsDatabase2.addValueEventListener(new ValueEventListener() {
                     @Override
                     public void onDataChange(@NonNull DataSnapshot dataSnapshot1) {

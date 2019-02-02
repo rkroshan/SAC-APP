@@ -88,7 +88,7 @@ public class FeedsNoticeFrag extends Fragment {
                         for (int i = 0; i < downloadItem; i++) {
                             downloadList.add(String.valueOf(postSnapshot.child("Links").child(Integer.toString(i)).getValue()));
                         }
-                        Log.e("DataSnapshotnotice",postSnapshot.toString());
+//                        Log.e("DataSnapshotnotice",postSnapshot.toString());
                         listNotice.add(0, new Notice(
                                 liked,
                                 String.valueOf(postSnapshot.getKey()),

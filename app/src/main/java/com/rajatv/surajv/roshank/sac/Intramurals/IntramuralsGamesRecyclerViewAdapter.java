@@ -47,6 +47,16 @@ public class IntramuralsGamesRecyclerViewAdapter extends RecyclerView.Adapter<In
 
         viewHolder.mGamechar.setText(gamesList.get(i).getGame().substring(0, 1));
 
+        viewHolder.cardView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent=new Intent(context,FixturesActivity.class);
+                intent.putExtra("gamename",gamesList.get(i).getGame());
+                intent.putExtra("menorwomen",gamesList.get(i).getGender());
+                context.startActivity(intent);
+            }
+        });
+
 //        switch (gamesList.get(i).getGame()) {
 //            case "Cricket":
 //                viewHolder.mGameImage.setImageResource(R.mipmap.cricketmen);
@@ -84,6 +94,7 @@ public class IntramuralsGamesRecyclerViewAdapter extends RecyclerView.Adapter<In
         public TextView mGamename, mGamechar;
         public ImageView mGameImage;
         Intent subeventintent;
+        public CardView cardView;
 
 
         private final String EVENT_NAME = "event name";
@@ -93,6 +104,7 @@ public class IntramuralsGamesRecyclerViewAdapter extends RecyclerView.Adapter<In
             mGamechar = itemView.findViewById(R.id.element_intramurals_games_gamechar);
             mGamename = itemView.findViewById(R.id.element_intramurals_games_gamename);
             mGameImage = itemView.findViewById(R.id.element_intramurals_games_image);
+            cardView=itemView.findViewById(R.id.card_games);
 
 
         }

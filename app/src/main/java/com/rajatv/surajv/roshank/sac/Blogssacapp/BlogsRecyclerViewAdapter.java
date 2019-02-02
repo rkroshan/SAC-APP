@@ -253,7 +253,7 @@ public class BlogsRecyclerViewAdapter extends RecyclerView.Adapter<BlogsRecycler
                 if (databaseError != null) {
                     Log.e("databaseError", databaseError.toString());
                 } else {
-                    Log.e("dataSnapshot", dataSnapshot.toString());
+//                    Log.e("dataSnapshot", dataSnapshot.toString());
                 }
             }
         });

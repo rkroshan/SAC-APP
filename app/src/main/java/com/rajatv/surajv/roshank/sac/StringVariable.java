@@ -23,6 +23,16 @@ public class StringVariable {
     public static final String BADMINTON="Badminton";
     public static final String TABLETENNIS="Table_Tennis";
     public static final String WOMEN="women";
+    public static final String MANOFTHEMATCH="man_of_match";
+    public static final String MATCHRESULT="result";
+    public static final String TEAM1="team1";
+    public static final String TEAM2="team2";
+    public static final String STARTTIME="time_from";
+    public static final String ENDTIME="time_to";
+    public static final String TYPE="type";
+    public static final String MATCHVENUE="venue";
+
+
 
 
     //Posts

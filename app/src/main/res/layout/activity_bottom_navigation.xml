@@ -43,7 +43,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="10dp"
                 android:lineSpacingExtra="13sp"
-                android:text="a bohemian escapade"
+                android:text="Battle of Glory"
                 android:fontFamily="@fonts/Chalkduster"
                 android:textColor="#00171d"
                 android:textSize="11sp"

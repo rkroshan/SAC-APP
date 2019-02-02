@@ -60,7 +60,7 @@ public class CulturalEventsFrag extends Fragment {
                         //ADD THE DATA FROM DATABASE AS PER THE FIELD
                         String name = String.valueOf(postSnapshot.child("name").getValue());
                         final String id = String.valueOf(postSnapshot.child("id").getValue());
-                        Log.d(id, "dataSnapshot");
+//                        Log.d(id, "dataSnapshot");
                         eventsDatabase.addValueEventListener(new ValueEventListener() {
                             @Override
                             public void onDataChange(@NonNull DataSnapshot dataSnapshot1) {

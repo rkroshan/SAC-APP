@@ -61,7 +61,7 @@ public class IntramuralsGamesMenFragment extends Fragment {
                         //ADD THE DATA FROM DATABASE AS PER THE FIELD
                         String game = String.valueOf(postSnapshot.getKey());
                         Log.e("gamename1",game);
-                        gamesList.add(new IntramuralsGamesModal(game));
+                        gamesList.add(new IntramuralsGamesModal(game,"men"));
                         recyclerViewAdapter.notifyDataSetChanged();
 
                     }

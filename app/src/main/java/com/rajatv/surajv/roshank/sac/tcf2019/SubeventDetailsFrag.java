@@ -108,7 +108,7 @@ public class SubeventDetailsFrag extends Fragment {
 
 
         subeventsDatabase = FirebaseDatabase.getInstance().getReference().child("events").child(culturaleventname).child("children");  //ADD THE DATABASE REFERENCE
-        Log.d("hello","dataSnapshot");
+//        Log.d("hello","dataSnapshot");
         subeventsDatabase2=FirebaseDatabase.getInstance().getReference().child("events");
 
         if(culturaleventname.equalsIgnoreCase("pratibimb")){

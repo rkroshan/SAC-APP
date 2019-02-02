@@ -92,7 +92,7 @@ public class FeedsResultFrag extends Fragment {
                         for (int i = 0; i < downloadItem; i++) {
                             downloadList.add(String.valueOf(postSnapshot.child("Links").child(Integer.toString(i)).getValue()));
                         }
-                        Log.e("datasnapshotresult",postSnapshot.toString());
+//                        Log.e("datasnapshotresult",postSnapshot.toString());
                         listResult.add(0, new Results(
                                 liked,
                                 String.valueOf(postSnapshot.getKey()),
