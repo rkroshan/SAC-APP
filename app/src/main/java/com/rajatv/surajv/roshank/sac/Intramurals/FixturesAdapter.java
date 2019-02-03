@@ -1,7 +1,11 @@
 package com.rajatv.surajv.roshank.sac.Intramurals;
 
+import android.app.Dialog;
 import android.content.Context;
+import android.content.Intent;
+import android.net.Uri;
 import android.support.annotation.NonNull;
+import android.support.v7.widget.CardView;
 import android.support.v7.widget.RecyclerView;
 import android.util.Log;
 import android.view.LayoutInflater;
@@ -9,6 +13,12 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
 
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
 import com.rajatv.surajv.roshank.sac.R;
 
 import java.text.DateFormat;
@@ -23,6 +33,7 @@ public class FixturesAdapter extends RecyclerView.Adapter<FixturesAdapter.ViewHo
 
     private Context context;
     private List<FixturesModal> fixturesList;
+    private Dialog publishResult;
 
     public FixturesAdapter() {
     }
@@ -78,6 +89,31 @@ public class FixturesAdapter extends RecyclerView.Adapter<FixturesAdapter.ViewHo
 
         }
 
+        viewHolder.mCardViewFixtures.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                DatabaseReference adminref= FirebaseDatabase.getInstance().getReference().child("ResultAdmins");
+                adminref.addListenerForSingleValueEvent(new ValueEventListener() {
+                    @Override
+                    public void onDataChange(DataSnapshot dataSnapshot) {
+                        try{
+                            if(dataSnapshot.toString().contains(FirebaseAuth.getInstance().getCurrentUser().getUid())){
+                                openDialog();
+
+                            }
+                        }
+                        catch (Exception e){}
+                    }
+
+                    @Override
+                    public void onCancelled(DatabaseError databaseError) {
+
+                    }
+                });
+                openDialog();
+            }
+        });
+
 
     }
 
@@ -89,6 +125,7 @@ public class FixturesAdapter extends RecyclerView.Adapter<FixturesAdapter.ViewHo
     public class ViewHolder extends RecyclerView.ViewHolder {
 
         TextView mMatchType, mdateTime, mVenue, mTeam1, mTeam2, mResult, mMOM;
+        CardView mCardViewFixtures;
 
         public ViewHolder(@NonNull View itemView) {
             super(itemView);
@@ -100,7 +137,23 @@ public class FixturesAdapter extends RecyclerView.Adapter<FixturesAdapter.ViewHo
             mTeam2 = itemView.findViewById(R.id.element_versus_intramurals_team2_tv);
             mResult = itemView.findViewById(R.id.element_versus_intramurals_tv_result);
             mMOM = itemView.findViewById(R.id.element_versus_intramurals_manofmatch);
+            mCardViewFixtures= itemView.findViewById(R.id.cardview_fixtures);
 
         }
+    }
+    private void openDialog() {
+        publishResult=new Dialog(context);
+        publishResult.getWindow().getDecorView().setBackgroundResource(android.R.color.transparent);
+
+        publishResult.setContentView(R.layout.popup_intramurals_result);
+        publishResult.getWindow().setLayout(ViewGroup.LayoutParams.WRAP_CONTENT, ViewGroup.LayoutParams.WRAP_CONTENT);
+        publishResult.show();
+        TextView submitButton = publishResult.findViewById(R.id.dialog_submit_intra);
+        submitButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+            }
+        });
     }
 }
