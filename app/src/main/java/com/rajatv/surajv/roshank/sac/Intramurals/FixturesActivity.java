@@ -31,6 +31,7 @@ public class FixturesActivity extends AppCompatActivity {
     FixturesAdapter recyclerViewAdapter;
     String gender;
     private List<FixturesModal> fixturesList;
+    String gameName;
 
 
     @Override
@@ -42,7 +43,7 @@ public class FixturesActivity extends AppCompatActivity {
         recyclerView = findViewById(R.id.recyclerview_fixtures);
         back = findViewById(R.id.back_btn);
         gameToolbarText = findViewById(R.id.gameName);
-
+        gameName = getIntent().getExtras().getString("gamename");
         final LinearLayoutManager linearLayoutManager = new LinearLayoutManager(this);
         linearLayoutManager.setOrientation(LinearLayoutManager.VERTICAL);
 
@@ -61,36 +62,52 @@ public class FixturesActivity extends AppCompatActivity {
             }
         });
         dbref = FirebaseDatabase.getInstance().getReference().child(StringVariable.INTRAMURALS).child(gender).child(getIntent().getExtras().getString("gamename"));
-
-
-        dbref.addListenerForSingleValueEvent(new ValueEventListener() {
+        dbref.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(DataSnapshot dataSnapshot) {
-                fixturesList.clear();
-                for (DataSnapshot ds : dataSnapshot.getChildren()) {
-                    Log.e("datasnapshot",ds.toString());
-                    fixturesList.add(new FixturesModal(
-                            String.valueOf(ds.child(StringVariable.MANOFTHEMATCH).getValue()),
-                            String.valueOf(ds.child(StringVariable.MATCHRESULT).getValue()),
-                            String.valueOf(ds.child(StringVariable.TEAM1).getValue()),
-                            String.valueOf(ds.child(StringVariable.TEAM2).getValue()),
-                            String.valueOf(ds.child(StringVariable.STARTTIME).getValue()),
-                            String.valueOf(ds.child(StringVariable.ENDTIME).getValue()),
-                            String.valueOf(ds.child(StringVariable.TYPE).getValue()),
-                            String.valueOf(ds.child(StringVariable.MATCHVENUE).getValue()),
-                            gender,
-                            ds.getKey(),
-                            getIntent().getExtras().getString("gamename")
-
-
-                    ));
-                    recyclerViewAdapter.notifyDataSetChanged();
-
+                if(gender.equalsIgnoreCase("men")){
+                    fixturesList.clear();
+                    for (DataSnapshot ds : dataSnapshot.getChildren()) {
+                        Log.e("datasnapshot",ds.toString());
+                        fixturesList.add(new FixturesModal(
+                                String.valueOf(ds.child("mom").getValue()),
+                                String.valueOf(ds.child(StringVariable.MATCHRESULT).getValue()),
+                                String.valueOf(ds.child(StringVariable.TEAM1).getValue()),
+                                String.valueOf(ds.child(StringVariable.TEAM2).getValue()),
+                                String.valueOf(ds.child(StringVariable.STARTTIME).getValue()),
+                                String.valueOf(ds.child(StringVariable.ENDTIME).getValue()),
+                                String.valueOf(ds.child(StringVariable.TYPE).getValue()),
+                                String.valueOf(ds.child(StringVariable.MATCHVENUE).getValue()),
+                                gender,
+                                ds.getKey(),
+                                gameName
+                        ));
+                        recyclerViewAdapter.notifyDataSetChanged();
+                    }
+                }else if(gender.equalsIgnoreCase("women")){
+                    fixturesList.clear();
+                    for (DataSnapshot ds : dataSnapshot.getChildren()) {
+                        Log.e("datasnapshot",ds.toString());
+                        fixturesList.add(new FixturesModal(
+                                String.valueOf(ds.child("mom").getValue()),
+                                String.valueOf(ds.child(StringVariable.MATCHRESULT).getValue()),
+                                String.valueOf(ds.child(StringVariable.TEAM1).getValue()),
+                                String.valueOf(ds.child(StringVariable.TEAM2).getValue()),
+                                String.valueOf(ds.child(StringVariable.STARTTIME).getValue()),
+                                String.valueOf(ds.child(StringVariable.ENDTIME).getValue()),
+                                String.valueOf(ds.child(StringVariable.TYPE).getValue()),
+                                String.valueOf(ds.child(StringVariable.MATCHVENUE).getValue()),
+                                gender,
+                                ds.getKey(),
+                                gameName
+                        ));
+                        recyclerViewAdapter.notifyDataSetChanged();
+                    }
+                }
+                else{
 
                 }
-
             }
-
             @Override
             public void onCancelled(DatabaseError databaseError) {
                 recyclerViewAdapter.notifyDataSetChanged();

@@ -354,9 +354,23 @@ public class SacFeedsFragment extends Fragment implements View.OnClickListener {
     private void beforeLoadingDialog() {
 
         categories.clear();
-        categories.add("Technical Event");
-        categories.add("Cultural Event");
+        //categories.add("Technical Event");
+        categories.add("Intramural");
         categories.add("Miscellaneous");
+
+        eventDetailsList.clear();
+        eventDetailsList.add("Men");
+        eventDetailsList.add("Women");
+
+        subeventDetailsList.clear();
+        subeventDetailsList.add("Cricket");
+        subeventDetailsList.add("Football");
+        subeventDetailsList.add("Volleyball");
+        subeventDetailsList.add("Badminton");
+        subeventDetailsList.add("Kabaddi");
+        subeventDetailsList.add("Squash");
+        subeventDetailsList.add("Table Tennis");
+
 
         dataAdapter = new ArrayAdapter<String>(getActivity().getApplicationContext(), R.layout.spinner_text, categories);
         dataAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
@@ -374,21 +388,21 @@ public class SacFeedsFragment extends Fragment implements View.OnClickListener {
             @Override
             public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
 
-                String item = parent.getItemAtPosition(position).toString();
-                event_data = item;
-                Log.e("event_data--", item);
-                if (item == "Technical Event") {
-                    set_event_spinner(dbref.child("technical-events").child("children"));
-                    event.setVisibility(View.VISIBLE);
-                    subevent.setVisibility(View.VISIBLE);
-                } else if (item == "Cultural Event") {
-                    set_event_spinner(dbref.child("cultural-events").child("children"));
-                    event.setVisibility(View.VISIBLE);
-                    subevent.setVisibility(View.VISIBLE);
-                } else {
-                    event.setVisibility(View.INVISIBLE);
-                    subevent.setVisibility(View.INVISIBLE);
-                }
+                String item1= parent.getItemAtPosition(position).toString();
+                event_data = item1;
+                //Log.e("event_data--", item);
+//                if (item == "Technical Event") {
+//                    set_event_spinner(dbref.child("technical-events").child("children"));
+//                    event.setVisibility(View.VISIBLE);
+//                    subevent.setVisibility(View.VISIBLE);
+//                } else if (item == "Cultural Event") {
+//                    set_event_spinner(dbref.child("cultural-events").child("children"));
+//                    event.setVisibility(View.VISIBLE);
+//                    subevent.setVisibility(View.VISIBLE);
+//                } else {
+//                    event.setVisibility(View.INVISIBLE);
+//                    subevent.setVisibility(View.INVISIBLE);
+//                }
             }
 
             @Override
@@ -401,10 +415,10 @@ public class SacFeedsFragment extends Fragment implements View.OnClickListener {
             @Override
             public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
 
-                String item = parent.getItemAtPosition(position).toString();
-                Log.e("Sub event", item + "");
+                String item2 = parent.getItemAtPosition(position).toString();
+                //Log.e("Sub event", item + "");
 
-                set_subevent_spinner(dbref.child(item).child("children"));
+                //set_subevent_spinner(dbref.child(item).child("children"));
 
 
             }
@@ -418,70 +432,70 @@ public class SacFeedsFragment extends Fragment implements View.OnClickListener {
 
     }
 
-    private void set_event_spinner(DatabaseReference db) {
+//    private void set_event_spinner(DatabaseReference db) {
+//
+//        db.addListenerForSingleValueEvent(new ValueEventListener() {
+//            @Override
+//            public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+//
+//                eventDetailsList.clear();
+//                if (dataSnapshot.exists()) {
+//
+//                    event.setVisibility(View.VISIBLE);
+//
+//
+//                    for (DataSnapshot postSnapshot : dataSnapshot.getChildren()) {
+//
+//                        String name = String.valueOf(postSnapshot.child("id").getValue());
+//                        eventDetailsList.add(name);
+//                        Log.e("eventDetailsList", eventDetailsList.toString());
+//                    }
+//                } else {
+//                    event.setVisibility(View.INVISIBLE);
+//                    event_data = "";
+//                }
+//                dataAdapter1.notifyDataSetChanged();
+//            }
+//
+//            @Override
+//            public void onCancelled(@NonNull DatabaseError databaseError) {
+//            }
+//        });
+//
+//    }
 
-        db.addListenerForSingleValueEvent(new ValueEventListener() {
-            @Override
-            public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
 
-                eventDetailsList.clear();
-                if (dataSnapshot.exists()) {
-
-                    event.setVisibility(View.VISIBLE);
-
-
-                    for (DataSnapshot postSnapshot : dataSnapshot.getChildren()) {
-
-                        String name = String.valueOf(postSnapshot.child("id").getValue());
-                        eventDetailsList.add(name);
-                        Log.e("eventDetailsList", eventDetailsList.toString());
-                    }
-                } else {
-                    event.setVisibility(View.INVISIBLE);
-                    event_data = "";
-                }
-                dataAdapter1.notifyDataSetChanged();
-            }
-
-            @Override
-            public void onCancelled(@NonNull DatabaseError databaseError) {
-            }
-        });
-
-    }
-
-
-    private void set_subevent_spinner(DatabaseReference db) {
-
-        db.addListenerForSingleValueEvent(new ValueEventListener() {
-            @Override
-            public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
-
-                subeventDetailsList.clear();
-                if (dataSnapshot.exists()) {
-
-                    subevent.setVisibility(View.VISIBLE);
-
-                    for (DataSnapshot postSnapshot : dataSnapshot.getChildren()) {
-                        Log.e("subeventId", postSnapshot.child("id").getValue().toString());
-
-                        String name = String.valueOf(postSnapshot.child("id").getValue());
-                        subeventDetailsList.add(name);
-                    }
-
-                } else {
-                    subevent.setVisibility(View.INVISIBLE);
-                    sub_event_data = "";
-                }
-
-                dataAdapter2.notifyDataSetChanged();
-            }
-
-            @Override
-            public void onCancelled(@NonNull DatabaseError databaseError) {
-            }
-        });
-    }
+//    private void set_subevent_spinner(DatabaseReference db) {
+//
+//        db.addListenerForSingleValueEvent(new ValueEventListener() {
+//            @Override
+//            public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+//
+//                subeventDetailsList.clear();
+//                if (dataSnapshot.exists()) {
+//
+//                    subevent.setVisibility(View.VISIBLE);
+//
+//                    for (DataSnapshot postSnapshot : dataSnapshot.getChildren()) {
+//                        Log.e("subeventId", postSnapshot.child("id").getValue().toString());
+//
+//                        String name = String.valueOf(postSnapshot.child("id").getValue());
+//                        subeventDetailsList.add(name);
+//                    }
+//
+//                } else {
+//                    subevent.setVisibility(View.INVISIBLE);
+//                    sub_event_data = "";
+//                }
+//
+//                dataAdapter2.notifyDataSetChanged();
+//            }
+//
+//            @Override
+//            public void onCancelled(@NonNull DatabaseError databaseError) {
+//            }
+//        });
+//    }
 
 
     private void checkpermission(int i) {

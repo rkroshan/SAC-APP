@@ -6,7 +6,6 @@ import android.os.Bundle;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.widget.Toast;
-
 import com.google.android.gms.analytics.HitBuilders;
 import com.google.android.gms.analytics.Tracker;
 import com.google.firebase.database.DataSnapshot;
@@ -16,7 +15,6 @@ import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 import com.rajatv.surajv.roshank.sac.tcf2019.Modal_Classes.SubeventDetails;
 import com.rajatv.surajv.roshank.sac.tcf2019.RecyclerViewAdapters.SubeventsDetailsRecyclerViewAdapter;
-
 import java.util.ArrayList;
 import java.util.List;
 
@@ -72,7 +70,6 @@ public class ByDateOnclick extends AppCompatActivity {
                                 String.valueOf(postSnapshot1.child("registrationDetail").child("type").getValue()),
                                 String.valueOf(postSnapshot1.child("registrationDetail").child("packages").getValue()),
                                 String.valueOf(postSnapshot1.child("registrationDetail").child("restricted").getValue())
-
                         ));
                         recyclerViewAdapter = new SubeventsDetailsRecyclerViewAdapter(getApplicationContext(), subeventDetailsList);
                         recyclerView.setAdapter(recyclerViewAdapter);

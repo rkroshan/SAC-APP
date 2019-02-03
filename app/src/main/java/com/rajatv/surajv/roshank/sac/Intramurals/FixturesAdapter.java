@@ -1,6 +1,9 @@
 package com.rajatv.surajv.roshank.sac.Intramurals;
 
+import android.app.Dialog;
 import android.content.Context;
+import android.content.Intent;
+import android.net.Uri;
 import android.support.annotation.NonNull;
 import android.support.v7.widget.CardView;
 import android.support.v7.widget.RecyclerView;
@@ -8,8 +11,21 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.EditText;
+import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
+import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.Task;
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
 import com.rajatv.surajv.roshank.sac.R;
+import com.rajatv.surajv.roshank.sac.StringVariable;
+
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.List;
@@ -18,6 +34,8 @@ public class FixturesAdapter extends RecyclerView.Adapter<FixturesAdapter.ViewHo
 
     private Context context;
     private List<FixturesModal> fixturesList;
+    private Dialog publishResult;
+    String currentUser = "";
 
     public FixturesAdapter() {
     }
@@ -44,6 +62,26 @@ public class FixturesAdapter extends RecyclerView.Adapter<FixturesAdapter.ViewHo
         Log.e("amanData", fixturesList.get(i).toString());
         viewHolder.mTeam1.setText(fixturesList.get(i).getTeam1());
         viewHolder.mTeam2.setText(fixturesList.get(i).getTeam2());
+        try {
+            currentUser = FirebaseAuth.getInstance().getCurrentUser().getUid();
+        }catch (Exception e){
+
+        }
+
+        if(fixturesList.get(i).getTeam1().equalsIgnoreCase("") || fixturesList.get(i).getTeam1().equalsIgnoreCase(null))
+        {
+            viewHolder.mTeam1.setText("?");
+        }
+        else{
+
+        }
+        if(fixturesList.get(i).getTeam2().equalsIgnoreCase("") || fixturesList.get(i).getTeam2().equalsIgnoreCase(null))
+        {
+            viewHolder.mTeam2.setText("?");
+        }
+        else {
+
+        }
         if (fixturesList.get(i).getMan_of_match().equalsIgnoreCase("1"))
             viewHolder.mMatchType.setText("League Match");
         SimpleDateFormat sdf = new SimpleDateFormat("dd MMM | hh:mm a");
@@ -51,17 +89,92 @@ public class FixturesAdapter extends RecyclerView.Adapter<FixturesAdapter.ViewHo
         long timestamp = Long.parseLong(fixturesList.get(i).getTime_from());
         calendar.setTimeInMillis(timestamp);
         String formattedDate = sdf.format(calendar.getTime());
+        if (fixturesList.get(i).getResult().equalsIgnoreCase("")) {
+            viewHolder.mResult.setVisibility(View.GONE);
+        }else {
+            viewHolder.mResult.setVisibility(View.VISIBLE);
+        }
+        if (fixturesList.get(i).getMan_of_match().equalsIgnoreCase("")) {
+            viewHolder.mMOM.setVisibility(View.GONE);
+        }else{
+            viewHolder.mMOM.setVisibility(View.VISIBLE);
+        }
         viewHolder.mdateTime.setText(formattedDate);
         viewHolder.mVenue.setText(fixturesList.get(i).getVenue());
         viewHolder.mResult.setText(fixturesList.get(i).getResult());
         viewHolder.mMOM.setText(fixturesList.get(i).getMan_of_match());
-        if (fixturesList.get(i).getResult().equalsIgnoreCase("")) {
-            viewHolder.mResult.setVisibility(View.GONE);
-        }
-        if (fixturesList.get(i).getMan_of_match().equalsIgnoreCase("")) {
-            viewHolder.mMOM.setVisibility(View.GONE);
 
-        }
+
+        viewHolder.mCardViewFixtures.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                DatabaseReference adminref= FirebaseDatabase.getInstance().getReference().child("ResultAdmins");
+                adminref.addListenerForSingleValueEvent(new ValueEventListener() {
+                    @Override
+                    public void onDataChange(DataSnapshot dataSnapshot) {
+                        try{
+                            if(dataSnapshot.toString().contains(currentUser)){
+                                publishResult=new Dialog(context);
+                                try {
+                                    publishResult.getWindow().getDecorView().setBackgroundResource(android.R.color.transparent);
+                                }catch (Exception e){
+
+                                }
+                                publishResult.setContentView(R.layout.popup_intramurals_result);
+                                publishResult.getWindow().setLayout(ViewGroup.LayoutParams.WRAP_CONTENT, ViewGroup.LayoutParams.WRAP_CONTENT);
+                                publishResult.show();
+                                EditText mResult_tv,mManOfTheMatch_tv;
+                                ImageView close;
+                                mResult_tv=publishResult.findViewById(R.id.popup_intramurals_result_result_tv);
+                                mManOfTheMatch_tv=publishResult.findViewById(R.id.popup_intramurals_result_mom_tv);
+                                close = publishResult.findViewById(R.id.close_intra);
+                                TextView submitButton = publishResult.findViewById(R.id.dialog_submit_intra);
+                                close.setOnClickListener(new View.OnClickListener() {
+                                    @Override
+                                    public void onClick(View v) {
+                                        publishResult.dismiss();
+                                    }
+                                });
+                                submitButton.setOnClickListener(new View.OnClickListener() {
+                                    @Override
+                                    public void onClick(View v) {
+                                        try {
+                                            if(!(mManOfTheMatch_tv.getText().toString().isEmpty()&&mResult_tv.getText().toString().isEmpty())) {
+                                                DatabaseReference uploadResultref = FirebaseDatabase.getInstance().getReference().child(StringVariable.INTRAMURALS).child(fixturesList.get(i).getGender()).child(fixturesList.get(i).getGameName()).child(fixturesList.get(i).getFixturesKey());
+                                                uploadResultref.child(StringVariable.MATCHRESULT).setValue(mResult_tv.getText().toString());
+                                                uploadResultref.child(StringVariable.MANOFTHEMATCH).setValue(mManOfTheMatch_tv.getText().toString()).addOnCompleteListener(new OnCompleteListener<Void>() {
+                                                    @Override
+                                                    public void onComplete(@NonNull Task<Void> task) {
+                                                        publishResult.dismiss();
+                                                        notifyDataSetChanged();
+                                                    }
+                                                });
+                                            }
+                                            else {
+                                                Toast.makeText(context,"Please Write Something",Toast.LENGTH_SHORT).show();
+                                            }
+                                        }catch (Exception e){
+                                            Toast.makeText(context,"Some error occurred",Toast.LENGTH_SHORT).show();
+                                        }
+                                    }
+                                });
+                            }
+                            else{
+
+                            }
+                        }
+                        catch (Exception e){}
+                    }
+
+                    @Override
+                    public void onCancelled(DatabaseError databaseError) {
+
+                    }
+                });
+            }
+        });
+
+
     }
 
     @Override
@@ -72,7 +185,7 @@ public class FixturesAdapter extends RecyclerView.Adapter<FixturesAdapter.ViewHo
     public class ViewHolder extends RecyclerView.ViewHolder {
 
         TextView mMatchType, mdateTime, mVenue, mTeam1, mTeam2, mResult, mMOM;
-        CardView cardView;
+        CardView mCardViewFixtures;
 
         public ViewHolder(@NonNull View itemView) {
             super(itemView);
@@ -84,7 +197,9 @@ public class FixturesAdapter extends RecyclerView.Adapter<FixturesAdapter.ViewHo
             mTeam2 = itemView.findViewById(R.id.element_versus_intramurals_team2_tv);
             mResult = itemView.findViewById(R.id.element_versus_intramurals_tv_result);
             mMOM = itemView.findViewById(R.id.element_versus_intramurals_manofmatch);
+            mCardViewFixtures= itemView.findViewById(R.id.cardview_fixtures);
 
         }
     }
+
 }

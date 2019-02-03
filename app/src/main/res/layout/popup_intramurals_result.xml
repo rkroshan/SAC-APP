@@ -1,0 +1,118 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+
+    <android.support.v7.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        android:id="@+id/pop_up_sac"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_gravity="center"
+        android:backgroundTint="#253237"
+        app:cardCornerRadius="8dp">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <ImageView
+                android:layout_width="100dp"
+                android:layout_height="100dp"
+                android:layout_alignParentTop="true"
+                android:layout_alignParentRight="true"
+                android:layout_marginTop="133dp"
+                android:alpha="0.6"
+                android:background="@drawable/ic_podium" />
+
+            <android.support.v7.widget.AppCompatImageView
+                android:id="@+id/close_intra"
+                android:layout_width="22.3dp"
+                android:layout_height="22.8dp"
+                android:padding="7dp"
+                android:layout_alignParentRight="true"
+                android:layout_marginTop="22.1dp"
+                android:layout_marginRight="17.6dp"
+                android:src="@drawable/ic_close_pop" />
+
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_alignParentLeft="true"
+                android:layout_alignParentRight="true"
+                android:layout_marginLeft="0dp"
+                android:layout_marginRight="0dp"
+                android:orientation="vertical">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_horizontal"
+                    android:layout_marginTop="20dp"
+                    android:layout_marginBottom="10dp"
+                    android:lineSpacingExtra="19sp"
+                    android:text="---RESULTS---"
+                    android:textColor="#ffffff"
+                    android:textSize="20dp"
+                    android:textStyle="bold" />
+
+                <EditText
+                    android:id="@+id/popup_intramurals_result_result_tv"
+                    style="@style/Animation.AppCompat.DropDownUp"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="23dp"
+                    android:layout_marginTop="12dp"
+                    android:layout_marginRight="23.8dp"
+                    android:layout_marginBottom="6dp"
+                    android:background="@drawable/round_corner_rec_dark"
+                    android:hint="CSE won by 2 points"
+                    android:textColor="#EBEBEB"
+                    android:textColorHint="#666666"
+                    android:tooltipText="Category">
+
+                </EditText>
+
+                <EditText
+                    android:id="@+id/popup_intramurals_result_mom_tv"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentLeft="true"
+                    android:layout_alignParentRight="true"
+                    android:layout_marginLeft="23dp"
+                    android:layout_marginRight="23.8dp"
+                    android:background="@drawable/round_corner_rec_dark"
+                    android:hint="Man of the match: Deepak"
+                    android:textColor="#EBEBEB"
+                    android:textColorHint="#666666"
+                    android:tooltipText="Designation">
+
+                </EditText>
+
+
+                <Button
+                    android:id="@+id/dialog_submit_intra"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="84dp"
+                    android:layout_marginTop="24dp"
+                    android:layout_marginRight="84dp"
+                    android:background="@drawable/round_button_registrations"
+                    android:gravity="center"
+                    android:lineSpacingExtra="10sp"
+                    android:text="Submit"
+                    android:textAlignment="center"
+                    android:textAllCaps="false"
+                    android:textColor="#F0F0F0"
+                    android:textSize="14sp"
+                    android:textStyle="bold" />
+
+            </LinearLayout>
+        </RelativeLayout>
+
+
+    </android.support.v7.widget.CardView>
+
+</RelativeLayout>
