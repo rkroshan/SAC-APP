@@ -23,7 +23,7 @@ public class StringVariable {
     public static final String BADMINTON="Badminton";
     public static final String TABLETENNIS="Table_Tennis";
     public static final String WOMEN="women";
-    public static final String MANOFTHEMATCH="man_of_match";
+    public static final String MANOFTHEMATCH="mom";
     public static final String MATCHRESULT="result";
     public static final String TEAM1="team1";
     public static final String TEAM2="team2";

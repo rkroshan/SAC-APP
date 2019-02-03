@@ -11,6 +11,7 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.facebook.drawee.view.SimpleDraweeView;
@@ -99,6 +100,18 @@ public class FixturesAdapter extends RecyclerView.Adapter<FixturesAdapter.ViewHo
             case "me":
                 viewHolder.mSimpleDrawee1.setBackgroundResource(R.drawable.bg_cse);
                 break;
+            case "2k15":
+                viewHolder.mSimpleDrawee1.setBackgroundResource(R.drawable.bg_2k15);
+                break;
+            case "2k16":
+                viewHolder.mSimpleDrawee1.setBackgroundResource(R.drawable.bg_2k16);
+                break;
+            case "2k17":
+                viewHolder.mSimpleDrawee1.setBackgroundResource(R.drawable.bg_2k17);
+                break;
+            case "2k18":
+                viewHolder.mSimpleDrawee1.setBackgroundResource(R.drawable.bg_2k18);
+                break;
             default:
                 viewHolder.mSimpleDrawee1.setBackgroundResource(R.drawable.bg_civil);
                 break;
@@ -123,6 +136,18 @@ public class FixturesAdapter extends RecyclerView.Adapter<FixturesAdapter.ViewHo
             case "me":
                 viewHolder.mSimpleDrawee2.setBackgroundResource(R.drawable.bg_cse);
                 break;
+            case "2k15":
+                viewHolder.mSimpleDrawee2.setBackgroundResource(R.drawable.bg_2k15);
+                break;
+            case "2k16":
+                viewHolder.mSimpleDrawee2.setBackgroundResource(R.drawable.bg_2k16);
+                break;
+            case "2k17":
+                viewHolder.mSimpleDrawee2.setBackgroundResource(R.drawable.bg_2k17);
+                break;
+            case "2k18":
+                viewHolder.mSimpleDrawee2.setBackgroundResource(R.drawable.bg_2k18);
+                break;
             default:
                 viewHolder.mSimpleDrawee2.setBackgroundResource(R.drawable.bg_civil);
                 break;
@@ -131,10 +156,21 @@ public class FixturesAdapter extends RecyclerView.Adapter<FixturesAdapter.ViewHo
 
         if (fixturesList.get(i).getResult().equalsIgnoreCase("")) {
             viewHolder.mResult.setVisibility(View.GONE);
+
         }
         if (fixturesList.get(i).getMan_of_match().equalsIgnoreCase("")) {
             viewHolder.mMOM.setVisibility(View.GONE);
+            viewHolder.trophy1.setVisibility(View.GONE);
+            viewHolder.trophy2.setVisibility(View.GONE);
+        }
 
+        Long currDateTime=System.currentTimeMillis();
+        if (currDateTime>=Long.parseLong(fixturesList.get(i).getTime_from()) &&
+                currDateTime<=Long.parseLong(fixturesList.get(i).getTime_to())){
+            viewHolder.mLive.setVisibility(View.VISIBLE);
+        }
+        else {
+            viewHolder.mLive.setVisibility(View.GONE);
         }
 
         viewHolder.mCardViewFixtures.setOnClickListener(new View.OnClickListener() {
@@ -175,6 +211,7 @@ public class FixturesAdapter extends RecyclerView.Adapter<FixturesAdapter.ViewHo
         SimpleDraweeView mSimpleDrawee1, mSimpleDrawee2;
         TextView mMatchType, mdateTime, mVenue, mTeam1, mTeam2, mResult, mMOM;
         CardView mCardViewFixtures;
+        ImageView trophy1,trophy2,mLive;
 
         public ViewHolder(@NonNull View itemView) {
             super(itemView);
@@ -189,6 +226,10 @@ public class FixturesAdapter extends RecyclerView.Adapter<FixturesAdapter.ViewHo
             mCardViewFixtures = itemView.findViewById(R.id.cardview_fixtures);
             mSimpleDrawee1 = itemView.findViewById(R.id.team1SimpleDrawee);
             mSimpleDrawee2 = itemView.findViewById(R.id.team2SimpleDrawee);
+
+            trophy1=itemView.findViewById(R.id.trophy1);
+            trophy2=itemView.findViewById(R.id.trophy2);
+            mLive=itemView.findViewById(R.id.live);
 
         }
     }
