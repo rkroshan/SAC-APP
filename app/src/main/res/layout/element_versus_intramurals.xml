@@ -26,6 +26,14 @@
         android:layout_height="wrap_content"
         android:background="#273438"
         android:id="@+id/relativecard">
+
+        <ImageView
+            android:layout_width="100dp"
+            android:layout_height="100dp"
+            android:layout_centerHorizontal="true"
+            android:src="@drawable/ic_running"
+            android:alpha="0.1"
+            />
         <com.facebook.drawee.view.SimpleDraweeView
             android:layout_width="60dp"
             android:layout_height="60dp"
@@ -133,24 +141,45 @@
     android:layout_height="wrap_content"
 
     >
-    <TextView
+    <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="CSE won by 7 wickets."
-        android:textColor="#ffffff"
-        android:paddingTop="4dp"
-        android:paddingBottom="4dp"
-        android:background="#2C2C2C"
-        android:textAlignment="center"
-        android:layout_centerHorizontal="true"
-        android:textStyle="bold"
-        android:id="@+id/element_versus_intramurals_tv_result"/>
+        android:background="#DADADA"
+        >
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="CSE won by 7 wickets."
+            android:textColor="#313131"
+            android:paddingTop="4dp"
+            android:paddingBottom="4dp"
+            android:textAlignment="center"
+            android:layout_centerHorizontal="true"
+            android:textStyle="bold"
+            android:id="@+id/element_versus_intramurals_tv_result"/>
 
-    <LinearLayout
-        android:layout_width="wrap_content"
+    </RelativeLayout>
+    <RelativeLayout
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_gravity="center_horizontal"
         android:background="#273438">
+
+        <ImageView
+            android:layout_width="22dp"
+            android:layout_height="22dp"
+            android:layout_centerVertical="true"
+            android:layout_alignParentRight="true"
+            android:layout_marginLeft="10dp"
+            android:layout_marginRight="10dp"
+            android:src="@drawable/ic_trophy"
+            />
+        <ImageView
+            android:layout_width="22dp"
+            android:layout_height="22dp"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="10dp"
+            android:src="@drawable/ic_trophy"
+            />
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -161,7 +190,7 @@
             android:paddingBottom="4dp"
             android:layout_centerHorizontal="true"
             android:textStyle="bold"/>
-    </LinearLayout>
+    </RelativeLayout>
 </LinearLayout>
 </LinearLayout>
     </android.support.v7.widget.CardView>
