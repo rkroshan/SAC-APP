@@ -49,6 +49,15 @@ public class FixturesAdapter extends RecyclerView.Adapter<FixturesAdapter.ViewHo
         Log.e("amanData", fixturesList.get(i).toString());
         viewHolder.mTeam1.setText(fixturesList.get(i).getTeam1());
         viewHolder.mTeam2.setText(fixturesList.get(i).getTeam2());
+
+        if(fixturesList.get(i).getTeam1().equalsIgnoreCase("") || fixturesList.get(i).getTeam1().equalsIgnoreCase(null))
+        {
+            viewHolder.mTeam1.setText("?");
+        }
+        if(fixturesList.get(i).getTeam2().equalsIgnoreCase("") || fixturesList.get(i).getTeam2().equalsIgnoreCase(null))
+        {
+            viewHolder.mTeam2.setText("?");
+        }
         if (fixturesList.get(i).getMan_of_match().equalsIgnoreCase("1"))
             viewHolder.mMatchType.setText("League Match");
         SimpleDateFormat sdf = new SimpleDateFormat("dd MMM | hh:mm a");
