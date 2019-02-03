@@ -77,7 +77,10 @@ public class FixturesActivity extends AppCompatActivity {
                             String.valueOf(ds.child(StringVariable.STARTTIME).getValue()),
                             String.valueOf(ds.child(StringVariable.ENDTIME).getValue()),
                             String.valueOf(ds.child(StringVariable.TYPE).getValue()),
-                            String.valueOf(ds.child(StringVariable.MATCHVENUE).getValue())
+                            String.valueOf(ds.child(StringVariable.MATCHVENUE).getValue()),
+                            gender,
+                            ds.getKey(),
+                            getIntent().getExtras().getString("gamename")
 
 
                     ));

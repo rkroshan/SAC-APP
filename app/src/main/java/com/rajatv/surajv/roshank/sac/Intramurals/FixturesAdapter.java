@@ -2,21 +2,16 @@ package com.rajatv.surajv.roshank.sac.Intramurals;
 
 import android.content.Context;
 import android.support.annotation.NonNull;
+import android.support.v7.widget.CardView;
 import android.support.v7.widget.RecyclerView;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
-
 import com.rajatv.surajv.roshank.sac.R;
-
-import java.text.DateFormat;
-import java.text.ParseException;
 import java.text.SimpleDateFormat;
-import java.util.ArrayList;
 import java.util.Calendar;
-import java.util.Date;
 import java.util.List;
 
 public class FixturesAdapter extends RecyclerView.Adapter<FixturesAdapter.ViewHolder> {
@@ -60,7 +55,6 @@ public class FixturesAdapter extends RecyclerView.Adapter<FixturesAdapter.ViewHo
         viewHolder.mVenue.setText(fixturesList.get(i).getVenue());
         viewHolder.mResult.setText(fixturesList.get(i).getResult());
         viewHolder.mMOM.setText(fixturesList.get(i).getMan_of_match());
-
         if (fixturesList.get(i).getResult().equalsIgnoreCase("")) {
             viewHolder.mResult.setVisibility(View.GONE);
         }
@@ -68,8 +62,6 @@ public class FixturesAdapter extends RecyclerView.Adapter<FixturesAdapter.ViewHo
             viewHolder.mMOM.setVisibility(View.GONE);
 
         }
-
-
     }
 
     @Override
@@ -80,6 +72,7 @@ public class FixturesAdapter extends RecyclerView.Adapter<FixturesAdapter.ViewHo
     public class ViewHolder extends RecyclerView.ViewHolder {
 
         TextView mMatchType, mdateTime, mVenue, mTeam1, mTeam2, mResult, mMOM;
+        CardView cardView;
 
         public ViewHolder(@NonNull View itemView) {
             super(itemView);

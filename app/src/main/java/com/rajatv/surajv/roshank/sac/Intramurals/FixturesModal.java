@@ -1,11 +1,11 @@
 package com.rajatv.surajv.roshank.sac.Intramurals;
 
 public class FixturesModal {
-    private String man_of_match, result, team1,team2, time_from, time_to, type, venue;
+    private String man_of_match, result, team1,team2, time_from, time_to, type, venue,gender, fixturesKey, gameName;
 
     public FixturesModal(){}
 
-    public FixturesModal(String man_of_match, String result, String team1, String team2, String time_from, String time_to, String type, String venue) {
+    public FixturesModal(String man_of_match, String result, String team1, String team2, String time_from, String time_to, String type, String venue, String gender, String fixturesKey, String gameName) {
         this.man_of_match = man_of_match;
         this.result = result;
         this.team1 = team1;
@@ -14,6 +14,9 @@ public class FixturesModal {
         this.time_to = time_to;
         this.type = type;
         this.venue = venue;
+        this.gender = gender;
+        this.fixturesKey=fixturesKey;
+        this.gameName=gameName;
     }
 
     public String getMan_of_match() {
@@ -76,7 +79,30 @@ public class FixturesModal {
         return venue;
     }
 
+    public String getFixturesKey() {
+        return fixturesKey;
+    }
+
+    public void setFixturesKey(String fixturesKey) {
+        this.fixturesKey = fixturesKey;
+    }
+
     public void setVenue(String venue) {
         this.venue = venue;
+    }
+    public String getGender() {
+        return gender;
+    }
+
+    public void setGender(String gender) {
+        this.gender = gender;
+    }
+
+    public String getGameName() {
+        return gameName;
+    }
+
+    public void setGameName(String gameName) {
+        this.gameName = gameName;
     }
 }
