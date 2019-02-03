@@ -13,6 +13,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
 
+import com.facebook.drawee.view.SimpleDraweeView;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
@@ -61,12 +62,10 @@ public class FixturesAdapter extends RecyclerView.Adapter<FixturesAdapter.ViewHo
         viewHolder.mTeam1.setText(fixturesList.get(i).getTeam1());
         viewHolder.mTeam2.setText(fixturesList.get(i).getTeam2());
 
-        if(fixturesList.get(i).getTeam1().equalsIgnoreCase("") || fixturesList.get(i).getTeam1().equalsIgnoreCase(null))
-        {
+        if (fixturesList.get(i).getTeam1().equalsIgnoreCase("") || fixturesList.get(i).getTeam1().equalsIgnoreCase(null)) {
             viewHolder.mTeam1.setText("?");
         }
-        if(fixturesList.get(i).getTeam2().equalsIgnoreCase("") || fixturesList.get(i).getTeam2().equalsIgnoreCase(null))
-        {
+        if (fixturesList.get(i).getTeam2().equalsIgnoreCase("") || fixturesList.get(i).getTeam2().equalsIgnoreCase(null)) {
             viewHolder.mTeam2.setText("?");
         }
         if (fixturesList.get(i).getMan_of_match().equalsIgnoreCase("1"))
@@ -81,6 +80,55 @@ public class FixturesAdapter extends RecyclerView.Adapter<FixturesAdapter.ViewHo
         viewHolder.mResult.setText(fixturesList.get(i).getResult());
         viewHolder.mMOM.setText(fixturesList.get(i).getMan_of_match());
 
+        switch (fixturesList.get(i).getTeam1().toLowerCase()) {
+            case "cse":
+                viewHolder.mSimpleDrawee1.setBackgroundResource(R.drawable.bg_cse);
+                break;
+            case "ece":
+                viewHolder.mSimpleDrawee1.setBackgroundResource(R.drawable.bg_ece);
+                break;
+            case "imsc":
+                viewHolder.mSimpleDrawee1.setBackgroundResource(R.drawable.imsc);
+                break;
+            case "arch":
+                viewHolder.mSimpleDrawee1.setBackgroundResource(R.drawable.bg_archi);
+                break;
+            case "ee":
+                viewHolder.mSimpleDrawee1.setBackgroundResource(R.drawable.bg_ee);
+                break;
+            case "me":
+                viewHolder.mSimpleDrawee1.setBackgroundResource(R.drawable.bg_cse);
+                break;
+            default:
+                viewHolder.mSimpleDrawee1.setBackgroundResource(R.drawable.bg_civil);
+                break;
+
+        }
+        switch (fixturesList.get(i).getTeam2().toLowerCase()) {
+            case "cse":
+                viewHolder.mSimpleDrawee2.setBackgroundResource(R.drawable.bg_cse);
+                break;
+            case "ece":
+                viewHolder.mSimpleDrawee2.setBackgroundResource(R.drawable.bg_ece);
+                break;
+            case "imsc":
+                viewHolder.mSimpleDrawee2.setBackgroundResource(R.drawable.imsc);
+                break;
+            case "arch":
+                viewHolder.mSimpleDrawee2.setBackgroundResource(R.drawable.bg_archi);
+                break;
+            case "ee":
+                viewHolder.mSimpleDrawee2.setBackgroundResource(R.drawable.bg_ee);
+                break;
+            case "me":
+                viewHolder.mSimpleDrawee2.setBackgroundResource(R.drawable.bg_cse);
+                break;
+            default:
+                viewHolder.mSimpleDrawee2.setBackgroundResource(R.drawable.bg_civil);
+                break;
+
+        }
+
         if (fixturesList.get(i).getResult().equalsIgnoreCase("")) {
             viewHolder.mResult.setVisibility(View.GONE);
         }
@@ -92,17 +140,17 @@ public class FixturesAdapter extends RecyclerView.Adapter<FixturesAdapter.ViewHo
         viewHolder.mCardViewFixtures.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                DatabaseReference adminref= FirebaseDatabase.getInstance().getReference().child("ResultAdmins");
+                DatabaseReference adminref = FirebaseDatabase.getInstance().getReference().child("ResultAdmins");
                 adminref.addListenerForSingleValueEvent(new ValueEventListener() {
                     @Override
                     public void onDataChange(DataSnapshot dataSnapshot) {
-                        try{
-                            if(dataSnapshot.toString().contains(FirebaseAuth.getInstance().getCurrentUser().getUid())){
+                        try {
+                            if (dataSnapshot.toString().contains(FirebaseAuth.getInstance().getCurrentUser().getUid())) {
                                 openDialog();
 
                             }
+                        } catch (Exception e) {
                         }
-                        catch (Exception e){}
                     }
 
                     @Override
@@ -124,6 +172,7 @@ public class FixturesAdapter extends RecyclerView.Adapter<FixturesAdapter.ViewHo
 
     public class ViewHolder extends RecyclerView.ViewHolder {
 
+        SimpleDraweeView mSimpleDrawee1, mSimpleDrawee2;
         TextView mMatchType, mdateTime, mVenue, mTeam1, mTeam2, mResult, mMOM;
         CardView mCardViewFixtures;
 
@@ -137,12 +186,15 @@ public class FixturesAdapter extends RecyclerView.Adapter<FixturesAdapter.ViewHo
             mTeam2 = itemView.findViewById(R.id.element_versus_intramurals_team2_tv);
             mResult = itemView.findViewById(R.id.element_versus_intramurals_tv_result);
             mMOM = itemView.findViewById(R.id.element_versus_intramurals_manofmatch);
-            mCardViewFixtures= itemView.findViewById(R.id.cardview_fixtures);
+            mCardViewFixtures = itemView.findViewById(R.id.cardview_fixtures);
+            mSimpleDrawee1 = itemView.findViewById(R.id.team1SimpleDrawee);
+            mSimpleDrawee2 = itemView.findViewById(R.id.team2SimpleDrawee);
 
         }
     }
+
     private void openDialog() {
-        publishResult=new Dialog(context);
+        publishResult = new Dialog(context);
         publishResult.getWindow().getDecorView().setBackgroundResource(android.R.color.transparent);
 
         publishResult.setContentView(R.layout.popup_intramurals_result);

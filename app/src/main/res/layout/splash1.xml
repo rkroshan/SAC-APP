@@ -48,7 +48,7 @@ android:layout_marginTop="226dp"
         android:textColor="#d3d3d3"
         android:letterSpacing="0.15"
         android:lineSpacingExtra="4sp"
-        android:text="TCF’19 Special Edition"
+        android:text="Intramurals Special Edition"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="365.5dp"
         />

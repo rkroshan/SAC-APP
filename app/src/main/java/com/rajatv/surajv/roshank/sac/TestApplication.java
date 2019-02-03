@@ -17,7 +17,7 @@ public class TestApplication extends AppCompatActivity {
         simple1=findViewById(R.id.team1SimpleDrawee);
         simple2=findViewById(R.id.team2SimpleDrawee);
 
-        simple1.setImageResource(R.drawable.cse_bg);
+        simple1.setImageResource(R.drawable.bg_ece);
         simple2.setImageResource(R.drawable.bg_ece);
 //        simple2.setBackgroundColor(Color.parseColor("#0C769C"));
 //        simple1.setBackgroundColor(Color.parseColor("#0C3456"));
