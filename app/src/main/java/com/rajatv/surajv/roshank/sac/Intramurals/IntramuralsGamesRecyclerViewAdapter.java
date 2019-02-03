@@ -57,32 +57,32 @@ public class IntramuralsGamesRecyclerViewAdapter extends RecyclerView.Adapter<In
             }
         });
 
-//        switch (gamesList.get(i).getGame()) {
-//            case "Cricket":
-//                viewHolder.mGameImage.setImageResource(R.mipmap.cricketmen);
-//                break;
-//            case "Volleyball":
-//                viewHolder.mGameImage.setImageResource(R.mipmap.volleymen);
-//                break;
-//            case "Football":
-//                viewHolder.mGameImage.setImageResource(R.mipmap.footballmen);
-//                break;
-//            case "Badminton":
-//                viewHolder.mGameImage.setImageResource(R.mipmap.badmintonmen);
-//                break;
-//            case "Kabaddi":
-//                viewHolder.mGameImage.setImageResource(R.mipmap.kabaddimen);
-//                break;
-//            case "Table_Tennis":
-//                viewHolder.mGameImage.setImageResource(R.mipmap.ttmen);
-//                break;
-//            case "Squash":
-//                viewHolder.mGameImage.setImageResource(R.mipmap.squashmen);
-//                break;
-//
-//
-//            default:
-//        }
+        switch (gamesList.get(i).getGame()) {
+            case "Cricket":
+                viewHolder.mGameImage.setImageResource(R.mipmap.cricketmen);
+                break;
+            case "Volleyball":
+                viewHolder.mGameImage.setImageResource(R.mipmap.volleymen);
+                break;
+            case "Football":
+                viewHolder.mGameImage.setImageResource(R.mipmap.footballmen);
+                break;
+            case "Badminton":
+                viewHolder.mGameImage.setImageResource(R.mipmap.badmintonmen);
+                break;
+            case "Kabaddi":
+                viewHolder.mGameImage.setImageResource(R.mipmap.kabaddimen);
+                break;
+            case "Table_Tennis":
+                viewHolder.mGameImage.setImageResource(R.mipmap.ttmen);
+                break;
+            case "Squash":
+                viewHolder.mGameImage.setImageResource(R.mipmap.squashmen);
+                break;
+
+
+            default:
+        }
     }
 
     @Override
