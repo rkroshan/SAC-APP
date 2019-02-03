@@ -154,14 +154,24 @@ public class FixturesAdapter extends RecyclerView.Adapter<FixturesAdapter.ViewHo
 
         }
 
-        if (fixturesList.get(i).getResult().equalsIgnoreCase("")) {
+        if (fixturesList.get(i).getResult().equalsIgnoreCase("") || fixturesList.get(i).getResult().equalsIgnoreCase("null")) {
             viewHolder.mResult.setVisibility(View.GONE);
 
         }
-        if (fixturesList.get(i).getMan_of_match().equalsIgnoreCase("")) {
+        else
+        {
+            viewHolder.mResult.setVisibility(View.VISIBLE);
+        }
+        if (fixturesList.get(i).getMan_of_match().equalsIgnoreCase("") || fixturesList.get(i).getMan_of_match().equalsIgnoreCase("null")) {
             viewHolder.mMOM.setVisibility(View.GONE);
             viewHolder.trophy1.setVisibility(View.GONE);
             viewHolder.trophy2.setVisibility(View.GONE);
+        }
+        else
+        {
+            viewHolder.mMOM.setVisibility(View.VISIBLE);
+            viewHolder.trophy1.setVisibility(View.VISIBLE);
+            viewHolder.trophy2.setVisibility(View.VISIBLE);
         }
 
         Long currDateTime=System.currentTimeMillis();
