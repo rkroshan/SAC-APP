@@ -2,8 +2,6 @@ package com.rajatv.surajv.roshank.sac.Intramurals;
 
 import android.app.Dialog;
 import android.content.Context;
-import android.content.Intent;
-import android.net.Uri;
 import android.support.annotation.NonNull;
 import android.support.v7.widget.CardView;
 import android.support.v7.widget.RecyclerView;
@@ -14,6 +12,7 @@ import android.view.ViewGroup;
 import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.TextView;
+import com.facebook.drawee.view.SimpleDraweeView;
 import android.widget.Toast;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
@@ -25,7 +24,6 @@ import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 import com.rajatv.surajv.roshank.sac.R;
 import com.rajatv.surajv.roshank.sac.StringVariable;
-
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.List;
@@ -68,15 +66,13 @@ public class FixturesAdapter extends RecyclerView.Adapter<FixturesAdapter.ViewHo
 
         }
 
-        if(fixturesList.get(i).getTeam1().equalsIgnoreCase("") || fixturesList.get(i).getTeam1().equalsIgnoreCase(null))
-        {
+        if (fixturesList.get(i).getTeam1().equalsIgnoreCase("") || fixturesList.get(i).getTeam1().equalsIgnoreCase(null)) {
             viewHolder.mTeam1.setText("?");
         }
         else{
 
         }
-        if(fixturesList.get(i).getTeam2().equalsIgnoreCase("") || fixturesList.get(i).getTeam2().equalsIgnoreCase(null))
-        {
+        if (fixturesList.get(i).getTeam2().equalsIgnoreCase("") || fixturesList.get(i).getTeam2().equalsIgnoreCase(null)) {
             viewHolder.mTeam2.setText("?");
         }
         else {
@@ -89,15 +85,105 @@ public class FixturesAdapter extends RecyclerView.Adapter<FixturesAdapter.ViewHo
         long timestamp = Long.parseLong(fixturesList.get(i).getTime_from());
         calendar.setTimeInMillis(timestamp);
         String formattedDate = sdf.format(calendar.getTime());
+        viewHolder.mdateTime.setText(formattedDate);
+        viewHolder.mVenue.setText(fixturesList.get(i).getVenue());
+        viewHolder.mResult.setText(fixturesList.get(i).getResult());
+        viewHolder.mMOM.setText(fixturesList.get(i).getMan_of_match());
+
+        switch (fixturesList.get(i).getTeam1().toLowerCase()) {
+            case "cse":
+                viewHolder.mSimpleDrawee1.setBackgroundResource(R.drawable.bg_cse);
+                break;
+            case "ece":
+                viewHolder.mSimpleDrawee1.setBackgroundResource(R.drawable.bg_ece);
+                break;
+            case "imsc":
+                viewHolder.mSimpleDrawee1.setBackgroundResource(R.drawable.imsc);
+                break;
+            case "arch":
+                viewHolder.mSimpleDrawee1.setBackgroundResource(R.drawable.bg_archi);
+                break;
+            case "ee":
+                viewHolder.mSimpleDrawee1.setBackgroundResource(R.drawable.bg_ee);
+                break;
+            case "me":
+                viewHolder.mSimpleDrawee1.setBackgroundResource(R.drawable.bg_cse);
+                break;
+            case "2k15":
+                viewHolder.mSimpleDrawee1.setBackgroundResource(R.drawable.bg_2k15);
+                break;
+            case "2k16":
+                viewHolder.mSimpleDrawee1.setBackgroundResource(R.drawable.bg_2k16);
+                break;
+            case "2k17":
+                viewHolder.mSimpleDrawee1.setBackgroundResource(R.drawable.bg_2k17);
+                break;
+            case "2k18":
+                viewHolder.mSimpleDrawee1.setBackgroundResource(R.drawable.bg_2k18);
+                break;
+            default:
+                viewHolder.mSimpleDrawee1.setBackgroundResource(R.drawable.bg_civil);
+                break;
+
+        }
+        switch (fixturesList.get(i).getTeam2().toLowerCase()) {
+            case "cse":
+                viewHolder.mSimpleDrawee2.setBackgroundResource(R.drawable.bg_cse);
+                break;
+            case "ece":
+                viewHolder.mSimpleDrawee2.setBackgroundResource(R.drawable.bg_ece);
+                break;
+            case "imsc":
+                viewHolder.mSimpleDrawee2.setBackgroundResource(R.drawable.imsc);
+                break;
+            case "arch":
+                viewHolder.mSimpleDrawee2.setBackgroundResource(R.drawable.bg_archi);
+                break;
+            case "ee":
+                viewHolder.mSimpleDrawee2.setBackgroundResource(R.drawable.bg_ee);
+                break;
+            case "me":
+                viewHolder.mSimpleDrawee2.setBackgroundResource(R.drawable.bg_cse);
+                break;
+            case "2k15":
+                viewHolder.mSimpleDrawee2.setBackgroundResource(R.drawable.bg_2k15);
+                break;
+            case "2k16":
+                viewHolder.mSimpleDrawee2.setBackgroundResource(R.drawable.bg_2k16);
+                break;
+            case "2k17":
+                viewHolder.mSimpleDrawee2.setBackgroundResource(R.drawable.bg_2k17);
+                break;
+            case "2k18":
+                viewHolder.mSimpleDrawee2.setBackgroundResource(R.drawable.bg_2k18);
+                break;
+            default:
+                viewHolder.mSimpleDrawee2.setBackgroundResource(R.drawable.bg_civil);
+                break;
+
+        }
+
         if (fixturesList.get(i).getResult().equalsIgnoreCase("")) {
             viewHolder.mResult.setVisibility(View.GONE);
         }else {
             viewHolder.mResult.setVisibility(View.VISIBLE);
+
         }
         if (fixturesList.get(i).getMan_of_match().equalsIgnoreCase("")) {
             viewHolder.mMOM.setVisibility(View.GONE);
         }else{
             viewHolder.mMOM.setVisibility(View.VISIBLE);
+            viewHolder.trophy1.setVisibility(View.GONE);
+            viewHolder.trophy2.setVisibility(View.GONE);
+        }
+
+        Long currDateTime=System.currentTimeMillis();
+        if (currDateTime>=Long.parseLong(fixturesList.get(i).getTime_from()) &&
+                currDateTime<=Long.parseLong(fixturesList.get(i).getTime_to())){
+            viewHolder.mLive.setVisibility(View.VISIBLE);
+        }
+        else {
+            viewHolder.mLive.setVisibility(View.GONE);
         }
         viewHolder.mdateTime.setText(formattedDate);
         viewHolder.mVenue.setText(fixturesList.get(i).getVenue());
@@ -162,8 +248,8 @@ public class FixturesAdapter extends RecyclerView.Adapter<FixturesAdapter.ViewHo
                             else{
 
                             }
+                        } catch (Exception e) {
                         }
-                        catch (Exception e){}
                     }
 
                     @Override
@@ -184,8 +270,10 @@ public class FixturesAdapter extends RecyclerView.Adapter<FixturesAdapter.ViewHo
 
     public class ViewHolder extends RecyclerView.ViewHolder {
 
+        SimpleDraweeView mSimpleDrawee1, mSimpleDrawee2;
         TextView mMatchType, mdateTime, mVenue, mTeam1, mTeam2, mResult, mMOM;
         CardView mCardViewFixtures;
+        ImageView trophy1,trophy2,mLive;
 
         public ViewHolder(@NonNull View itemView) {
             super(itemView);
@@ -197,9 +285,17 @@ public class FixturesAdapter extends RecyclerView.Adapter<FixturesAdapter.ViewHo
             mTeam2 = itemView.findViewById(R.id.element_versus_intramurals_team2_tv);
             mResult = itemView.findViewById(R.id.element_versus_intramurals_tv_result);
             mMOM = itemView.findViewById(R.id.element_versus_intramurals_manofmatch);
-            mCardViewFixtures= itemView.findViewById(R.id.cardview_fixtures);
-
+            mCardViewFixtures = itemView.findViewById(R.id.cardview_fixtures);
+            mSimpleDrawee1 = itemView.findViewById(R.id.team1SimpleDrawee);
+            mSimpleDrawee2 = itemView.findViewById(R.id.team2SimpleDrawee);
+            trophy1=itemView.findViewById(R.id.trophy1);
+            trophy2=itemView.findViewById(R.id.trophy2);
+            mLive=itemView.findViewById(R.id.live);
         }
     }
 
-}
+    private void openDialog() {
+        publishResult = new Dialog(context);
+        publishResult.getWindow().getDecorView().setBackgroundResource(android.R.color.transparent);
+
+}}

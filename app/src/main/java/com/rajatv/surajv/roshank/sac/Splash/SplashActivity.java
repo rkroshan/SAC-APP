@@ -153,8 +153,10 @@ public class SplashActivity extends AppCompatActivity implements View.OnClickLis
         constraintLayout3.setOnClickListener(this);
         constraintLayout4.setOnClickListener(this);
         textView7.setOnClickListener(this);
-        layouts = new int[]{R.layout.splash1,R.layout.splash2, R.layout.splash3, R.layout.splash4,
-                R.layout.splash5, R.layout.splash6, R.layout.splash7, R.layout.splash8, R.layout.splash9,R.layout.splash10};
+//        layouts = new int[]{R.layout.splash1,R.layout.splash2, R.layout.splash3, R.layout.splash4,
+//                R.layout.splash5, R.layout.splash6, R.layout.splash7, R.layout.splash8, R.layout.splash9,R.layout.splash10};
+  layouts = new int[]{R.layout.splash1,R.layout.splash11, R.layout.splash2, R.layout.splash3, R.layout.splash4
+          , R.layout.splash6, R.layout.splash9,R.layout.splash10};
 
         addBottomDots(0);
 
@@ -216,7 +218,7 @@ public class SplashActivity extends AppCompatActivity implements View.OnClickLis
                 else {
                     skipButton.setVisibility(View.GONE);
                 }
-                if(i==5 || i==1 || i==2 || i==3 || i==4)
+                if( i==1)
                 {
                     whatsNew.setVisibility(View.VISIBLE);
                 }
