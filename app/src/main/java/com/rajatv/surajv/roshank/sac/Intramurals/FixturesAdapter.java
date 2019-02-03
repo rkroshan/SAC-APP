@@ -163,13 +163,14 @@ public class FixturesAdapter extends RecyclerView.Adapter<FixturesAdapter.ViewHo
 
         }
 
-        if (fixturesList.get(i).getResult().equalsIgnoreCase("")) {
+        if (fixturesList.get(i).getResult().equalsIgnoreCase("") || fixturesList.get(i).getResult().equalsIgnoreCase("null")) {
             viewHolder.mResult.setVisibility(View.GONE);
         }else {
             viewHolder.mResult.setVisibility(View.VISIBLE);
 
         }
-        if (fixturesList.get(i).getMan_of_match().equalsIgnoreCase("")) {
+
+        if (fixturesList.get(i).getMan_of_match().equalsIgnoreCase("") || fixturesList.get(i).getMan_of_match().equalsIgnoreCase("null")) {
             viewHolder.mMOM.setVisibility(View.GONE);
         }else{
             viewHolder.mMOM.setVisibility(View.VISIBLE);
@@ -296,6 +297,10 @@ public class FixturesAdapter extends RecyclerView.Adapter<FixturesAdapter.ViewHo
 
     private void openDialog() {
         publishResult = new Dialog(context);
-        publishResult.getWindow().getDecorView().setBackgroundResource(android.R.color.transparent);
+        try {
+            publishResult.getWindow().getDecorView().setBackgroundResource(android.R.color.transparent);
+        }catch (Exception e){
+
+        }
 
 }}

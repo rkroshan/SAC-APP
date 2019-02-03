@@ -79,8 +79,6 @@ public class IntramuralsGamesRecyclerViewAdapter extends RecyclerView.Adapter<In
             case "Squash":
                 viewHolder.mGameImage.setImageResource(R.mipmap.squashmen);
                 break;
-
-
             default:
         }
     }
