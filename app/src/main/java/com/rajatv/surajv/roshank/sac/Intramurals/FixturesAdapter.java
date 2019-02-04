@@ -78,8 +78,16 @@ public class FixturesAdapter extends RecyclerView.Adapter<FixturesAdapter.ViewHo
         else {
 
         }
-        if (fixturesList.get(i).getMan_of_match().equalsIgnoreCase("1"))
-            viewHolder.mMatchType.setText("League Match");
+       switch (fixturesList.get(i).getType()){
+           case "1":viewHolder.mMatchType.setText("League Match");
+           break;
+           case "2":viewHolder.mMatchType.setText("Semi Final");
+               break;
+           case "3":viewHolder.mMatchType.setText("Final");
+               break;
+
+       }
+
         SimpleDateFormat sdf = new SimpleDateFormat("dd MMM | hh:mm a");
         Calendar calendar = Calendar.getInstance();
         long timestamp = Long.parseLong(fixturesList.get(i).getTime_from());
@@ -107,7 +115,7 @@ public class FixturesAdapter extends RecyclerView.Adapter<FixturesAdapter.ViewHo
                 viewHolder.mSimpleDrawee1.setBackgroundResource(R.drawable.bg_ee);
                 break;
             case "me":
-                viewHolder.mSimpleDrawee1.setBackgroundResource(R.drawable.bg_cse);
+                viewHolder.mSimpleDrawee1.setBackgroundResource(R.drawable.bg_mech);
                 break;
             case "2k15":
                 viewHolder.mSimpleDrawee1.setBackgroundResource(R.drawable.bg_2k15);
@@ -172,10 +180,12 @@ public class FixturesAdapter extends RecyclerView.Adapter<FixturesAdapter.ViewHo
 
         if (fixturesList.get(i).getMan_of_match().equalsIgnoreCase("") || fixturesList.get(i).getMan_of_match().equalsIgnoreCase("null")) {
             viewHolder.mMOM.setVisibility(View.GONE);
-        }else{
-            viewHolder.mMOM.setVisibility(View.VISIBLE);
             viewHolder.trophy1.setVisibility(View.GONE);
             viewHolder.trophy2.setVisibility(View.GONE);
+        }else{
+            viewHolder.mMOM.setVisibility(View.VISIBLE);
+            viewHolder.trophy1.setVisibility(View.VISIBLE);
+            viewHolder.trophy2.setVisibility(View.VISIBLE);
         }
 
         Long currDateTime=System.currentTimeMillis();

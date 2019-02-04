@@ -45,6 +45,11 @@ public class IntramuralsGamesRecyclerViewAdapter extends RecyclerView.Adapter<In
     public void onBindViewHolder(@NonNull ViewHolder viewHolder, int i) {
         viewHolder.mGamename.setText(gamesList.get(i).getGame().substring(1));
 
+        if(gamesList.get(i).getGame().equalsIgnoreCase("table_tennis")){
+            viewHolder.mGamename.setText("able Tennis");
+
+        }
+
         viewHolder.mGamechar.setText(gamesList.get(i).getGame().substring(0, 1));
 
         viewHolder.cardView.setOnClickListener(new View.OnClickListener() {

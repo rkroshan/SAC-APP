@@ -372,6 +372,7 @@ public class SacFeedsFragment extends Fragment implements View.OnClickListener {
         subeventDetailsList.add("Table Tennis");
 
 
+
         dataAdapter = new ArrayAdapter<String>(getActivity().getApplicationContext(), R.layout.spinner_text, categories);
         dataAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         categoryevent.setAdapter(dataAdapter);
@@ -390,8 +391,18 @@ public class SacFeedsFragment extends Fragment implements View.OnClickListener {
 
                 String item1= parent.getItemAtPosition(position).toString();
                 event_data = item1;
+
+                if(item1=="Miscellaneous"){
+                    event.setVisibility(View.INVISIBLE);
+                    subevent.setVisibility(View.INVISIBLE);
+                }
+                if(item1=="Intramural"){
+                    event.setVisibility(View.VISIBLE);
+                    subevent.setVisibility(View.VISIBLE);
+                }
+
                 //Log.e("event_data--", item);
-//                if (item == "Technical Event") {
+//               if (item == "Technical Event") {
 //                    set_event_spinner(dbref.child("technical-events").child("children"));
 //                    event.setVisibility(View.VISIBLE);
 //                    subevent.setVisibility(View.VISIBLE);
@@ -632,6 +643,10 @@ public class SacFeedsFragment extends Fragment implements View.OnClickListener {
 
     private void publish_the_post() {
         sub_event_data = subevent.getSelectedItem().toString();
+        if(categoryevent.getSelectedItem().toString().equalsIgnoreCase("Miscellaneous")){
+            sub_event_data = "";
+
+        }
         progressDialog = new ProgressDialog(getActivity());
         progressDialog.setMessage("Publishing...");
         progressDialog.setCancelable(false);
