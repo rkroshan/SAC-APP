@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <android.support.v7.widget.CardView
+        android:id="@+id/card_games"
+        android:layout_height="wrap_content"
+        android:layout_width="match_parent"
+        android:layout_marginRight="8dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginLeft="10dp"
+        app:cardCornerRadius="10dp">
+
+
+        <RelativeLayout
+            android:layout_height="wrap_content"
+            android:layout_width="match_parent"
+            android:background="#136363">
+
+            <TextView
+                android:layout_width="1dp"
+                android:layout_height="wrap_content"
+                android:visibility="invisible"
+                android:id="@+id/nameeeeee"/>
+            <TextView
+                android:layout_marginTop="23dp"
+                android:layout_height="wrap_content"
+                android:layout_width="wrap_content"
+                android:layout_marginLeft="52dp"
+                android:id="@+id/element_intramurals_games_gamename"
+                android:textAlignment="center"
+                android:textSize="18sp"
+                android:textColor="#A8A8A8"
+                android:text="RICKET"
+                android:textStyle="bold"
+                android:lineSpacingExtra="14sp"
+                android:letterSpacing="0.3"
+                android:gravity="center"
+                android:layout_marginBottom="20dp"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="C"
+                android:id="@+id/element_intramurals_games_gamechar"
+                android:textSize="50dp"
+                android:textColor="#A8A8A8"
+                android:layout_marginRight="20dp"
+                android:layout_marginLeft="20dp"
+                android:alpha="20"/>
+
+            <TextView
+                android:id="@+id/intra_button"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentEnd="true"
+                android:layout_marginEnd="24dp"
+                android:layout_centerVertical="true"
+                android:text="Register" />
+
+        </RelativeLayout>
+    </android.support.v7.widget.CardView>
+
+
+</FrameLayout>

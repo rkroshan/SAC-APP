@@ -26,6 +26,7 @@ import com.google.firebase.database.ValueEventListener;
 import com.rajatv.surajv.roshank.sac.Feeds.FeedsAllFrag;
 import com.rajatv.surajv.roshank.sac.Feeds.Notice.FeedsNoticeFrag;
 import com.rajatv.surajv.roshank.sac.Feeds.Result.FeedsResultFrag;
+import com.rajatv.surajv.roshank.sac.Intramurals.IntramuralRegistration;
 import com.rajatv.surajv.roshank.sac.MyDashboard.RegisterNowFragment;
 import com.rajatv.surajv.roshank.sac.R;
 import com.rajatv.surajv.roshank.sac.StringVariable;

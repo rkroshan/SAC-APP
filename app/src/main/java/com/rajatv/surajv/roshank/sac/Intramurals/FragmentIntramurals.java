@@ -59,7 +59,7 @@ private Toolbar toolbar;
         tcfViewPagerAdapter.addFragment(new TCFHomeFrag(), "Home");
         tcfViewPagerAdapter.addFragment(new IntramuralsGamesMenFragment(), "Men");
         tcfViewPagerAdapter.addFragment(new IntramuralsGamesWomenFragment(), "Women");
-        tcfViewPagerAdapter.addFragment(new SponsorFragment(), "Sponsors");
+        tcfViewPagerAdapter.addFragment(new IntramuralRegistration(), "Open Registration");
 
         viewPager.setAdapter(tcfViewPagerAdapter);
         tabLayout.setupWithViewPager(viewPager);
