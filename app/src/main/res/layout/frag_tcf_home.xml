@@ -63,7 +63,7 @@
         android:text="TODAY"
         android:layout_marginLeft="22dp"
         android:layout_marginTop="30dp"
-        android:layout_below="@id/highlight_recycler_view"
+        android:layout_below="@id/open_registration_btn"
         />
 
     <TextView
@@ -76,11 +76,20 @@
         android:layout_marginTop="31dp"
         android:layout_marginRight="14dp"
         android:layout_alignParentRight="true"
-        android:layout_below="@id/highlight_recycler_view"
+        android:layout_below="@id/open_registration_btn"
         android:gravity="center_horizontal"
         android:text="Day 1, 21 Jan 2018"
         />
-
+    <Button
+        android:layout_below="@id/highlight_recycler_view"
+        android:orientation="vertical"
+        android:id="@+id/open_registration_btn"
+        android:layout_width="match_parent"
+        android:layout_height="130dp"
+        android:elevation="8dp"
+        android:gravity="center"
+        android:layout_margin="8dp"
+        android:background="@mipmap/open_entry"/>
     <android.support.v7.widget.RecyclerView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
