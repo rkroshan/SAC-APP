@@ -42,7 +42,6 @@ public class FragmentIntramurals extends Fragment implements FragmentCommunicati
         View v = inflater.inflate(R.layout.tcf_activity, container, false);
         tabLayout = v.findViewById(R.id.tcf_tabLayout);
         viewPager = v.findViewById(R.id.tcf_viewPager_id);
-        listener=(FragmentCommunication) getActivity();
 //      toolbar=(Toolbar)v.findViewById(R.id.appbartcf);
 
         //  ((AppCompatActivity)getActivity()).setContentView(toolbar);

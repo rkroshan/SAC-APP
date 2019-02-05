@@ -238,4 +238,74 @@ public class StringVariable {
     public static final String USER_DEGREE = "degree" ;
     public static final String PUBLISH = "publish";
     public static final String QUOTE = "quote";
+
+    //intra copy
+
+    public static final String EVENT_REGISTRATION = "EVENT REGISTRATION";
+
+
+    public static final String INTRAMURALS1 = "INTRAMURALS_REG";
+    public static final String INTRAMURALS_REGISTRATION = "INTRAMURALS_REGISTRATION";
+    public static final String CHESS = "CHESS";
+    public static final String CARROM = "CARROM";
+    public static final String BADMINTON1 = "BADMINTON";
+    public static final String TABLE_TENNIS = "TABLE TENNIS";
+    public static final String SINGLES = "SINGLES";
+    public static final String DOUBLES = "DOUBLES";
+    public static final String MIX_DOUBLES = "MIX DOUBLES";
+
+    public static final String PLAYER1_NAME = "Player1_name";
+    public static final String PLAYER1_ROLL = "Player1_roll";
+    public static final String PLAYER1_BRANCH = "Player1_branch";
+    public static final String PLAYER1_EMAILID = "Player1_EmailId";
+    public static final String PLAYER1_MOBILENO = "Player1_MobileNo";
+
+    public static final String PLAYER2_NAME = "Player2_name";
+    public static final String PLAYER2_ROLL = "Player2_roll";
+    public static final String PLAYER2_BRANCH = "Player2_branch";
+    public static final String PLAYER2_EMAILID = "Player2_EmailId";
+    public static final String PLAYER2_MOBILENO = "Player2_MobileNo";
+
+    public static final String SHAREDPREFERENCES_INTRAMURALS = "Intramurals";
+
+
+    public static final String NEW_TCFID_GENERATED = "NEW_TCFID_GENERATED" ;
+    public static final String NEW_TCFID_EVENT_REGISTERED = "NEW_TCFID_EVENT_REGISTERED";
+
+    public static final String ATHLETIC_MEET_2018 = "ATHLETIC_MEET_2018";
+    public static final String Game_Count = "Game_Count";
+
+    public static final String REGISTERED_GAMES ="REGISTERED_GAMES" ;
+    public static final String USER_DETAILS = "USER_DETAILS";
+    public static final String SHAREDPREFERENCE_STUDENTDATA = "Student_Data";
+    public static final String STUDENTDATA_NAME = "Name";
+    public static final String STUDENTDATA_ROLLNO = "Roll no";
+    public static final String STUDENTDATA_BRANCH = "Branch";
+    public static final String STUDENTDATA_COLLEGE = "College";
+    public static final String STUDENTDATA_YEAR = "Year";
+    public static final String STUDENTDATA_TCFID = "TCFID";
+    public static final String STUDENTDATA_GENDER = "Gender";
+    public static final String STUDENTDATA_GENDER_MALE = "MALE";
+    public static final String STUDENTDATA_GENDER_FEMALE = "FEMALE";
+    public static final String STUDENTDATA_MOBILENO = "Mobile No";
+    public static final String STUDENTDATA_EMAILID = "Email id";
+    public static final String STUDENTDATA_EVENTS = "Events";
+    public static final String STUDENTDATA_POST = "studentPost";
+    public static final String STUDENTDATA_ADMIN_NAME = "adminName";
+    public static final String STUDENTDATA_POST_TIME = "postTime";
+    public static final String STUDENTDATA_POST_PI = "PI";
+    public static final String STUDENTDATA_POST_COORDINATOR = "CO-ORDINATOR";
+    public static final String STUDENTDATA_ADMIN_POST = "ADMIN_POST";
+    public static final String STUDENTDATA_ADMIN_STATUS = "ADMIN";
+    public static final String STUDENTDATA_ADMIN_STATUS_TRUE = "TRUE";
+    public static final String STUDENTDATA_ADMIN_STATUS_FALSE = "FALSE";
+    public static final String NIT_PATNA = "NIT Patna";
+    public static final String STUDENTDATA_ROLLNO_COLLEGE = "COLLEGE_ROLLNO";
+
+    public static final String SHAREDPREFERENCE_STUDENTEVENTDATA = "StudentEventsData";
+    public static final String STUDENTDATA_FAVOURITE = "Favourite";
+
+    public static final String SHAREDPREFERENCE_STUDENTDATA_PROFILE_PIC = "Profile pic";
+    public static final String REGISTERED = "Registered";
+
 }

@@ -156,14 +156,21 @@ public class IntraRegistrationAdapter extends RecyclerView.Adapter<IntraRegistra
                         }
                     });
                 } else if (gamesList.get(i).getGame().equalsIgnoreCase("Badminton")) {
-//                    Intent i = new Intent(context,IntramuralsportsMain.class);
+                    Intent i = new Intent(context, IntramuralsportsMain.class);
+                    i.putExtra("gamename","Badminton");
+                    context.startActivity(i);
                 } else if (gamesList.get(i).getGame().equalsIgnoreCase("Carrom")) {
-//                    Intent i = new Intent(context,IntramuralsportsMain.class);
+                    Intent i = new Intent(context, IntramuralsportsMain.class);
+                    i.putExtra("gamename","Carrom");
+                    context.startActivity(i);
                 } else if (gamesList.get(i).getGame().equalsIgnoreCase("Dead Lift")) {
-//                    Intent i = new Intent(context,IntramuralsportsMain.class);
+                    Intent i = new Intent(context, IntramuralsportsMain.class);
+                    i.putExtra("gamename","Dead Lift");
+                    context.startActivity(i);
                 } else if (gamesList.get(i).getGame().equalsIgnoreCase("Table Tennis")) {
-//                    Intent i = new Intent(context,IntramuralsportsMain.class);
-
+                    Intent i = new Intent(context, IntramuralsportsMain.class);
+                    i.putExtra("gamename","Table Tennis");
+                    context.startActivity(i);
                 }
             }
         });

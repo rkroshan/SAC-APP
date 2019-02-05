@@ -31,6 +31,7 @@ import com.google.android.gms.analytics.Tracker;
 import com.rajatv.surajv.roshank.sac.Blogssacapp.FragmentBlogsActivity;
 import com.rajatv.surajv.roshank.sac.Intramurals.FragmentCommunication;
 import com.rajatv.surajv.roshank.sac.Intramurals.FragmentIntramurals;
+import com.rajatv.surajv.roshank.sac.Intramurals.IntramuralsportsMain;
 import com.rajatv.surajv.roshank.sac.MyDashboard.EditProfileActivity;
 import com.rajatv.surajv.roshank.sac.NavDrawerActivities.AboutTCF;
 import com.rajatv.surajv.roshank.sac.NavDrawerActivities.Intramurals2019;
@@ -640,7 +641,7 @@ dbref2.addValueEventListener(new ValueEventListener() {
 
     private void openDashboardSettings() {
       //  DatabaseReference db=FirebaseDatabase.getInstance().getReference()......
-        Intent intent=new Intent(getApplicationContext(),EditProfileActivity.class);
+        Intent intent=new Intent(getApplicationContext(), IntramuralsportsMain.class);
         startActivity(intent);
     }
     private void openPing() {
