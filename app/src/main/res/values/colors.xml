@@ -8,7 +8,21 @@
     <color name="paid_color">#0aff00</color>
     <color name="unpaid_tcfcolor">#80ff0000</color>
     <color name="fade_white">#40ffffff</color>
-    <color name="white">#fff</color>
+    <color name="white">#ffffff</color>
     <color name="paid_tcfcolor">#ff3131</color>
+
+    <color name="transparent">#85f4f7f5</color>
+    <color name="light_white">#d9f1efef</color>
+    <color name="gray">#44e2dadd</color>
+    <color name="darkgray">#6e686465</color>
+    <color name="but_text">#009846</color>
+    <color name="red">#f91626</color>
+    <color name="button_events">#a1e787</color>
+    <color name="darkgreen">#277c08</color>
+    <color name="tcf_id_bg_color">#ef7f1a</color>
+    <color name="BLACK">#000000</color>
+    <color name="WHITE">#fff</color>
+    <color name="brown">#67221E</color>
+    <color name="green">#009846</color>
 </resources>
 

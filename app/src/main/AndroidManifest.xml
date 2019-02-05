@@ -118,11 +118,14 @@
         <activity android:name=".Pings.PingRequestActivity"/>
 
         <activity android:name=".TestApplication">
-
-
         </activity>
         <activity android:name=".NavDrawerActivities.TCF19Activity"/>
-        <activity android:name=".Intramurals.FixturesActivity"></activity>
+        <activity android:name=".Intramurals.FixturesActivity">
+
+        </activity>
+        <activity android:name=".Intramurals.IntramuralsportsMain">
+
+        </activity>
         <service android:name=".services.FCMNotificationService">
             <intent-filter>
                 <action android:name="com.google.firebase.MESSAGING_EVENT" />
