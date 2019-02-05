@@ -25,7 +25,7 @@ import com.rajatv.surajv.roshank.sac.StringVariable;
 import java.util.ArrayList;
 import java.util.List;
 
-public class IntramuralRegistration extends Fragment {
+public class IntramuralRegistration extends Fragment{
     private RecyclerView recyclerView;
     private List<IntramuralsGamesModal> gamesList;
     DatabaseReference reference;

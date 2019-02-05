@@ -5,15 +5,22 @@ import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentActivity;
+import android.support.v4.app.FragmentManager;
+import android.support.v4.app.FragmentTransaction;
+import android.support.v4.view.ViewPager;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.PagerSnapHelper;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.rajatv.surajv.roshank.sac.CirclePagerIndicatorDecoration;
+import com.rajatv.surajv.roshank.sac.Intramurals.FragmentCommunication;
+import com.rajatv.surajv.roshank.sac.Intramurals.FragmentIntramurals;
 import com.rajatv.surajv.roshank.sac.R;
 import com.rajatv.surajv.roshank.sac.StringVariable;
 import com.rajatv.surajv.roshank.sac.tcf2019.Modal_Classes.Highlights;
@@ -33,8 +40,9 @@ import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.Date;
 import java.util.List;
+import java.util.Locale;
 
-public class TCFHomeFrag extends Fragment {
+public class TCFHomeFrag extends Fragment implements FragmentCommunication {
 
     private RecyclerView recyclerViewToday,recyclerViewTomorrow,recyclerViewHighlights;
     private List<TodayTomorrowModalClass> todayEventsList,tomorrowEventsList;
@@ -44,7 +52,10 @@ public class TCFHomeFrag extends Fragment {
     TomorrowAdapter tomorrowAdapter;
     HighlightsAdapter highlightsAdapter;
     private TextView todayDate,tommorrowDate;
+    Button openRegistration;
     String useruid="";
+    FragmentCommunication listener;
+    FragmentIntramurals fragmentIntramurals=new FragmentIntramurals();
 
     public TCFHomeFrag(){
 
@@ -54,14 +65,15 @@ public class TCFHomeFrag extends Fragment {
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         View view=inflater.inflate(R.layout.frag_tcf_home,container,false);
-
+        listener= (FragmentCommunication) fragmentIntramurals;
         recyclerViewToday=(RecyclerView)view.findViewById(R.id.tcfHome_recyclerView_todaysEvents);
         recyclerViewTomorrow=(RecyclerView)view.findViewById(R.id.tcfHome_recyclerView_tomosEvents);
         recyclerViewHighlights=(RecyclerView)view.findViewById(R.id.highlight_recycler_view);
         todayDate = view.findViewById(R.id.tv_TodaysDate);
         tommorrowDate = view.findViewById(R.id.tv_tomorrow_date);
+        openRegistration = view.findViewById(R.id.open_registration_btn);
 
-        SimpleDateFormat dateFormat = new SimpleDateFormat("dd MMM yyyy");
+        SimpleDateFormat dateFormat = new SimpleDateFormat("dd MMM yyyy", Locale.ENGLISH);
         Calendar calendar = Calendar.getInstance();
 
         long currentTimeMili = System.currentTimeMillis();
@@ -74,7 +86,6 @@ public class TCFHomeFrag extends Fragment {
 
         todayDate.setText(formattedTodayDate);
         tommorrowDate.setText(formattedTommorowDate);
-
         todayAdapter=new TodayAdapter(getContext(),todayEventsList);
         tomorrowAdapter=new TomorrowAdapter(getContext(),tomorrowEventsList);
         highlightsAdapter=new HighlightsAdapter(getContext(),highlightsList);
@@ -88,6 +99,12 @@ public class TCFHomeFrag extends Fragment {
         final LinearLayoutManager layoutManager3= new LinearLayoutManager(f);
         layoutManager3.setOrientation(LinearLayoutManager.HORIZONTAL);
 
+        openRegistration.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                listener.onButtonClickInFragment();
+            }
+        });
 
         recyclerViewToday.setLayoutManager(layoutManager);
         recyclerViewTomorrow.setLayoutManager(layoutManager2);
@@ -254,6 +271,11 @@ public class TCFHomeFrag extends Fragment {
                 todayAdapter.notifyDataSetChanged();
             }
         });
+
+    }
+
+    @Override
+    public void onButtonClickInFragment() {
 
     }
 }

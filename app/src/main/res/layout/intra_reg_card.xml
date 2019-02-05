@@ -32,7 +32,7 @@
                 android:id="@+id/element_intramurals_games_gamename"
                 android:textAlignment="center"
                 android:textSize="18sp"
-                android:textColor="#A8A8A8"
+                android:textColor="#f9f9f9"
                 android:text="RICKET"
                 android:textStyle="bold"
                 android:lineSpacingExtra="14sp"
@@ -46,7 +46,7 @@
                 android:text="C"
                 android:id="@+id/element_intramurals_games_gamechar"
                 android:textSize="50dp"
-                android:textColor="#A8A8A8"
+                android:textColor="#f9f9f9"
                 android:layout_marginRight="20dp"
                 android:layout_marginLeft="20dp"
                 android:alpha="20"/>
@@ -55,8 +55,12 @@
                 android:id="@+id/intra_button"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:textStyle="bold"
+                android:textColor="#ef3631"
+                android:padding="4dp"
+                android:background="@drawable/round_corner"
                 android:layout_alignParentEnd="true"
-                android:layout_marginEnd="24dp"
+                android:layout_marginEnd="30dp"
                 android:layout_centerVertical="true"
                 android:text="Register" />
 

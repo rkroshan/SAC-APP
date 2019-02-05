@@ -1,27 +1,35 @@
 package com.rajatv.surajv.roshank.sac.Intramurals;
 
 import android.app.Dialog;
+import android.app.ProgressDialog;
 import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.support.annotation.NonNull;
-import android.support.v7.widget.CardView;
 import android.support.v7.widget.RecyclerView;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TabHost;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.Task;
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+import com.google.gson.Gson;
 import com.rajatv.surajv.roshank.sac.R;
-import com.rajatv.surajv.roshank.sac.tcf2019.CulturalEventsFragments.CulturalEvents;
-import com.rajatv.surajv.roshank.sac.tcf2019.FragmentEventDetailsActivity;
+import com.rajatv.surajv.roshank.sac.StringVariable;
 
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
-public class IntraRegistrationAdapter extends RecyclerView.Adapter<IntraRegistrationAdapter.ViewHolder>{
+public class IntraRegistrationAdapter extends RecyclerView.Adapter<IntraRegistrationAdapter.ViewHolder> {
 
     public Context context;
     public List<IntramuralsGamesModal> gamesList;
@@ -58,58 +66,107 @@ public class IntraRegistrationAdapter extends RecyclerView.Adapter<IntraRegistra
         viewHolder.registerButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                if(gamesList.get(i).getGame().equalsIgnoreCase("Chess")){
+                if (gamesList.get(i).getGame().equalsIgnoreCase("Chess")) {
+                    String userUid = FirebaseAuth.getInstance().getCurrentUser().getUid();
                     chessDialog = new Dialog(context);
-                }
-                else if(gamesList.get(i).getGame().equalsIgnoreCase("Badminton")){
+                    chessDialog.setContentView(R.layout.pop_up_permission_register_intramurals);
+                    chessDialog.getWindow().setLayout(ViewGroup.LayoutParams.WRAP_CONTENT, ViewGroup.LayoutParams.WRAP_CONTENT);
+                    chessDialog.show();
+                    chessDialog.setCanceledOnTouchOutside(false);
+                    chessDialog.setCancelable(false);
+                    Button yesbtn = chessDialog.findViewById(R.id.yes_btn);
+                    Button noButton = chessDialog.findViewById(R.id.no_btn);
 
-                }
-                else if(gamesList.get(i).getGame().equalsIgnoreCase("Carrom")){
+                    yesbtn.setOnClickListener(new View.OnClickListener() {
+                        @Override
+                        public void onClick(View v) {
+                            SharedPreferences chessPref1 = context.getSharedPreferences("Chess", Context.MODE_PRIVATE);
+                            int valid = chessPref1.getInt("applied", 0);
+                            if (valid != 1) {
+                                ProgressDialog dialog = new ProgressDialog(context);
+                                dialog.setMessage("Processing");
+                                dialog.show();
+                                String contactNO = "", name = "", rollNo = "", isProfileComplete, branch = "", gender = "genderNotFound", email = "";
+                                SharedPreferences sharedPreferences = context.getSharedPreferences(StringVariable.UserData_SharedPreference, Context.MODE_PRIVATE);
+                                Gson gson = new Gson();
+                                String data = sharedPreferences.getString(StringVariable.UserData_Object_SharedPref, "");
+                                Map<String, Object> obj = gson.fromJson(data, StringVariable.RetriveClass.getClass());
+                                Map<String, Object> app = (Map<String, Object>) obj.get("app");
+                                //   Log.e("xyz",app.toString());
+                                //for future use
+                                try {
+                                    contactNO = String.valueOf(obj.get(StringVariable.USER_PHONENUMBER));
+                                } catch (Exception e) {
+                                }
+                                try {
+                                    name = obj.get(StringVariable.USER_NAME).toString();
+                                } catch (Exception e) {
+                                }
+                                try {
+                                    rollNo = obj.get(StringVariable.USER_ROLLNO).toString();
+                                } catch (Exception e) {
+                                }
+                                try {
+                                    gender = obj.get(StringVariable.USER_GENDER).toString();
+                                } catch (Exception e) {
+                                }
+                                try {
+                                    branch = obj.get(StringVariable.USER_BRANCH).toString();
+                                } catch (Exception e) {
+                                }
+                                try {
+                                    email = obj.get(StringVariable.USER_email).toString();
+                                } catch (Exception e) {
+                                }
+                                try {
+                                    isProfileComplete = app.get(StringVariable.USER_IS_PROFILE_COMPLETED).toString();
+                                } catch (Exception e) {
+                                }
+                                HashMap<String, String> map = new HashMap<>();
+                                map.put("Branch", branch);
+                                map.put("Email id", email);
+                                map.put("Mobile No", contactNO);
+                                map.put("Name", name);
+                                map.put("Roll no", rollNo);
+                                FirebaseDatabase.getInstance().getReference().child("INTRAMURALS").child("INTRAMURALS_REGISTRATION").child("CHESS").child(gender).child("SINGLES").push().setValue(map).addOnCompleteListener(new OnCompleteListener<Void>() {
+                                    @Override
+                                    public void onComplete(@NonNull Task<Void> task) {
+                                        Toast.makeText(context, "Submitted Successfully", Toast.LENGTH_SHORT).show();
+                                        SharedPreferences chessPref = context.getSharedPreferences("Chess", Context.MODE_PRIVATE);
+                                        SharedPreferences.Editor editor = chessPref.edit();
+                                        editor.putInt("applied", 1);
+                                        editor.apply();
+                                        if (dialog.isShowing()) {
+                                            dialog.dismiss();
+                                        }
+                                        chessDialog.dismiss();
+                                    }
+                                });
+                            } else {
+                                Toast.makeText(context, "Already Applied", Toast.LENGTH_LONG).show();
+                                chessDialog.dismiss();
+                            }
+                        }
+                    });
 
-                }
-                else if(gamesList.get(i).getGame().equalsIgnoreCase("Dead Lift")){
-
-                }
-                else if(gamesList.get(i).getGame().equalsIgnoreCase("Table Tennis")){
+                    noButton.setOnClickListener(new View.OnClickListener() {
+                        @Override
+                        public void onClick(View v) {
+                            chessDialog.dismiss();
+                        }
+                    });
+                } else if (gamesList.get(i).getGame().equalsIgnoreCase("Badminton")) {
+//                    Intent i = new Intent(context,IntramuralsportsMain.class);
+                } else if (gamesList.get(i).getGame().equalsIgnoreCase("Carrom")) {
+//                    Intent i = new Intent(context,IntramuralsportsMain.class);
+                } else if (gamesList.get(i).getGame().equalsIgnoreCase("Dead Lift")) {
+//                    Intent i = new Intent(context,IntramuralsportsMain.class);
+                } else if (gamesList.get(i).getGame().equalsIgnoreCase("Table Tennis")) {
+//                    Intent i = new Intent(context,IntramuralsportsMain.class);
 
                 }
             }
         });
-
-//        viewHolder.cardView.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View v) {
-//                Intent intent = new Intent(context, FixturesActivity.class);
-//                intent.putExtra("gamename", gamesList.get(i).getGame());
-//                intent.putExtra("menorwomen", gamesList.get(i).getGender());
-//                context.startActivity(intent);
-//            }
-//        });
-
-//        switch (gamesList.get(i).getGame()) {
-//            case "Cricket":
-//                viewHolder.mGameImage.setImageResource(R.mipmap.cricketmen);
-//                break;
-//            case "Volleyball":
-//                viewHolder.mGameImage.setImageResource(R.mipmap.volleymen);
-//                break;
-//            case "Football":
-//                viewHolder.mGameImage.setImageResource(R.mipmap.footballmen);
-//                break;
-//            case "Badminton":
-//                viewHolder.mGameImage.setImageResource(R.mipmap.badmintonmen);
-//                break;
-//            case "Kabaddi":
-//                viewHolder.mGameImage.setImageResource(R.mipmap.kabaddimen);
-//                break;
-//            case "Table_Tennis":
-//                viewHolder.mGameImage.setImageResource(R.mipmap.ttmen);
-//                break;
-//            case "Squash":
-//                viewHolder.mGameImage.setImageResource(R.mipmap.squashmen);
-//                break;
-//            default:
-//        }
     }
 
     @Override
@@ -119,10 +176,7 @@ public class IntraRegistrationAdapter extends RecyclerView.Adapter<IntraRegistra
 
 
     public class ViewHolder extends RecyclerView.ViewHolder {
-        public TextView mGamename, mGamechar,registerButton;
-//        public ImageView mGameImage;
-//        Intent subeventintent;
-//        public CardView cardView;
+        public TextView mGamename, mGamechar, registerButton;
 
 
         private final String EVENT_NAME = "event name";
@@ -132,8 +186,6 @@ public class IntraRegistrationAdapter extends RecyclerView.Adapter<IntraRegistra
             mGamechar = itemView.findViewById(R.id.element_intramurals_games_gamechar);
             mGamename = itemView.findViewById(R.id.element_intramurals_games_gamename);
             registerButton = itemView.findViewById(R.id.intra_button);
-//            mGameImage = itemView.findViewById(R.id.element_intramurals_games_image);
-//            cardView=itemView.findViewById(R.id.card_games);
         }
     }
 }

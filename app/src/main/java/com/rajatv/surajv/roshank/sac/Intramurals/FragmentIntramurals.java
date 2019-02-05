@@ -25,27 +25,29 @@ import com.rajatv.surajv.roshank.sac.tcf2019.TCFHomeFrag;
 import com.rajatv.surajv.roshank.sac.tcf2019.TechnicalEvents.TechnicalEventsFrag;
 
 
-public class FragmentIntramurals extends Fragment {
+public class FragmentIntramurals extends Fragment implements FragmentCommunication{
 
 
     private TabLayout tabLayout;
     String currentUserUID;
-    private ViewPager viewPager;
+    public static ViewPager viewPager;
     private TCF19HomeViewPagerAdapter tcfViewPagerAdapter;
-private Toolbar toolbar;
+    private Toolbar toolbar;
+    FragmentCommunication listener;
 
 
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
-        View v = inflater.inflate(R.layout.tcf_activity,container,false);
-        tabLayout = v. findViewById(R.id.tcf_tabLayout);
+        View v = inflater.inflate(R.layout.tcf_activity, container, false);
+        tabLayout = v.findViewById(R.id.tcf_tabLayout);
         viewPager = v.findViewById(R.id.tcf_viewPager_id);
+        listener=(FragmentCommunication) getActivity();
 //      toolbar=(Toolbar)v.findViewById(R.id.appbartcf);
 
-      //  ((AppCompatActivity)getActivity()).setContentView(toolbar);
-     //`   ((AppCompatActivity)getActivity()).setSupportActionBar(toolbar);
-  //      View v1 = inflater.inflate(R.layout.app_bar_tcf,container,false);
+        //  ((AppCompatActivity)getActivity()).setContentView(toolbar);
+        //`   ((AppCompatActivity)getActivity()).setSupportActionBar(toolbar);
+        //      View v1 = inflater.inflate(R.layout.app_bar_tcf,container,false);
 //        toolbar.setCustomView(v1);
         return v;
     }
@@ -63,6 +65,7 @@ private Toolbar toolbar;
 
         viewPager.setAdapter(tcfViewPagerAdapter);
         tabLayout.setupWithViewPager(viewPager);
+
 //        toolbar=((AppCompatActivity)getActivity()).getSupportActionBar();
 //        toolbar.setDisplayShowCustomEnabled(true);
 //
@@ -99,15 +102,15 @@ private Toolbar toolbar;
 
     @Override
     public void onCreateOptionsMenu(Menu menu, MenuInflater inflater) {
-        inflater.inflate(R.menu.event_finder_menu,menu);
+        inflater.inflate(R.menu.event_finder_menu, menu);
 
         MenuItem eventfindermenuitem = menu.findItem(R.id.eventfindermenu);
         eventfindermenuitem.setOnMenuItemClickListener(new MenuItem.OnMenuItemClickListener() {
             @Override
             public boolean onMenuItemClick(MenuItem item) {
-                if (item.getItemId()==R.id.eventfindermenu){
+                if (item.getItemId() == R.id.eventfindermenu) {
 
-                    Intent eventfinderintent = new Intent(getActivity(),ActivityEventFinder.class);
+                    Intent eventfinderintent = new Intent(getActivity(), ActivityEventFinder.class);
                     startActivity(eventfinderintent);
                 }
                 return false;
@@ -116,4 +119,9 @@ private Toolbar toolbar;
 
     }
 
+    @Override
+    public void onButtonClickInFragment() {
+
+        viewPager.setCurrentItem(4);
+    }
 }

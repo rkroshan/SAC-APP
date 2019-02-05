@@ -439,7 +439,7 @@ public class RegisterActivity extends AppCompatActivity implements View.OnClickL
                     SharedPreferences.Editor prefsEditor = sharedPreferences.edit();
                     prefsEditor.putString(StringVariable.UserData_Object_SharedPref, data);
                     prefsEditor.apply();
-                    Toast.makeText(RegisterActivity.this,"Registrations Successful. Please restart the app to unlock the pages!",Toast.LENGTH_LONG).show();
+                    Toast.makeText(RegisterActivity.this,"Registrations Successful",Toast.LENGTH_LONG).show();
 
 //                    Log.e("Data user---",dt.toString());
                     progressDialog.dismiss();
