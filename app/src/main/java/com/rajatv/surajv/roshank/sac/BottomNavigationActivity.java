@@ -146,7 +146,7 @@ public class BottomNavigationActivity extends AppCompatActivity {
                         Log.e("ACTUAL", dataSnapshot.toString());
                         String actualVersion = dataSnapshot.getValue().toString();
                         if (!version_name.equals(actualVersion)) {
-                            firstDialogue();
+                            //firstDialogue();
                         }
                     }
                 }
