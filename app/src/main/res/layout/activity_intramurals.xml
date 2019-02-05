@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:gravity="center"
+    android:orientation="vertical"
+    android:background="@mipmap/intramural_sports_bg"
+   >
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="70dp"
+        android:background="@mipmap/intramular_sports_upper">
+        <View
+            android:id="@+id/intramurals_back"
+            android:layout_width="70dp"
+            android:layout_height="match_parent"/>
+    </LinearLayout>
+
+    <LinearLayout
+        android:orientation="vertical"
+        android:id="@+id/open_registration_btn"
+        android:layout_width="match_parent"
+        android:layout_height="130dp"
+        android:elevation="8dp"
+        android:gravity="center"
+        android:layout_margin="8dp"
+        android:background="@mipmap/open_entry"/>
+
+    <android.support.v7.widget.RecyclerView
+        android:layout_marginLeft="16dp"
+        android:layout_marginRight="16dp"
+        android:id="@+id/interamurals_recyclerview"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+    </android.support.v7.widget.RecyclerView>
+
+</LinearLayout>

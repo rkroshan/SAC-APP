@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.v7.widget.CardView
+    android:id="@+id/pop_up_sac"
+    android:layout_width="322dp"
+    android:layout_height="wrap_content"
+    android:layout_gravity="center"
+    app:cardCornerRadius="10dp"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:background="#00171d">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+        <RelativeLayout
+
+            android:layout_width="match_parent"
+            android:layout_height="200dp"
+            android:background="#000000">
+            <TextView
+                android:id="@+id/relative1"
+                android:layout_marginTop="25dp"
+                android:layout_centerHorizontal="true"
+                android:textColor="#FFFFff"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Do you want to
+ Register ?"
+                android:textSize="22sp"
+                android:textStyle="bold"
+                android:textAlignment="center"
+                />
+            <Button
+                android:background="@drawable/round_intramurals_register2"
+                android:layout_marginLeft="45dp"
+                android:layout_marginTop="50dp"
+                android:layout_width="wrap_content"
+                android:layout_height="40dp"
+                android:layout_below="@id/relative1"
+                android:id="@+id/yesbtn"
+                android:text="Yes"
+                />
+            <Button
+
+                android:background="@drawable/round_intramurals_register2"
+                android:layout_marginLeft="53dp"
+                android:layout_marginTop="50dp"
+                android:layout_width="wrap_content"
+                android:layout_height="40dp"
+                android:layout_below="@id/relative1"
+                android:layout_toRightOf="@id/yesbtn"
+                android:text="No"/>
+        </RelativeLayout>
+
+    </RelativeLayout>
+
+</android.support.v7.widget.CardView>
