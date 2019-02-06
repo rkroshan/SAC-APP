@@ -110,7 +110,7 @@ public class IntramuralsportsMain extends AppCompatActivity {
                     intramuralsports_main_register.setEnabled(false);
                     Toast.makeText(getApplicationContext(), "YOU ARE ALREADY REGISTERED", Toast.LENGTH_LONG).show();
                 } else {
-                    // register();      TODO here
+                     register();      //TODO here
                 }
             }
         });
@@ -219,7 +219,7 @@ public class IntramuralsportsMain extends AppCompatActivity {
         }
 
         game_name.setText(gameNameIntent.toUpperCase());
-        gamecode = getCode(3, gameNameIntent);
+        gamecode = getCode(2, gameNameIntent);
 
         switch (gamecode) {
             case 0:
@@ -238,7 +238,13 @@ public class IntramuralsportsMain extends AppCompatActivity {
                 gametypeListArrayAdapter.notifyDataSetChanged();
                 break;
 
-
+            case 2:
+                init_degree_radiobtns(false);
+                game_type = 2;
+                game_type_list.clear();
+                game_type_list.add(StringVariable.MIX_DOUBLES);
+                gametypeListArrayAdapter.notifyDataSetChanged();
+                break;
         }
 
 //        intramuralsports_main_game_spinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
@@ -301,12 +307,15 @@ public class IntramuralsportsMain extends AppCompatActivity {
                 init_degree_radiobtns(false);
                 game_type_list.clear();
                 game_type_list.add(StringVariable.SINGLES);
+                game_type_list.add(StringVariable.DOUBLES);
                 gametypeListArrayAdapter.notifyDataSetChanged();
                 break;
 
             case 3:
                 init_degree_radiobtns(false);
                 game_type_list.clear();
+                game_type_list.add(StringVariable.SINGLES);
+                game_type_list.add(StringVariable.DOUBLES);
                 gametypeListArrayAdapter.notifyDataSetChanged();
                 init_degree_radiobtns(true);
                 break;
@@ -317,6 +326,16 @@ public class IntramuralsportsMain extends AppCompatActivity {
                 game_type_list.add(StringVariable.DOUBLES);
                 gametypeListArrayAdapter.notifyDataSetChanged();
                 break;
+            case 5:
+                init_degree_radiobtns(false);
+                game_type_list.clear();
+                game_type_list.add("47KG");
+                game_type_list.add("52KG");
+                game_type_list.add("57KG");
+                game_type_list.add("72KG");
+                gametypeListArrayAdapter.notifyDataSetChanged();
+                break;
+
 
         }
 
@@ -597,6 +616,128 @@ public class IntramuralsportsMain extends AppCompatActivity {
 //
 //        }
 //    }
+
+
+    private void register() {
+        Boolean check = true;
+        Log.e(TAG, "game_type - " + String.valueOf(game_type));
+        if (game_type == 2) {
+            name = intramuralsports_main_name2.getText().toString();
+            roll = intramuralsports_main_roll2.getText().toString();
+            emailid = intramuralsports_main_emailId2.getText().toString();
+            branch = intramuralsports_main_branch2.getText().toString();
+            mobileno = intramuralsports_main_mobile2.getText().toString();
+            Log.e(TAG, "name - " + name);
+            Log.e(TAG, "roll - " + roll);
+            Log.e(TAG, "emailid - " + emailid);
+            Log.e(TAG, "branch - " + branch);
+            Log.e(TAG, "mobileno - " + mobileno);
+            if (name.isEmpty()) {
+                check = false;
+                intramuralsports_main_name2.setError("Enter player2 name");
+                focusview = intramuralsports_main_name2;
+                focusview.requestFocus();
+            } else if (roll.isEmpty()) {
+                check = false;
+                intramuralsports_main_roll2.setError("Enter player2 roll");
+                focusview = intramuralsports_main_roll2;
+                focusview.requestFocus();
+            } else if (emailid.isEmpty()) {
+                check = false;
+                intramuralsports_main_emailId2.setError("Enter player2 emailid");
+                focusview = intramuralsports_main_emailId2;
+                focusview.requestFocus();
+            } else if (branch.isEmpty()) {
+                check = false;
+                intramuralsports_main_branch2.setError("Enter player2 branch");
+                focusview = intramuralsports_main_branch2;
+                focusview.requestFocus();
+            } else if (mobileno.isEmpty() | mobileno.length() < 10) {
+                check = false;
+                intramuralsports_main_mobile2.setError("Enter Valid Mobile No");
+                focusview = intramuralsports_main_mobile2;
+                focusview.requestFocus();
+            }
+        } else if (game_type == 0) {
+            check = false;
+        }
+        if (check) {
+            registerForIntramurals();
+        } else {
+            Toast.makeText(getApplicationContext(), "Please Enter Valid Details ", Toast.LENGTH_LONG).show();
+        }
+    }
+
+    private void registerForIntramurals() {
+        progressDialog.setMessage("Registering Please Wait---");
+        progressDialog.setCanceledOnTouchOutside(false);
+        progressDialog.setCancelable(false);
+        progressDialog.show();
+        DatabaseReference firebaseDatabase = FirebaseDatabase.getInstance().getReference().child("INTRAMURALS").child(StringVariable.INTRAMURALS_REGISTRATION);
+
+        final String gamename = game_name.getText().toString();
+        final String gametype = intramuralsports_main_game_type_spinner.getSelectedItem().toString();
+        DatabaseReference dataref = firebaseDatabase.child(gamename).child(GAME_GENDER)
+                .child(gametype).child(sharedPreferences.getString(StringVariable.STUDENTDATA_ROLLNO, ""));
+
+        Gson gson = new Gson();
+        String data = sharedPreferences.getString(StringVariable.UserData_Object_SharedPref, "0");
+        Map<String, Object> obj = gson.fromJson(data, StringVariable.RetriveClass.getClass());
+        Map<String, Object> app = (Map<String, Object>) obj.get("app");
+
+        if (game_type == 1) {
+//            String key=dataref.push().getKey();
+            DatabaseReference dataref1=dataref.child(String.valueOf(obj.get(StringVariable.USER_ROLLNO)));
+            dataref1.child(StringVariable.USER_NAME).setValue(String.valueOf(obj.get(StringVariable.USER_NAME)));
+            dataref1.child(StringVariable.USER_ROLLNO).setValue(String.valueOf(obj.get(StringVariable.USER_ROLLNO)));
+            dataref1.child(StringVariable.USER_email).setValue(String.valueOf(obj.get(StringVariable.USER_email)));
+            dataref1.child(StringVariable.USER_PHONENUMBER).setValue(String.valueOf(obj.get(StringVariable.USER_PHONENUMBER)));
+            dataref1.child(StringVariable.USER_BRANCH).setValue(String.valueOf(obj.get(StringVariable.USER_BRANCH)))
+                    .addOnSuccessListener(new OnSuccessListener<Void>() {
+                        @Override
+                        public void onSuccess(Void aVoid) {
+                            setSharedPreferences(gamename, gametype);
+                            progressDialog.dismiss();
+                            Toast.makeText(getApplicationContext(), "Registered, BEST OF LUCK", Toast.LENGTH_SHORT).show();
+                        }
+                    }).addOnFailureListener(new OnFailureListener() {
+                @Override
+                public void onFailure(@NonNull Exception e) {
+                    progressDialog.dismiss();
+                    Toast.makeText(getApplicationContext(), e.getCause().toString(), Toast.LENGTH_SHORT).show();
+                }
+            });
+        } else {
+//            String key=dataref.push().getKey();
+            DatabaseReference dataref1=dataref.child(String.valueOf(obj.get(StringVariable.USER_ROLLNO)));
+            dataref1.child(StringVariable.PLAYER1_NAME).setValue(String.valueOf(obj.get(StringVariable.USER_NAME)));
+            dataref1.child(StringVariable.PLAYER1_ROLL).setValue(String.valueOf(obj.get(StringVariable.USER_ROLLNO)));
+            dataref1.child(StringVariable.PLAYER1_EMAILID).setValue(String.valueOf(obj.get(StringVariable.USER_email)));
+            dataref1.child(StringVariable.PLAYER1_MOBILENO).setValue(String.valueOf(obj.get(StringVariable.USER_PHONENUMBER)));
+            dataref1.child(StringVariable.PLAYER1_BRANCH).setValue(String.valueOf(obj.get(StringVariable.USER_BRANCH)));
+
+            dataref1.child(StringVariable.PLAYER2_NAME).setValue(name);
+            dataref1.child(StringVariable.PLAYER2_ROLL).setValue(roll);
+            dataref1.child(StringVariable.PLAYER2_EMAILID).setValue(emailid);
+            dataref1.child(StringVariable.PLAYER2_MOBILENO).setValue(mobileno);
+            dataref1.child(StringVariable.PLAYER2_BRANCH).setValue(branch)
+                    .addOnSuccessListener(new OnSuccessListener<Void>() {
+                        @Override
+                        public void onSuccess(Void aVoid) {
+                            setSharedPreferences(gamename,gametype);
+                            progressDialog.dismiss();
+                            Toast.makeText(getApplicationContext(), "Registered, BEST OF LUCK", Toast.LENGTH_SHORT).show();
+                        }
+                    }).addOnFailureListener(new OnFailureListener() {
+                @Override
+                public void onFailure(@NonNull Exception e) {
+                    progressDialog.dismiss();
+                    Toast.makeText(getApplicationContext(), e.getCause().toString(), Toast.LENGTH_SHORT).show();
+                }
+            });
+        }
+    }
+
     private int getCode(int men_women, String gameNameIntent) {
 
         gameNameIntent = gameNameIntent.toLowerCase();
@@ -619,6 +760,8 @@ public class IntramuralsportsMain extends AppCompatActivity {
                     return 3;
                 case "table tennis":
                     return 4;
+                case "dead lift":
+                    return 5;
                 default:
                     return 0;
             }
@@ -629,12 +772,19 @@ public class IntramuralsportsMain extends AppCompatActivity {
                     return 1;
                 case "badminton":
                     return 2;
+                case "table tennis":
+                    return 3;
                 default:
                     return 0;
             }
         } else {
             return 0;
         }
+    }
+    private void setSharedPreferences(String gametype, String gamename) {
+        SharedPreferences.Editor editor = sharedpref_intramurals.edit();
+        editor.putString(gamename + gametype, "1");
+        editor.apply();
     }
 
 
