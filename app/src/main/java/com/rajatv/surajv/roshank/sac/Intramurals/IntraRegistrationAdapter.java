@@ -128,7 +128,7 @@ public class IntraRegistrationAdapter extends RecyclerView.Adapter<IntraRegistra
                                 map.put("Mobile No", contactNO);
                                 map.put("Name", name);
                                 map.put("Roll no", rollNo);
-                                FirebaseDatabase.getInstance().getReference().child("INTRAMURALS").child("INTRAMURALS_REGISTRATION").child("CHESS").child(gender).child("SINGLES").push().setValue(map).addOnCompleteListener(new OnCompleteListener<Void>() {
+                                FirebaseDatabase.getInstance().getReference().child("INTRAMURALS").child("INTRAMURALS_REGISTRATION").child("CHESS").child(gender).child("SINGLES").child(rollNo).setValue(map).addOnCompleteListener(new OnCompleteListener<Void>() {
                                     @Override
                                     public void onComplete(@NonNull Task<Void> task) {
                                         Toast.makeText(context, "Submitted Successfully", Toast.LENGTH_SHORT).show();

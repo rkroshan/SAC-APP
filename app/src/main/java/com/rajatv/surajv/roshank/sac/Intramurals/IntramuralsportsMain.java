@@ -494,7 +494,7 @@ public class IntramuralsportsMain extends AppCompatActivity {
     private void init_spinners(final int j) {
 //        intramuralsports_main_game_spinner.setVisibility(View.VISIBLE);
 //        setgamelist(j);
-        gameListArrayAdapter.notifyDataSetChanged();
+//        gameListArrayAdapter.notifyDataSetChanged();
 //        intramuralsports_main_game_spinner.setSelection(0);
 
         intramuralsports_main_game_type_spinner.setVisibility(View.VISIBLE);

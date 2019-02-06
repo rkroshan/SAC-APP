@@ -641,7 +641,7 @@ dbref2.addValueEventListener(new ValueEventListener() {
 
     private void openDashboardSettings() {
       //  DatabaseReference db=FirebaseDatabase.getInstance().getReference()......
-        Intent intent=new Intent(getApplicationContext(), IntramuralsportsMain.class);
+        Intent intent=new Intent(getApplicationContext(), EditProfileActivity.class);
         startActivity(intent);
     }
     private void openPing() {
