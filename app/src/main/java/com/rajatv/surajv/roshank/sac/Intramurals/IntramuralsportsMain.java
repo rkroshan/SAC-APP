@@ -28,8 +28,11 @@ import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.android.gms.tasks.Task;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
 import com.google.gson.Gson;
 import com.rajatv.surajv.roshank.sac.MyDashboard.RegisterActivity;
 import com.rajatv.surajv.roshank.sac.R;
@@ -47,7 +50,7 @@ public class IntramuralsportsMain extends AppCompatActivity {
 
     private static final String TAG = "INTRAMURALS_MAIN";
     private RadioGroup rb_gender_group, rb_group_players, rb_group_degree;
-    private Spinner intramuralsports_main_game_type_spinner;//intramuralsports_main_game_spinner
+    private Spinner intramuralsports_main_game_type_spinner;//intramuralsports_main_game_type_spinner2;//intramuralsports_main_game_spinner
     private LinearLayout player1_detail_layout, player2_detail_layout;
     private EditText intramuralsports_main_name1, intramuralsports_main_roll1, intramuralsports_main_emailId1, intramuralsports_main_branch1,
             intramuralsports_main_mobile1,
@@ -55,7 +58,7 @@ public class IntramuralsportsMain extends AppCompatActivity {
             intramuralsports_main_mobile2;
     private Button intramuralsports_main_register;
     private ArrayList<String> gamelist = new ArrayList<>();
-    private ArrayAdapter<String> gameListArrayAdapter, gametypeListArrayAdapter;
+    private ArrayAdapter<String> gameListArrayAdapter, gametypeListArrayAdapter,gametypeListArrayAdapter1;
     private ArrayList<String> game_type_list = new ArrayList<>();
     private View focusview;
     private int game_type, gamecode;
@@ -95,23 +98,62 @@ public class IntramuralsportsMain extends AppCompatActivity {
 //        intramuralsports_main_game_spinner.setAdapter(gameListArrayAdapter);
 
         intramuralsports_main_game_type_spinner = (Spinner) findViewById(R.id.intramuralsports_main_game_type_spinner);
+//        intramuralsports_main_game_type_spinner2 = (Spinner) findViewById(R.id.intramuralsports_main_game_type_spinner2);
         gametypeListArrayAdapter = new ArrayAdapter<String>(this, android.R.layout.simple_spinner_item, game_type_list);
         gametypeListArrayAdapter.setDropDownViewResource(android.R.layout.simple_dropdown_item_1line);
         intramuralsports_main_game_type_spinner.setAdapter(gametypeListArrayAdapter);
+        gametypeListArrayAdapter1 = new ArrayAdapter<String>(this, android.R.layout.simple_spinner_item, game_type_list);
+        gametypeListArrayAdapter.setDropDownViewResource(android.R.layout.simple_dropdown_item_1line);
+//        intramuralsports_main_game_type_spinner2.setAdapter(gametypeListArrayAdapter1);
 
         player1_detail_layout = (LinearLayout) findViewById(R.id.player1_detail_layout);
         player2_detail_layout = (LinearLayout) findViewById(R.id.player2_detail_layout);
         intramuralsports_main_register = (Button) findViewById(R.id.intramuralsports_main_register);
+
         intramuralsports_main_register.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                if (sharedpref_intramurals.getString(game_name.getText().toString()
-                        + intramuralsports_main_game_type_spinner.getSelectedItem().toString(), "").equals("1")) {
-                    intramuralsports_main_register.setEnabled(false);
-                    Toast.makeText(getApplicationContext(), "YOU ARE ALREADY REGISTERED", Toast.LENGTH_LONG).show();
-                } else {
-                     register();      //TODO here
+                Log.e("selecteditem",intramuralsports_main_game_type_spinner.getSelectedItem().toString());
+
+
+                switch (intramuralsports_main_game_type_spinner.getSelectedItem().toString().toLowerCase()){
+                    case "doubles":
+                    case "mix doubles":
+                        if (sharedpref_intramurals.getString(game_name.getText().toString()+"doubles","0").equals("1")) {
+//                            intramuralsports_main_register.setEnabled(true);
+                            Toast.makeText(getApplicationContext(), "YOU ARE ALREADY REGISTERED IN ONE OF THE DOUBLES EVENT", Toast.LENGTH_LONG).show();
+                        }
+                        else {
+
+                            Log.e("shared", sharedpref_intramurals.getString(game_name.getText().toString()
+                                    + intramuralsports_main_game_type_spinner.getSelectedItem().toString(), ""));
+                            Log.e("testenter","2");
+
+                            register();      //TODO here
+                        }
+                        break;
+
+                    default:
+                        if ((sharedpref_intramurals.getString(game_name.getText().toString()
+                                + intramuralsports_main_game_type_spinner.getSelectedItem().toString(), "").equals("1")) ) {
+//                            intramuralsports_main_register.setEnabled(true);
+                            Toast.makeText(getApplicationContext(), "YOU ARE ALREADY REGISTERED", Toast.LENGTH_LONG).show();
+                        }
+                        else {
+                            Log.e("shared", sharedpref_intramurals.getString(game_name.getText().toString()
+                                    + intramuralsports_main_game_type_spinner.getSelectedItem().toString(), ""));
+
+                            Log.e("testenter","1");
+                            register();      //TODO here
+
+                        }
+                        break;
+
                 }
+
+
+
+
             }
         });
         rb_group_players = (RadioGroup) findViewById(R.id.rb_group_players);
@@ -146,8 +188,8 @@ public class IntramuralsportsMain extends AppCompatActivity {
                             if (gender.equalsIgnoreCase("female")) {
                                 Toast.makeText(getApplicationContext(), "Your Gender is Female" +
                                         "", Toast.LENGTH_SHORT).show();
-                                rb_gender_group.check(R.id.rb_mixDoubles);
-
+//                                rb_gender_group.check(R.id.rb_mixDoubles);
+//
                                 rb_gender_group.check(R.id.rb_women);
                             } else {
                                 Log.e(TAG, "MEN_INIT");
@@ -158,8 +200,8 @@ public class IntramuralsportsMain extends AppCompatActivity {
                         case R.id.rb_women:
                             if (gender.equalsIgnoreCase("male")) {
                                 Toast.makeText(getApplicationContext(), "Your Gender is Male", Toast.LENGTH_SHORT).show();
-                                rb_gender_group.check(R.id.rb_mixDoubles);
-
+//                                rb_gender_group.check(R.id.rb_mixDoubles);
+//
                                 rb_gender_group.check(R.id.rb_men);
 
                             } else {
@@ -213,6 +255,12 @@ public class IntramuralsportsMain extends AppCompatActivity {
         init_player1layout(false);
         init_player2layout(false);
 
+
+        player1_detail_layout.setVisibility(View.VISIBLE);
+        rb_group_players.setVisibility(View.VISIBLE);
+        rb_group_players.check(R.id.rb_player1);
+        init_regiserBtn(true);
+
         try {
               gameNameIntent=getIntent().getExtras().getString("gamename","cricket");//todo
         } catch (Exception e) {
@@ -225,6 +273,7 @@ public class IntramuralsportsMain extends AppCompatActivity {
             case 0:
                 game_type = 0;
                 game_type_list.clear();
+                intramuralsports_main_game_type_spinner.setVisibility(View.INVISIBLE);
                 gametypeListArrayAdapter.notifyDataSetChanged();
                 init_player_radiogroup(false);
                 init_player1layout(false);
@@ -234,6 +283,7 @@ public class IntramuralsportsMain extends AppCompatActivity {
                 init_degree_radiobtns(false);
                 game_type = 2;
                 game_type_list.clear();
+               // game_type_list.add("Select");
                 game_type_list.add(StringVariable.MIX_DOUBLES);
                 gametypeListArrayAdapter.notifyDataSetChanged();
                 break;
@@ -285,6 +335,11 @@ public class IntramuralsportsMain extends AppCompatActivity {
         init_player1layout(false);
         init_player2layout(false);
 
+        player1_detail_layout.setVisibility(View.VISIBLE);
+        init_regiserBtn(true);
+        rb_group_players.setVisibility(View.INVISIBLE);
+
+
         try {
             gameNameIntent=getIntent().getExtras().getString("gamename","cricket");//todo
         } catch (Exception e) {
@@ -329,6 +384,7 @@ public class IntramuralsportsMain extends AppCompatActivity {
             case 5:
                 init_degree_radiobtns(false);
                 game_type_list.clear();
+                init_spinners(4);
                 game_type_list.add("47KG");
                 game_type_list.add("52KG");
                 game_type_list.add("57KG");
@@ -390,7 +446,9 @@ public class IntramuralsportsMain extends AppCompatActivity {
         init_player1layout(false);
         init_player2layout(false);
 
-
+        player1_detail_layout.setVisibility(View.VISIBLE);
+        init_regiserBtn(true);
+        rb_group_players.setVisibility(View.INVISIBLE);
         try {
                gameNameIntent=getIntent().getExtras().getString("gamename","cricket");//todo
         } catch (Exception e) {
@@ -490,17 +548,18 @@ public class IntramuralsportsMain extends AppCompatActivity {
         });
     }
 
-
-    private void init_spinners(final int j) {
+    private void init_spinners1(final int j) {
 //        intramuralsports_main_game_spinner.setVisibility(View.VISIBLE);
 //        setgamelist(j);
 //        gameListArrayAdapter.notifyDataSetChanged();
 //        intramuralsports_main_game_spinner.setSelection(0);
 
         intramuralsports_main_game_type_spinner.setVisibility(View.VISIBLE);
+//        intramuralsports_main_game_type_spinner2.setVisibility(View.VISIBLE);
         intramuralsports_main_game_type_spinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override
             public void onItemSelected(AdapterView<?> adapterView, View view, int i, long l) {
+                gametypeListArrayAdapter1.notifyDataSetChanged();
                 if (j != 2) {
                     Log.e(TAG, "value of J---" + String.valueOf(j));
                     switch (i) {
@@ -523,6 +582,58 @@ public class IntramuralsportsMain extends AppCompatActivity {
                     init_player_radiogroup(true);
                     init_player1layout(true);
                 }
+
+            }
+
+            @Override
+            public void onNothingSelected(AdapterView<?> adapterView) {
+
+            }
+        });
+
+    }
+
+
+    private void init_spinners(final int j) {
+//        intramuralsports_main_game_spinner.setVisibility(View.VISIBLE);
+//        setgamelist(j);
+//        gameListArrayAdapter.notifyDataSetChanged();
+//        intramuralsports_main_game_spinner.setSelection(0);
+
+        intramuralsports_main_game_type_spinner.setVisibility(View.VISIBLE);
+        intramuralsports_main_game_type_spinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+            @Override
+            public void onItemSelected(AdapterView<?> adapterView, View view, int i, long l) {
+                gametypeListArrayAdapter.notifyDataSetChanged();
+                if (j == 0 || j==1) {
+                    Log.e(TAG, "value of J---" + String.valueOf(j));
+                    switch (i) {
+                        case 0:
+                            init_player2layout(false);
+                            game_type = 1;
+                            init_player1layout(true);
+                            init_player_radiogroup(false);
+                            break;
+                        case 1:
+                            init_player2layout(false);
+                            game_type = 2;
+                            init_player_radiogroup(true);
+                            init_player1layout(true);
+                            break;
+                    }
+                } else if(j==2) {
+                    init_player2layout(false);
+                    game_type = 2;
+                    init_player_radiogroup(true);
+                    init_player1layout(true);
+                }
+                else if(j==4) {
+                    init_player2layout(false);
+                    game_type = 1;
+                    init_player1layout(true);
+                    init_player_radiogroup(false);
+                }
+
             }
 
             @Override
@@ -684,10 +795,9 @@ public class IntramuralsportsMain extends AppCompatActivity {
         String data = sharedPreferences.getString(StringVariable.UserData_Object_SharedPref, "0");
         Map<String, Object> obj = gson.fromJson(data, StringVariable.RetriveClass.getClass());
         Map<String, Object> app = (Map<String, Object>) obj.get("app");
+        DatabaseReference dataref1 = dataref.child(String.valueOf(obj.get(StringVariable.USER_ROLLNO)));
 
         if (game_type == 1) {
-//            String key=dataref.push().getKey();
-            DatabaseReference dataref1=dataref.child(String.valueOf(obj.get(StringVariable.USER_ROLLNO)));
             dataref1.child(StringVariable.USER_NAME).setValue(String.valueOf(obj.get(StringVariable.USER_NAME)));
             dataref1.child(StringVariable.USER_ROLLNO).setValue(String.valueOf(obj.get(StringVariable.USER_ROLLNO)));
             dataref1.child(StringVariable.USER_email).setValue(String.valueOf(obj.get(StringVariable.USER_email)));
@@ -698,6 +808,7 @@ public class IntramuralsportsMain extends AppCompatActivity {
                         public void onSuccess(Void aVoid) {
                             setSharedPreferences(gamename, gametype);
                             progressDialog.dismiss();
+
                             Toast.makeText(getApplicationContext(), "Registered, BEST OF LUCK", Toast.LENGTH_SHORT).show();
                         }
                     }).addOnFailureListener(new OnFailureListener() {
@@ -707,9 +818,10 @@ public class IntramuralsportsMain extends AppCompatActivity {
                     Toast.makeText(getApplicationContext(), e.getCause().toString(), Toast.LENGTH_SHORT).show();
                 }
             });
-        } else {
-//            String key=dataref.push().getKey();
-            DatabaseReference dataref1=dataref.child(String.valueOf(obj.get(StringVariable.USER_ROLLNO)));
+
+        }
+        else {
+
             dataref1.child(StringVariable.PLAYER1_NAME).setValue(String.valueOf(obj.get(StringVariable.USER_NAME)));
             dataref1.child(StringVariable.PLAYER1_ROLL).setValue(String.valueOf(obj.get(StringVariable.USER_ROLLNO)));
             dataref1.child(StringVariable.PLAYER1_EMAILID).setValue(String.valueOf(obj.get(StringVariable.USER_email)));
@@ -724,7 +836,7 @@ public class IntramuralsportsMain extends AppCompatActivity {
                     .addOnSuccessListener(new OnSuccessListener<Void>() {
                         @Override
                         public void onSuccess(Void aVoid) {
-                            setSharedPreferences(gamename,gametype);
+                            setSharedPreferences(gamename, gametype);
                             progressDialog.dismiss();
                             Toast.makeText(getApplicationContext(), "Registered, BEST OF LUCK", Toast.LENGTH_SHORT).show();
                         }
@@ -735,6 +847,7 @@ public class IntramuralsportsMain extends AppCompatActivity {
                     Toast.makeText(getApplicationContext(), e.getCause().toString(), Toast.LENGTH_SHORT).show();
                 }
             });
+
         }
     }
 
@@ -782,9 +895,46 @@ public class IntramuralsportsMain extends AppCompatActivity {
         }
     }
     private void setSharedPreferences(String gametype, String gamename) {
-        SharedPreferences.Editor editor = sharedpref_intramurals.edit();
-        editor.putString(gamename + gametype, "1");
-        editor.apply();
+
+        Gson gson = new Gson();
+        String data = sharedPreferences.getString(StringVariable.UserData_Object_SharedPref, "0");
+        Map<String, Object> obj = gson.fromJson(data, StringVariable.RetriveClass.getClass());
+        Map<String, Object> app = (Map<String, Object>) obj.get("app");
+
+               DatabaseReference sharedRef = FirebaseDatabase.getInstance().getReference().child("INTRAMURALS").child(StringVariable.INTRAMURALS_REGISTRATION).child(gametype).child(GAME_GENDER).child(gamename).child(String.valueOf(obj.get(StringVariable.USER_ROLLNO)));
+
+Log.e("type",gamename+gametype);
+
+        sharedRef.addListenerForSingleValueEvent(new ValueEventListener() {
+            @Override
+            public void onDataChange(DataSnapshot dataSnapshot) {
+                if(gamename.equalsIgnoreCase("mix doubles") ||
+                        gamename.equalsIgnoreCase("doubles")){
+                    SharedPreferences.Editor editor = sharedpref_intramurals.edit();
+                    editor.putString(gametype.toString()+"doubles", "1");
+                    Log.e("myshare",sharedpref_intramurals.getString(gametype.toString()+"doubles", "55"));
+
+                    editor.apply();
+                }
+                else if(!String.valueOf(dataSnapshot.child(StringVariable.USER_NAME).getValue()).equalsIgnoreCase("null") ||
+                        !String.valueOf(dataSnapshot.child(StringVariable.PLAYER1_NAME).getValue()).equalsIgnoreCase("null")){
+                    SharedPreferences.Editor editor = sharedpref_intramurals.edit();
+                    editor.putString(gametype + gamename, "1");
+                    editor.apply();
+
+                    Log.e("myshare",sharedpref_intramurals.getString(gametype + gamename,"0"));
+                }
+                Map<String, Object> dt = (HashMap<String, Object>) dataSnapshot.getValue();
+                String data = gson.toJson(dt);
+
+            }
+
+            @Override
+            public void onCancelled(DatabaseError databaseError) {
+
+            }
+        });
+
     }
 
 
